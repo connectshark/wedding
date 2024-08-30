@@ -12,10 +12,5 @@ export default {
       }
     }
   },
-  daisyui: {
-    themes: ['light', 'dracula', 'cupcake'],
-  },
-  plugins: [
-    require('daisyui'),
-  ]
+  plugins: []
 }

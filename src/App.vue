@@ -15,10 +15,10 @@ const {
   <main>
     <router-view />
   </main>
-  <div class=" bg-gradient-to-b from-transparent to-slate-100 py-40">
+  <div class=" bg-gradient-to-b from-transparent to-slate-50 py-40">
   </div>
-  <footer class="bg-slate-100">
-    <div class="w-11/12 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
+  <footer class="bg-slate-50">
+    <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
       <div>
         <h5 class="mb-4">
           <router-link to="/" class="flex items-center gap-2 max-w-fit group">
@@ -29,8 +29,8 @@ const {
         </h5>
         <ul>
           <li>
-            <a class=" inline-block rounded-lg px-2 hover:bg-black/5" href="mailto:contace@nosegates.com">
-              <i class='bx bx-envelope bx-sm'></i>
+            <a class=" p-1 inline-block rounded hover:bg-black/5" href="mailto:contace@nosegates.com">
+              <i class='bx bx-envelope bx-sm align-middle'></i>
             </a>
           </li>
         </ul>
@@ -45,7 +45,7 @@ const {
         </ul>
       </div>
     </div>
-    <div class="w-11/12 mx-auto py-10">
+    <div class="w-5/6 mx-auto py-10">
       <p>Copyright<i class='bx bx-copyright'></i>2024<router-link to="/">Wedding Project</router-link></p>
     </div>
   </footer>
