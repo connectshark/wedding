@@ -6,10 +6,16 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        primary: 'rgb(var(--color-primary) / <alpha-value>)'
+      fontFamily: {
+        'main': [`FakePearl`, 'sans-serif', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas'],
+        'TC': [`"Poetsen One"`, `FakePearl`, 'sans-serif', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas']
       }
-    },
+    }
   },
-  plugins: [],
+  daisyui: {
+    themes: ['light', 'dracula', 'cupcake'],
+  },
+  plugins: [
+    require('daisyui'),
+  ]
 }
