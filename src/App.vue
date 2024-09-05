@@ -15,9 +15,9 @@ const {
   <main>
     <router-view />
   </main>
-  <div class=" bg-gradient-to-b from-transparent to-slate-50 py-40">
+  <div class=" bg-gradient-to-b from-transparent to-text/5 py-20">
   </div>
-  <footer class="bg-slate-50">
+  <footer class="bg-text/5">
     <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
       <div>
         <h5 class="mb-4">
@@ -29,14 +29,14 @@ const {
         </h5>
         <ul>
           <li>
-            <a class=" p-1 inline-block rounded hover:bg-black/5" href="mailto:contace@nosegates.com">
+            <a class=" p-1 inline-block rounded hover:bg-text/10" href="mailto:contace@nosegates.com">
               <i class='bx bx-envelope bx-sm align-middle'></i>
             </a>
           </li>
         </ul>
       </div>
       <div class=" md:col-start-3">
-        <h6 class="mb-4"><i class='bx bx-cube-alt bx-sm'></i>品牌</h6>
+        <h6 class="mb-4 text-text/70"><i class='bx bx-cube-alt bx-sm'></i>品牌</h6>
         <div v-if="loading"><i class='bx bx-loader'></i></div>
         <ul v-else>
           <li class=" mb-2 last:mb-0" v-for="item in brands">

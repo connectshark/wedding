@@ -7,9 +7,15 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'main': [`FakePearl`, 'sans-serif', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas'],
-        'TC': [`"Poetsen One"`, `FakePearl`, 'sans-serif', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas']
-      }
+        'main': [`FakePearl`, 'system-ui', `Arial`, `Helvetica`, `sans-serif`, 'sans-serif', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas']
+      },
+    },
+    colors: {
+      'text': 'rgb(var(--text) / <alpha-value>)',
+      'background': 'rgb(var(--background) / <alpha-value>)',
+      'primary': 'rgb(var(--primary) / <alpha-value>)',
+      'secondary': 'rgb(var(--secondary) / <alpha-value>)',
+      'accent': 'rgb(var(--accent) / <alpha-value>)',
     }
   },
   plugins: []
