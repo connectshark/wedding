@@ -35,7 +35,13 @@ const {
           </li>
         </ul>
       </div>
-      <div class=" md:col-start-3">
+      <div>
+        <h6 class="mb-4 text-text/70"><i class='bx bx-pyramid bx-sm'></i>來源</h6>
+        <ul>
+          <li><a class=" hover:underline" href="https://storyset.com/people">People illustrations by Storyset<i class='bx bx-link-external'></i></a></li>
+        </ul>
+      </div>
+      <div>
         <h6 class="mb-4 text-text/70"><i class='bx bx-cube-alt bx-sm'></i>品牌</h6>
         <div v-if="loading"><i class='bx bx-loader'></i></div>
         <ul v-else>
