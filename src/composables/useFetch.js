@@ -13,12 +13,14 @@ export default (url, {
     loading.value = true
     error.value = false
     data.value = null
+    const CLIENT_ID = import.meta.env.VITE_CLIENT_ID
 
     const fetch_options = {
       method,
       headers: {
         'Content-Type': 'application/json',
-        'accept': 'application/json'
+        'accept': 'application/json',
+        Authorization: `Client-ID ${CLIENT_ID}`
       }
     }
 
@@ -26,15 +28,12 @@ export default (url, {
       fetch_options.body = body
     }
 
-    const fetch_response = await fetch(url)
+    const fetch_response = await fetch(url, fetch_options)
 
     if (fetch_response.ok) {
       const response = await fetch_response.json()
       data.value = response
     } else {
-      if (fetch_response.status === 401) {
-        store.logout()
-      }
       error.value = true
       onError()
     }

@@ -1,5 +1,4 @@
 <script setup>
-import HeroSection from './components/HeroSection.vue'
 import useFetch from './composables/useFetch'
 
 const {
@@ -9,15 +8,13 @@ const {
 </script>
 
 <template>
-  <HeroSection />
-  <header>
-  </header>
   <main>
     <router-view />
   </main>
-  <div class=" bg-gradient-to-b from-transparent to-text/5 py-20">
-  </div>
-  <footer class="bg-text/5">
+  <footer class="bg-accent/10">
+    <div class="bg-background py-10 rounded-b-[3rem]">
+      
+    </div>
     <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
       <div>
         <h5 class="mb-4">

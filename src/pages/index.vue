@@ -1,9 +1,20 @@
 <template>
-<div class="backdrop-blur bg-background/50 sticky top-0">
-  <div class=" w-5/6 mx-auto py-8">
-    <router-link class="p-3 rounded-xl hover:bg-text/10" to="/">若筠&恩騰</router-link>
+<section class="bg-[url('/hero.jpg')] bg-no-repeat bg-cover bg-center rounded-b-[3rem]">
+  <div class=" bg-background/70 min-h-[80svh] text-center grid place-items-center">
+    <div>
+      <h2 class=" text-4xl/loose">The Day Of</h2>
+      <p>THE DETAILS</p>
+    </div>
   </div>
-</div>
+</section>
+<header class="backdrop-blur bg-background/50 sticky top-0 z-20">
+  <div class=" w-5/6 mx-auto py-2 flex">
+    <router-link class="p-3 rounded-xl hover:bg-text/10 flex items-center gap-2" to="/">
+      <img class="w-8"src="../assets/logo.png" alt="">
+      <span>若筠&恩騰</span>
+    </router-link>
+  </div>
+</header>
 <section class="py-20">
   <div class="w-5/6 mx-auto">
     <h1 class="text-5xl/loose text-center">Countdown</h1>
@@ -40,6 +51,17 @@
         </li>
       </ul>
     </div>
+  </div>
+</section>
+<section class="mb-10">
+  <h2 class="text-5xl/loose text-center mb-10">Photos</h2>
+  <div class=" w-11/12 grid grid-cols-4 gap-1 max-w-4xl mx-auto photo-section relative">
+    <figure class="shadow z-10 isolate transition-transform cursor-zoom-in photo group rounded-3xl overflow-hidden" v-for="photo in photos">
+      <img class=" blur-sm group-hover:blur-none aspect-[9/16] object-cover object-center" :src="photo" alt="photo">
+    </figure>
+  </div>
+  <div class=" text-center py-20">
+    <router-link to="/photos" class=" underline decoration-primary decoration-4 hover:underline-offset-[-4px]">搶先看照片</router-link>
   </div>
 </section>
 <section class=" mb-10">
@@ -100,4 +122,56 @@ const {
   seconds,
   hours
 } = useCountdown('2024-12-31')
+
+const photos = [`/1.avif`, `/2.avif`, '/3.avif', '/4.jpg']
 </script>
+
+<style scoped>
+.photo-section::before,
+.photo-section::after {
+  content: '';
+  position: absolute;
+  width: 30%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  filter: blur(2rem);
+
+}
+.photo-section::before {
+  left: 20%;
+  top: -5%;
+  background-color: rgb(var(--accent));
+}
+.photo-section::after {
+  right: 20%;
+  bottom: -8%;
+  background-color: rgb(var(--primary));
+  z-index: 1;
+}
+.photo:nth-child(1) {
+  transform: translate(0, -1.5rem) rotate(5deg);
+}
+.photo:nth-child(2) {
+  transform: translate(0, 0.5rem) rotate(5deg);
+}
+.photo:nth-child(3) {
+  transform: translate(0, -0.5rem) rotate(5deg);
+}
+.photo:nth-child(4) {
+  transform: translate(0, 1.5rem) rotate(5deg);
+}
+@media (width >= 768px) {
+  .photo:nth-child(1) {
+    transform: translate(0, 1.5rem);
+  }
+  .photo:nth-child(2) {
+    transform: translate(0, -1rem);
+  }
+  .photo:nth-child(3) {
+    transform: translate(0, 2rem);
+  }
+  .photo:nth-child(4) {
+    transform: translate(0, -1.5rem);
+  }
+}
+</style>
