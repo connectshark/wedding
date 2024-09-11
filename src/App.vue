@@ -1,10 +1,32 @@
 <script setup>
 import useFetch from './composables/useFetch'
 
-const {
-  data: brands,
-  loading
-} = useFetch('https://cdn.jsdelivr.net/gh/connectshark/studio-portfolio@latest/brands.json', {})
+const brands = [
+  {
+    url: 'https://exchange-rate.justlikeboss.com/',
+    name: '匯星'
+  },
+  {
+    url: 'https://blog.justlikeboss.com/',
+    name: '小資族FIRE攻略'
+  },
+  {
+    url: 'https://kfc.justlikeboss.com/',
+    name: '酷碰獅'
+  },
+  {
+    url: 'https://studio.justlikeboss.com/',
+    name: 'NS工作室'
+  },
+  {
+    url: 'https://shopee.nosegates.com/',
+    name: '蝦英雄'
+  },
+  {
+    url: 'https://hidden-taiwan.justlikeboss.com',
+    name: 'Hidden Taiwan'
+  }
+]
 </script>
 
 <template>

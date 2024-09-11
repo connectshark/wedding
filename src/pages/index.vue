@@ -54,14 +54,32 @@
   </div>
 </section>
 <section class="mb-10">
-  <h2 class="text-5xl/loose text-center mb-10">Photos</h2>
-  <div class=" w-11/12 grid grid-cols-4 gap-1 max-w-4xl mx-auto photo-section relative">
-    <figure class="shadow z-10 isolate transition-transform cursor-zoom-in photo group rounded-3xl overflow-hidden" v-for="photo in photos">
-      <img class=" blur-sm group-hover:blur-none aspect-[9/16] object-cover object-center" :src="photo" alt="photo">
+  <h2 class="text-5xl/loose text-center mb-20">Photos</h2>
+  <div class=" w-11/12 grid grid-cols-4 gap-1 max-w-4xl mx-auto photo-section relative mb-10">
+    <figure class="shadow z-10 transition-transform cursor-zoom-in photo rounded-3xl overflow-hidden" v-for="photo in photos">
+      <img draggable="false" class="aspect-[9/16] object-cover object-center" :src="photo" alt="photo">
     </figure>
   </div>
   <div class=" text-center py-20">
     <router-link to="/photos" class=" underline decoration-primary decoration-4 hover:underline-offset-[-4px]">搶先看照片</router-link>
+  </div>
+</section>
+<section class="mb-10">
+  <div class="w-5/6 mx-auto max-w-3xl p-10 rounded-3xl bg-accent/10">
+    <h2 class="text-5xl/loose text-center mb-20">祝福</h2>
+    <ul>
+      <li v-for="(avatar, i) in avatars" class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0">
+        <div class="flex-shrink-0 group-odd:order-1">
+          <p class="text-center">羅友人</p>
+          <figure class="p-1 rounded-full w-20 bg-gradient-to-tr from-primary to-accent">
+            <img loading="lazy" draggable="false" class="rounded-full" :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
+          </figure>
+        </div>
+        <div class="pb-10 mb-auto">
+          <p class=" bg-white shadow p-3 rounded-2xl text-xl group-odd:rounded-br-none group-even:rounded-bl-none shadow-text/30">{{ avatar.text }}</p>
+        </div>
+      </li>
+    </ul>
   </div>
 </section>
 <section class=" mb-10">
@@ -124,27 +142,40 @@ const {
 } = useCountdown('2024-12-31')
 
 const photos = [`/1.avif`, `/2.avif`, '/3.avif', '/4.jpg']
+
+const avatars = [
+  { text: '永浴愛河永浴愛河永浴愛河永浴愛河' },
+  { text: '永浴愛河永浴愛河永浴愛河永浴永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴永浴愛河永浴愛河永浴愛河永浴愛河愛河永浴愛河愛河' },
+  { text: '永浴愛河永浴愛河永浴愛河' },
+  { text: '永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河' },
+  { text: '永浴愛河' },
+  { text: '永浴愛河永浴愛河永浴愛河永浴愛河' },
+  { text: '永浴愛河' },
+  { text: '永浴愛河' },
+  { text: '永浴愛河永浴愛河永永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河浴愛河永浴愛河永浴愛河' }
+]
 </script>
 
 <style scoped>
 .photo-section::before,
 .photo-section::after {
+  --size: 40%;
   content: '';
   position: absolute;
-  width: 30%;
+  width: var(--size);
   aspect-ratio: 1 / 1;
   border-radius: 50%;
-  filter: blur(2rem);
+  filter: blur(2.5rem);
 
 }
 .photo-section::before {
-  left: 20%;
-  top: -5%;
+  left: 10%;
+  top: -20%;
   background-color: rgb(var(--accent));
 }
 .photo-section::after {
-  right: 20%;
-  bottom: -8%;
+  right: 10%;
+  bottom: -20%;
   background-color: rgb(var(--primary));
   z-index: 1;
 }
