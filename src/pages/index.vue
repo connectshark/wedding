@@ -1,5 +1,5 @@
 <template>
-<section class="bg-[url('/hero.jpg')] bg-no-repeat bg-cover bg-center rounded-b-[3rem]">
+<section class="bg-[url('/hero.jpg')] bg-no-repeat bg-cover bg-center rounded-b-[3rem] -mt-12">
   <div class=" bg-background/70 min-h-[80svh] text-center grid place-items-center">
     <div>
       <h2 class=" text-4xl/loose">The Day Of</h2>
@@ -7,20 +7,12 @@
     </div>
   </div>
 </section>
-<header class="backdrop-blur bg-background/50 sticky top-0 z-20">
-  <div class=" w-5/6 mx-auto py-2 flex">
-    <router-link class="p-3 rounded-xl hover:bg-text/10 flex items-center gap-2" to="/">
-      <img class="w-8"src="../assets/logo.png" alt="">
-      <span>若筠&恩騰</span>
-    </router-link>
-  </div>
-</header>
 <section class="py-20">
   <div class="w-5/6 mx-auto">
     <h1 class="text-5xl/loose text-center">Countdown</h1>
     <p class="text-center">距離</p>
     <div>
-      <img class=" max-w-96 aspect-square mx-auto" src="../assets/svg/calendar.svg" alt="calendar">
+      <img loading="lazy" class=" max-w-96 aspect-square mx-auto" src="../assets/svg/calendar.svg" alt="calendar">
     </div>
     <div class="py-10">
       <ul class=" flex justify-evenly max-w-2xl mx-auto">
@@ -55,9 +47,9 @@
 </section>
 <section class="mb-10">
   <h2 class="text-5xl/loose text-center mb-20">Photos</h2>
-  <div class=" w-11/12 grid grid-cols-4 gap-1 max-w-4xl mx-auto photo-section relative mb-10">
-    <figure class="shadow z-10 transition-transform cursor-zoom-in photo rounded-3xl overflow-hidden" v-for="photo in photos">
-      <img draggable="false" class="aspect-[9/16] object-cover object-center" :src="photo" alt="photo">
+  <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10">
+    <figure v-for="photo in photos" class="shadow z-10 transition-transform cursor-zoom-in rounded-3xl overflow-hidden odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
+      <img loading="lazy" draggable="false" class="aspect-[9/16] object-cover object-center" :src="photo" alt="photo">
     </figure>
   </div>
   <div class=" text-center py-20">
@@ -65,30 +57,30 @@
   </div>
 </section>
 <section class="mb-10">
-  <div class="w-5/6 mx-auto max-w-3xl p-10 rounded-3xl bg-accent/10">
+  <div>
     <h2 class="text-5xl/loose text-center mb-20">祝福</h2>
-    <ul>
-      <li v-for="(avatar, i) in avatars" class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0">
+    <ul class="bg-accent/10 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-3xl">
+      <li v-for="(avatar, i) in avatars" class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
         <div class="flex-shrink-0 group-odd:order-1">
           <p class="text-center">羅友人</p>
           <figure class="p-1 rounded-full w-20 bg-gradient-to-tr from-primary to-accent">
-            <img loading="lazy" draggable="false" class="rounded-full" :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
+            <img loading="lazy" draggable="false" class="rounded-full object-center object-cover" :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
           </figure>
         </div>
         <div class="pb-10 mb-auto">
-          <p class=" bg-white shadow p-3 rounded-2xl text-xl group-odd:rounded-br-none group-even:rounded-bl-none shadow-text/30">{{ avatar.text }}</p>
+          <p class="bg-white shadow p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none shadow-text/30">{{ avatar.text }}</p>
         </div>
       </li>
     </ul>
   </div>
 </section>
-<section class=" mb-10">
+<section class="mb-10">
   <div class="w-5/6 mx-auto">
   <h2 class="text-5xl/loose text-center">When & Where</h2>
   <div>
-    <img class=" max-w-96 aspect-square mx-auto" src="../assets/svg/wedding.svg" alt="wedding">
+    <img loading="lazy" class=" max-w-96 aspect-square mx-auto" src="../assets/svg/wedding.svg" alt="wedding">
   </div>
-  <div>
+  <div class=" text-center">
     <a :href="calender" target="_blank" rel="noopener noreferrer" class=" inline-block p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80">
       <CalenderIcon/>
     </a>
@@ -103,7 +95,7 @@
   </div>
   </div>
 </section>
-<section class="bg-white p-10 rounded-2xl mb-10">
+<section class="p-10 rounded-2xl mb-10">
   <div class="w-5/6 mx-auto">
     <h2 class="text-center text-3xl/loose">分享邀請函</h2>
     <p class="text-center mb-10">把這些資訊分享給可能需要知道的人吧！</p>
@@ -152,6 +144,7 @@ const avatars = [
   { text: '永浴愛河永浴愛河永浴愛河永浴愛河' },
   { text: '永浴愛河' },
   { text: '永浴愛河' },
+  { text: '永浴愛河' },
   { text: '永浴愛河永浴愛河永永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河浴愛河永浴愛河永浴愛河' }
 ]
 </script>
@@ -169,40 +162,14 @@ const avatars = [
 
 }
 .photo-section::before {
-  left: 10%;
-  top: -20%;
+  right: 10%;
+  top: 0%;
   background-color: rgb(var(--accent));
 }
 .photo-section::after {
-  right: 10%;
-  bottom: -20%;
+  left: 10%;
+  bottom: 0%;
   background-color: rgb(var(--primary));
   z-index: 1;
-}
-.photo:nth-child(1) {
-  transform: translate(0, -1.5rem) rotate(5deg);
-}
-.photo:nth-child(2) {
-  transform: translate(0, 0.5rem) rotate(5deg);
-}
-.photo:nth-child(3) {
-  transform: translate(0, -0.5rem) rotate(5deg);
-}
-.photo:nth-child(4) {
-  transform: translate(0, 1.5rem) rotate(5deg);
-}
-@media (width >= 768px) {
-  .photo:nth-child(1) {
-    transform: translate(0, 1.5rem);
-  }
-  .photo:nth-child(2) {
-    transform: translate(0, -1rem);
-  }
-  .photo:nth-child(3) {
-    transform: translate(0, 2rem);
-  }
-  .photo:nth-child(4) {
-    transform: translate(0, -1.5rem);
-  }
 }
 </style>

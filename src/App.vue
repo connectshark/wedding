@@ -1,5 +1,6 @@
 <script setup>
-import useFetch from './composables/useFetch'
+
+const SITE_NAME = '若筠&恩騰'
 
 const brands = [
   {
@@ -30,6 +31,14 @@ const brands = [
 </script>
 
 <template>
+  <header class="backdrop-blur sticky top-0 z-20">
+    <div class=" w-5/6 mx-auto py-2 flex">
+      <router-link class="p-3 rounded-xl hover:bg-text/10 flex items-center gap-2" to="/">
+        <img class="w-8"src="./assets/logo.png" alt="">
+        <span>{{ SITE_NAME }}</span>
+      </router-link>
+    </div>
+  </header>
   <main>
     <router-view />
   </main>
@@ -42,8 +51,8 @@ const brands = [
         <h5 class="mb-4">
           <router-link to="/" class="flex items-center gap-2 max-w-fit group">
             <img class=" grayscale group-hover:grayscale-0 rounded-full w-8 h-8"
-              src="https://cdn.jsdelivr.net/gh/connectshark/assets@latest/nosegates.jpg" alt="logo">
-            <span>Wedding Project</span>
+              src="./assets/logo.png" alt="logo">
+            <span>{{ SITE_NAME }}</span>
           </router-link>
         </h5>
         <ul>
@@ -57,7 +66,7 @@ const brands = [
       <div>
         <h6 class="mb-4 text-text/70"><i class='bx bx-pyramid bx-sm'></i>來源</h6>
         <ul>
-          <li><a class=" hover:underline" href="https://storyset.com/people">People illustrations by Storyset<i class='bx bx-link-external'></i></a></li>
+          <li><a class=" hover:underline" target="_blank" href="https://storyset.com/people">People illustrations by Storyset<i class='bx bx-link-external'></i></a></li>
         </ul>
       </div>
       <div>
@@ -71,7 +80,7 @@ const brands = [
       </div>
     </div>
     <div class="w-5/6 mx-auto py-10">
-      <p>Copyright<i class='bx bx-copyright'></i>2024<router-link to="/">Wedding Project</router-link></p>
+      <p>Copyright<i class='bx bx-copyright'></i>2024<router-link to="/">{{ SITE_NAME }}</router-link></p>
     </div>
   </footer>
 </template>
