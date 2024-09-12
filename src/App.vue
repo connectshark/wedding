@@ -1,5 +1,7 @@
 <script setup>
-
+import { useRoute, useRouter } from 'vue-router'
+const route = useRoute()
+const router = useRouter()
 const SITE_NAME = '若筠&恩騰'
 
 const brands = [
@@ -42,9 +44,14 @@ const brands = [
   <main>
     <router-view />
   </main>
+
+  <Teleport to="#modal">
+    <div v-if="route.meta.lightBox" @click="router.back()" class="fixed z-20 inset-0 bg-text/60 w-full h-full backdrop-blur">
+      <router-view name="lightBox"/>
+    </div>
+  </Teleport>
   <footer class="bg-accent/10">
     <div class="bg-background py-10 rounded-b-[3rem]">
-      
     </div>
     <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
       <div>
@@ -57,30 +64,39 @@ const brands = [
         </h5>
         <ul>
           <li>
-            <a class=" p-1 inline-block rounded hover:bg-text/10" href="mailto:contace@nosegates.com">
+            <a class="p-1 inline-block rounded hover:bg-text/10" href="mailto:contace@nosegates.com">
               <i class='bx bx-envelope bx-sm align-middle'></i>
             </a>
           </li>
         </ul>
       </div>
       <div>
-        <h6 class="mb-4 text-text/70"><i class='bx bx-pyramid bx-sm'></i>來源</h6>
+        <h6 class="mb-4 text-text/70"><i class='bx bx-bookmark bx-sm'></i>分頁</h6>
         <ul>
-          <li><a class=" hover:underline" target="_blank" href="https://storyset.com/people">People illustrations by Storyset<i class='bx bx-link-external'></i></a></li>
+          <li>
+            <router-link class="text-sm/relaxed hover:underline" to="/photos">相簿</router-link>
+          </li>
         </ul>
       </div>
       <div>
         <h6 class="mb-4 text-text/70"><i class='bx bx-cube-alt bx-sm'></i>品牌</h6>
-        <div v-if="loading"><i class='bx bx-loader'></i></div>
-        <ul v-else>
-          <li class=" mb-2 last:mb-0" v-for="item in brands">
-            <a class=" hover:underline" :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}<i class='bx bx-link-external'></i></a>
+        <ul>
+          <li class="mb-2 last:mb-0" v-for="item in brands">
+            <a class="text-sm/relaxed hover:underline" :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}<i class='bx bx-link-external'></i></a>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h6 class="mb-4 text-text/70"><i class='bx bx-pyramid bx-sm'></i>來源</h6>
+        <ul>
+          <li>
+            <a class="text-sm/relaxed hover:underline" target="_blank" href="https://storyset.com/people">People illustrations by Storyset<i class='bx bx-link-external'></i></a>
           </li>
         </ul>
       </div>
     </div>
     <div class="w-5/6 mx-auto py-10">
-      <p>Copyright<i class='bx bx-copyright'></i>2024<router-link to="/">{{ SITE_NAME }}</router-link></p>
+      <p class=" text-text/80">Copyright<i class='bx bx-copyright'></i>2024<router-link to="/">{{ SITE_NAME }}</router-link></p>
     </div>
   </footer>
 </template>

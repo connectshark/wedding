@@ -1,64 +1,64 @@
 <template>
-<section class="bg-[url('/hero.jpg')] bg-no-repeat bg-cover bg-center rounded-b-[3rem] -mt-12">
+<section class="bg-[url('/hero.jpg')] bg-no-repeat bg-cover bg-center rounded-b-[3rem] -mt-12 mb-20">
   <div class=" bg-background/70 min-h-[80svh] text-center grid place-items-center">
     <div>
-      <h2 class=" text-4xl/loose">The Day Of</h2>
+      <h2 class="font-bold text-4xl/loose">The Day Of</h2>
       <p>THE DETAILS</p>
     </div>
   </div>
 </section>
-<section class="py-20">
+<section class="mb-20">
   <div class="w-5/6 mx-auto">
-    <h1 class="text-5xl/loose text-center">Countdown</h1>
+    <h1 class="text-2xl/loose md:text-4xl/loose text-center">Countdown</h1>
     <p class="text-center">距離</p>
     <div>
-      <img loading="lazy" class=" max-w-96 aspect-square mx-auto" src="../assets/svg/calendar.svg" alt="calendar">
+      <img loading="lazy" draggable="false" class="max-w-96 aspect-square mx-auto" src="../assets/svg/planner.svg" alt="calendar">
     </div>
     <div class="py-10">
       <ul class=" flex justify-evenly max-w-2xl mx-auto">
         <li class="text-center">
-          <div class="text-5xl font-semibold text-accent mb-2">{{ days }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-accent mb-2">{{ days }}</div>
           <p class="font-light">Day(s)</p>
         </li>
         <li>
-          <div class="text-4xl text-accent font-semibold">:</div>
+          <div class=" text-2xl md:text-4xl text-accent font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class=" text-5xl font-semibold text-accent mb-2">{{ hours }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-accent mb-2">{{ hours }}</div>
           <p class="font-light">Hour(s)</p>
         </li>
         <li>
-          <div class="text-4xl text-accent font-semibold">:</div>
+          <div class=" text-2xl md:text-4xl text-accent font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class=" text-5xl font-semibold text-accent mb-2">{{ minutes }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-accent mb-2">{{ minutes }}</div>
           <p class="font-light">Minute(s)</p>
         </li>
         <li>
-          <div class="text-4xl text-accent font-semibold">:</div>
+          <div class=" text-2xl md:text-4xl text-accent font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class=" text-5xl font-semibold text-accent mb-2">{{ seconds }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-accent mb-2">{{ seconds }}</div>
           <p class="font-light">Second(s)</p>
         </li>
       </ul>
     </div>
   </div>
 </section>
-<section class="mb-10">
-  <h2 class="text-5xl/loose text-center mb-20">Photos</h2>
+<section class="mb-20">
+  <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-20">Photos</h2>
   <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10">
     <figure v-for="photo in photos" class="shadow z-10 transition-transform cursor-zoom-in rounded-3xl overflow-hidden odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
-      <img loading="lazy" draggable="false" class="aspect-[9/16] object-cover object-center" :src="photo" alt="photo">
+      <img loading="lazy" draggable="false" class="aspect-[9/16] object-cover object-center" :src="photo.url" alt="photo">
     </figure>
   </div>
   <div class=" text-center py-20">
     <router-link to="/photos" class=" underline decoration-primary decoration-4 hover:underline-offset-[-4px]">搶先看照片</router-link>
   </div>
 </section>
-<section class="mb-10">
+<section class="mb-20">
   <div>
-    <h2 class="text-5xl/loose text-center mb-20">祝福</h2>
+    <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-10">祝福</h2>
     <ul class="bg-accent/10 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-3xl">
       <li v-for="(avatar, i) in avatars" class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
         <div class="flex-shrink-0 group-odd:order-1">
@@ -74,11 +74,11 @@
     </ul>
   </div>
 </section>
-<section class="mb-10">
+<section class="mb-20">
   <div class="w-5/6 mx-auto">
-  <h2 class="text-5xl/loose text-center">When & Where</h2>
+  <h2 class="text-2xl/loose md:text-4xl/loose text-center">When & Where</h2>
   <div>
-    <img loading="lazy" class=" max-w-96 aspect-square mx-auto" src="../assets/svg/wedding.svg" alt="wedding">
+    <img loading="lazy" draggable="false" class=" max-w-96 aspect-square mx-auto" src="../assets/svg/wedding.svg" alt="wedding">
   </div>
   <div class=" text-center">
     <a :href="calender" target="_blank" rel="noopener noreferrer" class=" inline-block p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80">
@@ -87,29 +87,32 @@
   </div>
   </div>
 </section>
-<section class=" mb-10">
+<section class="mb-20">
   <div class="w-5/6 mx-auto">
-  <h2 class="text-center text-3xl/loose">地點</h2>
+  <h2 class="text-2xl/loose md:text-4xl/loose text-center">地點</h2>
   <div class="">
     <iframe class=" max-w-[400px] w-full mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8136350223413!2d121.54646475183712!3d25.04039790588343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd0af5c2005%3A0xf9c26b5bf5de8f0a!2z6YGg5p2xU09HTyDlj7DljJflv6DlrZ3ppKg!5e0!3m2!1szh-TW!2stw!4v1725001742776!5m2!1szh-TW!2stw" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
   </div>
 </section>
-<section class="p-10 rounded-2xl mb-10">
+<section>
   <div class="w-5/6 mx-auto">
-    <h2 class="text-center text-3xl/loose">分享邀請函</h2>
+    <h2 class="text-2xl/loose md:text-4xl/loose text-center">分享邀請函</h2>
     <p class="text-center mb-10">把這些資訊分享給可能需要知道的人吧！</p>
     <div class=" flex items-center justify-evenly">
-      <button type="button" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80">
+      <button v-if="isShare" type="button" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" @click="share">
         <ShareIcon/>
       </button>
-      <a href="https://www.facebook.com/sharer.php?u=https://sandra.nosegates.com" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" target="_blank" rel="noopener noreferrer">
+      <a :href="`https://www.facebook.com/sharer.php?u=${ encodeURI(SITE_URL) }`" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" target="_blank" rel="noopener noreferrer">
         <FacebookIcon/>
       </a>
-      <a href="https://line.me/R/share?text=https://sandra.nosegates.com?openExternalBrowser=1" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" target="_blank" rel="noopener noreferrer">
+      <a :href="`https://line.me/R/share?text=${ encodeURI(SITE_URL) + '?openExternalBrowser=1' }`" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" target="_blank" rel="noopener noreferrer">
         <LineIcon/>
       </a>
-      <a href="https://www.threads.net/intent/post?url=https://sandra.nosegates.com&text=https://sandra.nosegates.com" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80">
+      <a class="hidden md:block p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" :href="`https://www.threads.net/intent/post?url=${ encodeURI(SITE_URL) }&text=若筠與恩騰的婚禮專頁`" target="_blank" rel="noopener noreferrer">
+        <ThreadsIcon/>
+      </a>
+      <a class="md:hidden p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" :href="`https://www.threads.net/intent/post?url=${ encodeURI(SITE_URL) }&text=${ encodeURI(SITE_URL) }`" target="_blank" rel="noopener noreferrer">
         <ThreadsIcon/>
       </a>
     </div>
@@ -124,6 +127,10 @@ import LineIcon from '../components/icons/LineIcon.vue'
 import FacebookIcon from '../components/icons/FacebookIcon.vue'
 import ShareIcon from '../components/icons/ShareIcon.vue'
 import CalenderIcon from '../components/icons/CalenderIcon.vue'
+import useShare from '../composables/useShare'
+
+const SITE_URL = 'https://sandra.nosegates.com'
+
 const calender = 'https://www.google.com/calendar/render?action=TEMPLATE&text=OOO%E5%A9%9A%E7%A6%AE&details=%E8%A8%98%E5%BE%97%E5%8F%83%E5%8A%A0OOO%E5%A9%9A%E7%A6%AE&location=%E9%81%A0%E6%9D%B1SOGO%20%E5%8F%B0%E5%8C%97%E5%BF%A0%E5%AD%9D%E9%A4%A8&dates=20241212T033000.000Z%2F20241212T060000.000Z'
 
 const {
@@ -133,7 +140,24 @@ const {
   hours
 } = useCountdown('2024-12-31')
 
-const photos = [`/1.avif`, `/2.avif`, '/3.avif', '/4.jpg']
+const photos = [
+  {
+    id: '1',
+    url: `/1.avif`
+  },
+  {
+    id: '2',
+    url: `/2.avif`
+  },
+  {
+    id: '3',
+    url: '/3.avif'
+  },
+  {
+    id: '4',
+    url: '/4.jpg'
+  }
+]
 
 const avatars = [
   { text: '永浴愛河永浴愛河永浴愛河永浴愛河' },
@@ -147,6 +171,14 @@ const avatars = [
   { text: '永浴愛河' },
   { text: '永浴愛河永浴愛河永永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河浴愛河永浴愛河永浴愛河' }
 ]
+
+const {
+  share,
+  isShare
+} = useShare({
+  title: '若筠&恩騰',
+  url: SITE_URL
+})
 </script>
 
 <style scoped>
