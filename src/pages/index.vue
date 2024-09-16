@@ -1,6 +1,6 @@
 <template>
 <section class="bg-[url('/hero.jpg')] bg-no-repeat bg-cover bg-center rounded-b-[3rem] -mt-12 mb-20">
-  <div class=" bg-background/70 min-h-[80svh] text-center grid place-items-center">
+  <div class=" bg-gradient-to-b from-background/30 from-50% to-background/20 min-h-[80svh] text-center grid place-items-center">
     <div>
       <h2 class="font-bold text-4xl/loose">The Day Of</h2>
       <p>THE DETAILS</p>
@@ -17,28 +17,28 @@
     <div class="py-10">
       <ul class=" flex justify-evenly max-w-2xl mx-auto">
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-accent mb-2">{{ days }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ days }}</div>
           <p class="font-light">Day(s)</p>
         </li>
         <li>
-          <div class=" text-2xl md:text-4xl text-accent font-semibold">:</div>
+          <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-accent mb-2">{{ hours }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ hours }}</div>
           <p class="font-light">Hour(s)</p>
         </li>
         <li>
-          <div class=" text-2xl md:text-4xl text-accent font-semibold">:</div>
+          <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-accent mb-2">{{ minutes }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ minutes }}</div>
           <p class="font-light">Minute(s)</p>
         </li>
         <li>
-          <div class=" text-2xl md:text-4xl text-accent font-semibold">:</div>
+          <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-accent mb-2">{{ seconds }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ seconds }}</div>
           <p class="font-light">Second(s)</p>
         </li>
       </ul>
@@ -59,7 +59,7 @@
 <section class="mb-20">
   <div>
     <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-10">祝福</h2>
-    <ul class="bg-secondary/50 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-3xl">
+    <ul class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-3xl">
       <li v-for="(avatar, i) in avatars" class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
         <div class="flex-shrink-0 group-odd:order-1">
           <p class="text-center">羅友人</p>
@@ -68,7 +68,7 @@
           </figure>
         </div>
         <div class="pb-10 mb-auto">
-          <p class="bg-background shadow p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none shadow-accent/30">{{ avatar.text }}</p>
+          <p class="bg-background/80 shadow p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none shadow-accent/30">{{ avatar.text }}</p>
         </div>
       </li>
     </ul>

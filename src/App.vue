@@ -51,11 +51,11 @@ const brands = [
   </main>
 
   <Teleport to="#modal">
-    <div v-if="route.meta.lightBox" @click="router.back()" class="fixed z-20 inset-0 bg-background/60 w-full h-full backdrop-blur">
+    <div v-if="route.meta.lightBox" @click="router.back()" class="fixed z-20 inset-0 bg-text/70 w-full h-full backdrop-blur">
       <router-view name="lightBox"/>
     </div>
   </Teleport>
-  <footer class="bg-accent/30">
+  <footer class="bg-text/10">
     <div class="bg-background py-10 rounded-b-[3rem]">
     </div>
     <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
@@ -109,7 +109,7 @@ const brands = [
           <i class='bx bxl-github bx-sm align-middle'></i>
         </a>
       </p>
-      <p>Copyright<i class='bx bx-copyright'></i>2024<router-link class=" hover:underline" to="/">{{ SITE_NAME }}</router-link></p>
+      <p class=" text-xs/loose lg:text-sm/loose">Copyright <i class='bx bx-copyright'/> 2024<router-link class=" hover:underline" to="/">{{ SITE_NAME }}</router-link> <a class=" underline" href="https://github.com/connectshark/wedding/blob/main/LICENSE" target="_blank">CC-BY-SA-4.0</a> License.</p>
     </div>
   </footer>
 </template>
