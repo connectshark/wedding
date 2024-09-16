@@ -48,7 +48,7 @@
 <section class="mb-20">
   <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-20">Photos</h2>
   <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10">
-    <figure v-for="photo in photos" class="shadow z-10 transition-transform cursor-zoom-in rounded-3xl overflow-hidden odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
+    <figure v-for="photo in photos" class="shadow z-10 transition-transform rounded-3xl overflow-hidden odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
       <img loading="lazy" draggable="false" class="aspect-[9/16] object-cover object-center" :src="photo.url" alt="photo">
     </figure>
   </div>
@@ -59,7 +59,7 @@
 <section class="mb-20">
   <div>
     <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-10">祝福</h2>
-    <ul class="bg-accent/10 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-3xl">
+    <ul class="bg-secondary/50 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-3xl">
       <li v-for="(avatar, i) in avatars" class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
         <div class="flex-shrink-0 group-odd:order-1">
           <p class="text-center">羅友人</p>
@@ -68,7 +68,7 @@
           </figure>
         </div>
         <div class="pb-10 mb-auto">
-          <p class="bg-white shadow p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none shadow-text/30">{{ avatar.text }}</p>
+          <p class="bg-background shadow p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none shadow-accent/30">{{ avatar.text }}</p>
         </div>
       </li>
     </ul>
@@ -89,7 +89,7 @@
 </section>
 <section class="mb-20">
   <div class="w-5/6 mx-auto">
-  <h2 class="text-2xl/loose md:text-4xl/loose text-center">地點</h2>
+  <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-10">地點</h2>
   <div class="">
     <iframe class=" max-w-[400px] w-full mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8136350223413!2d121.54646475183712!3d25.04039790588343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd0af5c2005%3A0xf9c26b5bf5de8f0a!2z6YGg5p2xU09HTyDlj7DljJflv6DlrZ3ppKg!5e0!3m2!1szh-TW!2stw!4v1725001742776!5m2!1szh-TW!2stw" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
   </div>
@@ -99,7 +99,7 @@
   <div class="w-5/6 mx-auto">
     <h2 class="text-2xl/loose md:text-4xl/loose text-center">分享邀請函</h2>
     <p class="text-center mb-10">把這些資訊分享給可能需要知道的人吧！</p>
-    <div class=" flex items-center justify-evenly">
+    <div class=" flex items-center justify-evenly max-w-3xl mx-auto">
       <button v-if="isShare" type="button" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" @click="share">
         <ShareIcon/>
       </button>

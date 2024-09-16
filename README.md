@@ -44,4 +44,4 @@
 
 ## 版權
 
-[MIT](/LICENSE).
+[CC-BY-SA-4.0](/LICENSE).

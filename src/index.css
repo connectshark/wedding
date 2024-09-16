@@ -10,7 +10,7 @@
     --secondary: 242 191 124;
     --accent: 249 175 78;
   }
-  .dark {
+  :root:has(#dark:checked) {
     --text: 249 246 240;
     --background: 12 8 3;
     --primary: 123 89 45;

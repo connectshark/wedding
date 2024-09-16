@@ -39,6 +39,11 @@ const brands = [
         <img class="w-8"src="./assets/logo.png" alt="">
         <span>{{ SITE_NAME }}</span>
       </router-link>
+      <nav>
+        <ul>
+          <li><input type="checkbox" id="dark"></li>
+        </ul>
+      </nav>
     </div>
   </header>
   <main>
@@ -46,11 +51,11 @@ const brands = [
   </main>
 
   <Teleport to="#modal">
-    <div v-if="route.meta.lightBox" @click="router.back()" class="fixed z-20 inset-0 bg-text/60 w-full h-full backdrop-blur">
+    <div v-if="route.meta.lightBox" @click="router.back()" class="fixed z-20 inset-0 bg-background/60 w-full h-full backdrop-blur">
       <router-view name="lightBox"/>
     </div>
   </Teleport>
-  <footer class="bg-accent/10">
+  <footer class="bg-accent/30">
     <div class="bg-background py-10 rounded-b-[3rem]">
     </div>
     <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
@@ -65,13 +70,13 @@ const brands = [
         <ul>
           <li>
             <a class="p-1 inline-block rounded hover:bg-text/10" href="mailto:contace@nosegates.com">
-              <i class='bx bx-envelope bx-sm align-middle'></i>
+              <i class='bx bxl-gmail bx-sm align-middle'></i>
             </a>
           </li>
         </ul>
       </div>
       <div>
-        <h6 class="mb-4 text-text/70"><i class='bx bx-bookmark bx-sm'></i>分頁</h6>
+        <h6 class="mb-4 text-text/70"><i class='bx bx-bookmark'></i>分頁</h6>
         <ul>
           <li>
             <router-link class="text-sm/relaxed hover:underline" to="/photos">相簿</router-link>
@@ -79,15 +84,15 @@ const brands = [
         </ul>
       </div>
       <div>
-        <h6 class="mb-4 text-text/70"><i class='bx bx-cube-alt bx-sm'></i>品牌</h6>
+        <h6 class="mb-4 text-text/70"><i class='bx bx-cube-alt'></i>品牌</h6>
         <ul>
           <li class="mb-2 last:mb-0" v-for="item in brands">
             <a class="text-sm/relaxed hover:underline" :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}<i class='bx bx-link-external'></i></a>
           </li>
         </ul>
       </div>
-      <div>
-        <h6 class="mb-4 text-text/70"><i class='bx bx-pyramid bx-sm'></i>來源</h6>
+      <div class=" md:col-span-3">
+        <h6 class="mb-4 text-text/70"><i class='bx bx-pyramid'></i>來源</h6>
         <ul>
           <li>
             <a class="text-sm/relaxed hover:underline" target="_blank" href="https://storyset.com/people">People illustrations by Storyset<i class='bx bx-link-external'></i></a>
@@ -95,8 +100,16 @@ const brands = [
         </ul>
       </div>
     </div>
-    <div class="w-5/6 mx-auto py-10">
-      <p class=" text-text/80">Copyright<i class='bx bx-copyright'></i>2024<router-link to="/">{{ SITE_NAME }}</router-link></p>
+    <div class="w-5/6 mx-auto py-10 text-center text-text/80">
+      <p class="mb-10 flex items-center gap-4 justify-center">
+        <a class="p-1 rounded hover:bg-text/10" href="https://www.instagram.com/joyun1191/" target="_blank" rel="noopener noreferrer">
+          <i class='bx bxl-instagram bx-sm align-middle'></i>
+        </a>
+        <a class="p-1 rounded hover:bg-text/10" href="https://github.com/connectshark/wedding" target="_blank" rel="noopener noreferrer">
+          <i class='bx bxl-github bx-sm align-middle'></i>
+        </a>
+      </p>
+      <p>Copyright<i class='bx bx-copyright'></i>2024<router-link class=" hover:underline" to="/">{{ SITE_NAME }}</router-link></p>
     </div>
   </footer>
 </template>

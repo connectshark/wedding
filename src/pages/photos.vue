@@ -1,7 +1,10 @@
 <template>
-  <h1 class="text-2xl/loose md:text-4xl/loose text-center py-20">相簿</h1>
-  <div class=" container mx-auto">
-    <ul class="gap-0 columns-2 md:columns-3 xl:columns-4 mb-20">
+  <div class=" py-16">
+    <h1 class="text-2xl/loose md:text-4xl/loose text-center">相簿</h1>
+    <p class="text-center text-text/80">點擊圖片可看放大圖</p>
+  </div>
+  <div class=" container mx-auto px-1">
+    <ul class="gap-1 columns-2 md:columns-3 xl:columns-4 mb-20">
       <li v-for="photo in photos">
         <figure>
           <router-link class=" block" :to="`/photo/${ photo.id }`">
