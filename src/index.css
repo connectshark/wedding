@@ -4,18 +4,18 @@
 
 @layer base {
   :root {
-    --text: 11 10 8;
-    --background: 249 247 244;
+    --text: 12 11 9;
+    --background: 250 248 245;
     --primary: 210 176 132;
-    --secondary: 225 192 149;
-    --accent: 227 171 97;
+    --secondary: 223 192 150;
+    --accent: 221 166 95;
   }
   :root:has(#dark:checked) {
     --text: 246 245 243;
     --background: 10 8 5;
     --primary: 123 89 45;
-    --secondary: 107 74 30;
-    --accent: 156 100 28;
+    --secondary: 105 75 32;
+    --accent: 160 105 34;
   }
 }
 
@@ -51,4 +51,12 @@
   src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-SemiBold.woff2) format("woff2")
   , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-SemiBold.woff) format("woff");
   font-weight: 700;
+}
+
+html {
+  view-transition-name: none;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 1s;
 }

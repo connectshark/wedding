@@ -64,11 +64,11 @@
         <div class="flex-shrink-0 group-odd:order-1">
           <p class="text-center">羅友人</p>
           <figure class="p-1 rounded-full w-20 bg-gradient-to-tr from-primary to-accent">
-            <img loading="lazy" draggable="false" class="rounded-full object-center object-cover" :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
+            <img loading="lazy" draggable="false" class="rounded-full object-center object-cover aspect-square" :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
           </figure>
         </div>
         <div class="pb-10 mb-auto">
-          <p class="bg-background/80 shadow p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none shadow-accent/30">{{ avatar.text }}</p>
+          <p class="bg-background/80 border border-secondary p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none">{{ avatar.text }}</p>
         </div>
       </li>
     </ul>

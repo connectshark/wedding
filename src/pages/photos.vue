@@ -5,10 +5,16 @@
   </div>
   <div class=" container mx-auto px-1">
     <ul class="gap-1 columns-2 md:columns-3 xl:columns-4 mb-20">
-      <li v-for="photo in photos">
+      <li v-for="photo in photos" class=" mb-1">
         <figure>
-          <router-link class=" block" :to="`/photo/${ photo.id }`">
-            <img loading="lazy" :src="photo.url" alt="photo">
+          <router-link class="block" :to="`/photo/${ photo.id }`">
+            <img
+              draggable="false"
+              :style="{ viewTransitionName: isStart ? '' : `photo-${photo.id}` }"
+              loading="lazy"
+              :src="photo.url"
+              alt="photo"
+            >
           </router-link>
         </figure>
       </li>
@@ -20,6 +26,24 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { onBeforeRouteLeave } from 'vue-router'
+
+const isStart = ref(false)
+onBeforeRouteLeave((to, from, next) => {
+  const id = to.params.id
+  if (id) {
+    document.startViewTransition(async () => {
+      isStart.value = true
+      next()
+    })
+  } else {
+    isStart.value = false
+    next()
+  }
+})
+
+
 const photos = [
   {
     id: '1',

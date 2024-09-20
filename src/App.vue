@@ -35,13 +35,19 @@ const brands = [
 <template>
   <header class="backdrop-blur sticky top-0 z-20">
     <div class=" w-5/6 mx-auto py-2 flex">
-      <router-link class="p-3 rounded-xl hover:bg-text/10 flex items-center gap-2" to="/">
+      <router-link class="p-3 rounded-xl active:bg-text/10 md:hover:bg-text/10 flex items-center gap-2" to="/">
         <img class="w-8"src="./assets/logo.png" alt="">
         <span>{{ SITE_NAME }}</span>
       </router-link>
       <nav>
         <ul>
-          <li><input type="checkbox" id="dark"></li>
+          <li>
+            <input type="checkbox" id="dark" class=" sr-only">
+            <label for="dark">
+              <span><i class='bx bxs-moon' ></i></span>
+              <span><i class='bx bx-sun' ></i></span>
+            </label>
+          </li>
         </ul>
       </nav>
     </div>
@@ -69,7 +75,7 @@ const brands = [
         </h5>
         <ul>
           <li>
-            <a class="p-1 inline-block rounded hover:bg-text/10" href="mailto:contace@nosegates.com">
+            <a class="p-1 inline-block rounded active:bg-text/10 md:hover:bg-text/10" href="mailto:contace@nosegates.com">
               <i class='bx bxl-gmail bx-sm align-middle'></i>
             </a>
           </li>
@@ -102,10 +108,10 @@ const brands = [
     </div>
     <div class="w-5/6 mx-auto py-10 text-center text-text/80">
       <p class="mb-10 flex items-center gap-4 justify-center">
-        <a class="p-1 rounded hover:bg-text/10" href="https://www.instagram.com/joyun1191/" target="_blank" rel="noopener noreferrer">
+        <a class="p-1 rounded md:hover:bg-text/10 active:bg-text/10" href="https://www.instagram.com/joyun1191/" target="_blank" rel="noopener noreferrer">
           <i class='bx bxl-instagram bx-sm align-middle'></i>
         </a>
-        <a class="p-1 rounded hover:bg-text/10" href="https://github.com/connectshark/wedding" target="_blank" rel="noopener noreferrer">
+        <a class="p-1 rounded md:hover:bg-text/10 active:bg-text/10" href="https://github.com/connectshark/wedding" target="_blank" rel="noopener noreferrer">
           <i class='bx bxl-github bx-sm align-middle'></i>
         </a>
       </p>
