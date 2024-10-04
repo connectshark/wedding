@@ -1,55 +1,57 @@
 <script setup>
 import { useRoute, useRouter } from 'vue-router'
+import useFetch from './composables/useFetch'
+import { ref } from 'vue'
 const route = useRoute()
 const router = useRouter()
+
 const SITE_NAME = '若筠&恩騰'
 
-const brands = [
+const {
+  data: brands
+} = useFetch('/brands.json', {})
+
+const pages = [
   {
-    url: 'https://exchange-rate.justlikeboss.com/',
-    name: '匯星'
+    url: '/photos',
+    name: '相簿'
   },
-  {
-    url: 'https://blog.justlikeboss.com/',
-    name: '小資族FIRE攻略'
-  },
-  {
-    url: 'https://kfc.justlikeboss.com/',
-    name: '酷碰獅'
-  },
-  {
-    url: 'https://studio.justlikeboss.com/',
-    name: 'NS工作室'
-  },
-  {
-    url: 'https://shopee.nosegates.com/',
-    name: '蝦英雄'
-  },
-  {
-    url: 'https://hidden-taiwan.justlikeboss.com',
-    name: 'Hidden Taiwan'
-  }
 ]
+const list = ref(null)
+
+const vClickOutside = {
+  beforeMount (el) {
+    el.clickOutsideEvent = (event) => {
+      if (list.value.contains(event.target)) {
+        el.open = false
+        return
+      }
+      if (!el.open || el.contains(event.target)) return
+      el.open = false
+    }
+    document.addEventListener('click', el.clickOutsideEvent)
+  },
+  unmounted (el) {
+    document.removeEventListener('click', el.clickOutsideEvent)
+  }
+}
 </script>
 
 <template>
-  <header class="backdrop-blur sticky top-0 z-20">
-    <div class=" w-5/6 mx-auto py-2 flex">
+  <header class="backdrop-blur sticky top-0 z-20 bg-background/10">
+    <div class=" w-5/6 mx-auto py-2 flex items-center justify-between">
       <router-link class="p-3 rounded-xl active:bg-text/10 md:hover:bg-text/10 flex items-center gap-2" to="/">
-        <img class="w-8"src="./assets/logo.png" alt="">
+        <img class="size-8 aspect-square" src="./assets/logo.png" alt="logo">
         <span>{{ SITE_NAME }}</span>
       </router-link>
-      <nav>
-        <ul>
-          <li>
-            <input type="checkbox" id="dark" class=" sr-only">
-            <label for="dark">
-              <span><i class='bx bxs-moon' ></i></span>
-              <span><i class='bx bx-sun' ></i></span>
-            </label>
+      <details class=" relative" v-clickOutside>
+        <summary class="list-none p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10"><i class='bx bx-menu bx-sm'></i></summary>
+        <ul ref="list" class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background">
+          <li v-for="page in pages" class="border-b last:border-none">
+            <router-link class="p-4 block text-sm/loose" :to="page.url">{{ page.name }}</router-link>
           </li>
         </ul>
-      </nav>
+      </details>
     </div>
   </header>
   <main>
@@ -67,8 +69,8 @@ const brands = [
     <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
       <div>
         <h5 class="mb-4">
-          <router-link to="/" class="flex items-center gap-2 max-w-fit group">
-            <img class=" grayscale group-hover:grayscale-0 rounded-full w-8 h-8"
+          <router-link to="/" class="flex items-center gap-2 max-w-fit group p-3">
+            <img class=" grayscale group-hover:grayscale-0 rounded-full size-8"
               src="./assets/logo.png" alt="logo">
             <span>{{ SITE_NAME }}</span>
           </router-link>
@@ -85,7 +87,7 @@ const brands = [
         <h6 class="mb-4 text-text/70"><i class='bx bx-bookmark'></i>分頁</h6>
         <ul>
           <li>
-            <router-link class="text-sm/relaxed hover:underline" to="/photos">相簿</router-link>
+            <router-link class="text-xs/relaxed hover:underline md:text-sm/loose" to="/photos">相簿</router-link>
           </li>
         </ul>
       </div>
@@ -93,7 +95,7 @@ const brands = [
         <h6 class="mb-4 text-text/70"><i class='bx bx-cube-alt'></i>品牌</h6>
         <ul>
           <li class="mb-2 last:mb-0" v-for="item in brands">
-            <a class="text-sm/relaxed hover:underline" :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}<i class='bx bx-link-external'></i></a>
+            <a class="text-xs/relaxed hover:underline md:text-sm/loose" :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}<i class='bx bx-link-external'></i></a>
           </li>
         </ul>
       </div>
@@ -101,7 +103,7 @@ const brands = [
         <h6 class="mb-4 text-text/70"><i class='bx bx-pyramid'></i>來源</h6>
         <ul>
           <li>
-            <a class="text-sm/relaxed hover:underline" target="_blank" href="https://storyset.com/people">People illustrations by Storyset<i class='bx bx-link-external'></i></a>
+            <a class="text-xs/relaxed hover:underline md:text-sm/loose" target="_blank" href="https://storyset.com/people">People illustrations by Storyset<i class='bx bx-link-external'></i></a>
           </li>
         </ul>
       </div>
