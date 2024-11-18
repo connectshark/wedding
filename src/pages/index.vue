@@ -1,6 +1,6 @@
 <template>
 <section class="bg-[url('/hero.jpg')] bg-no-repeat bg-cover bg-center rounded-b-[3rem] -mt-12 mb-20">
-  <div class=" bg-gradient-to-b from-background/30 from-50% to-background/20 min-h-[80svh] text-center grid place-items-center">
+  <div class=" bg-gradient-to-b from-background/50 from-50% to-background/20 min-h-svh text-center grid place-items-center">
     <div>
       <h2 class="font-bold text-4xl/loose">The Day Of</h2>
       <p>THE DETAILS</p>
@@ -100,20 +100,25 @@
     <h2 class="text-2xl/loose md:text-4xl/loose text-center">分享邀請函</h2>
     <p class="text-center mb-10">把這些資訊分享給可能需要知道的人吧！</p>
     <div class=" flex items-center justify-evenly max-w-3xl mx-auto">
-      <button v-if="isShare" type="button" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" @click="share">
-        <ShareIcon/>
+      <button v-if="isShare" type="button" class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" @click="share">
+        <ShareIcon class="size-4"/>
+        <span>分享</span>
       </button>
-      <a :href="`https://www.facebook.com/sharer.php?u=${ encodeURI(SITE_URL) }`" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" target="_blank" rel="noopener noreferrer">
-        <FacebookIcon/>
+      <a :href="`https://www.facebook.com/sharer.php?u=${ encodeURI(SITE_URL) }&hashtag=%23婚禮邀請函`" class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" target="_blank" rel="noopener noreferrer">
+        <FacebookIcon class="size-4"/>
+        <span>分享</span>
       </a>
-      <a :href="`https://line.me/R/share?text=${ encodeURI(SITE_URL) + '?openExternalBrowser=1' }`" class="p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" target="_blank" rel="noopener noreferrer">
-        <LineIcon/>
+      <a :href="`https://line.me/R/share?text=若筠&恩騰婚禮邀請函 ${ encodeURI(SITE_URL) + '?openExternalBrowser=1' }`" class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" target="_blank" rel="noopener noreferrer">
+        <LineIcon  class="size-4"/>
+        <span>分享</span>
       </a>
-      <a class="hidden md:block p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" :href="`https://www.threads.net/intent/post?url=${ encodeURI(SITE_URL) }&text=若筠與恩騰的婚禮專頁`" target="_blank" rel="noopener noreferrer">
-        <ThreadsIcon/>
+      <a class="hidden md:flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" :href="`https://www.threads.net/intent/post?url=${ encodeURI(SITE_URL) }&text=若筠與恩騰的婚禮專頁`" target="_blank" rel="noopener noreferrer">
+        <ThreadsIcon class="size-4"/>
+        <span>分享</span>
       </a>
-      <a class="md:hidden p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80" :href="`https://www.threads.net/intent/post?url=${ encodeURI(SITE_URL) }&text=${ encodeURI(SITE_URL) }`" target="_blank" rel="noopener noreferrer">
-        <ThreadsIcon/>
+      <a class="md:hidden flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" :href="`https://www.threads.net/intent/post?url=${ encodeURI(SITE_URL) }&text=${ encodeURI(SITE_URL) }`" target="_blank" rel="noopener noreferrer">
+        <ThreadsIcon class="size-4"/>
+        <span>分享</span>
       </a>
     </div>
   </div>
@@ -176,7 +181,7 @@ const {
   share,
   isShare
 } = useShare({
-  title: '若筠&恩騰',
+  title: '若筠&恩騰婚禮邀請函',
   url: SITE_URL
 })
 </script>
