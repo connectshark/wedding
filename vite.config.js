@@ -10,7 +10,7 @@ const fetchStaticData = () => {
   return {
     name: 'json',
     async buildEnd () {
-      const fetch_response = await fetch('https://cdn.jsdelivr.net/gh/connectshark/studio-portfolio/brands.json')
+      const fetch_response = await fetch('https://cdn.jsdelivr.net/gh/connectshark/studio-portfolio@latest/brands.json')
       const data = await fetch_response.json()
       writeFileSync('./public/brands.json', JSON.stringify(data))
     }

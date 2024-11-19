@@ -108,7 +108,7 @@
         <FacebookIcon class="size-4"/>
         <span>分享</span>
       </a>
-      <a :href="`https://line.me/R/share?text=若筠&恩騰婚禮邀請函 ${ encodeURI(SITE_URL) + '?openExternalBrowser=1' }`" class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" target="_blank" rel="noopener noreferrer">
+      <a :href="`https://line.me/R/share?text=若筠和恩騰婚禮邀請函 ${ encodeURI(SITE_URL) + '?openExternalBrowser=1' }`" class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" target="_blank" rel="noopener noreferrer">
         <LineIcon  class="size-4"/>
         <span>分享</span>
       </a>
