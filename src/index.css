@@ -53,3 +53,18 @@ html {
 ::view-transition-new(root) {
   animation-duration: 1s;
 }
+
+.subject {
+  animation: reveal linear both;
+  animation-timeline: view(block);
+  animation-range: contain 0% contain 40%;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

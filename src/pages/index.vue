@@ -1,6 +1,6 @@
 <template>
 <section class="bg-[url('/hero.jpg')] bg-no-repeat bg-cover bg-center rounded-b-[3rem] -mt-12 mb-20">
-  <div class=" bg-gradient-to-b from-background/50 from-50% to-background/20 min-h-svh text-center grid place-items-center">
+  <div class=" bg-gradient-to-b from-background/50 from-50% to-background/20 min-h-[80vh] text-center grid place-items-center">
     <div>
       <h2 class="font-bold text-4xl/loose">The Day Of</h2>
       <p>THE DETAILS</p>
@@ -47,20 +47,20 @@
 </section>
 <section class="mb-20">
   <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-20">Photos</h2>
-  <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10">
-    <figure v-for="photo in photos" class="shadow z-10 transition-transform rounded-3xl overflow-hidden odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
-      <img loading="lazy" draggable="false" class="aspect-[9/16] object-cover object-center" :src="photo.url" alt="photo">
+  <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10 *:shadow *:z-10 *:transition-transform *:rounded-3xl *:overflow-hidden  *:border *:border-text/10">
+    <figure v-for="photo in photos" class="odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
+      <img loading="lazy" draggable="false" class="aspect-[9/16] h-full w-full object-cover object-center" :src="photo.url" alt="photo">
     </figure>
   </div>
   <div class=" text-center py-20">
-    <router-link to="/photos" class=" underline decoration-primary decoration-4 hover:underline-offset-[-4px]">搶先看照片</router-link>
+    <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px]">搶先看照片</router-link>
   </div>
 </section>
 <section class="mb-20">
   <div>
     <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-10">祝福</h2>
     <ul class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-3xl">
-      <li v-for="(avatar, i) in avatars" class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
+      <li v-for="(avatar, i) in avatars" class="subject flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
         <div class="flex-shrink-0 group-odd:order-1">
           <p class="text-center">羅友人</p>
           <figure class="p-1 rounded-full w-20 bg-gradient-to-tr from-primary to-accent">
@@ -90,8 +90,16 @@
 <section class="mb-20">
   <div class="w-5/6 mx-auto">
   <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-10">地點</h2>
-  <div class="">
-    <iframe class=" max-w-[400px] w-full mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.8136350223413!2d121.54646475183712!3d25.04039790588343!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abd0af5c2005%3A0xf9c26b5bf5de8f0a!2z6YGg5p2xU09HTyDlj7DljJflv6DlrZ3ppKg!5e0!3m2!1szh-TW!2stw!4v1725001742776!5m2!1szh-TW!2stw" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <div class=" mb-10">
+    <iframe class="max-w-[400px] w-full mx-auto" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.782681954402!2d121.28191951151508!3d25.041448077719046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681fe77bb58c05%3A0xd840689761d00517!2z5bed6ZaA5a2Q5pmC5bCa6aSQ5buz!5e0!3m2!1szh-TW!2stw!4v1731997994027!5m2!1szh-TW!2stw" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <div>
+    <p class="flex justify-center">
+      <a class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" :href="map" target="_blank" rel="noopener noreferrer">
+        <span>導航到會場</span>
+        <i class='bx bxs-navigation'></i>
+      </a>
+    </p>
   </div>
   </div>
 </section>
@@ -108,7 +116,7 @@
         <FacebookIcon class="size-4"/>
         <span>分享</span>
       </a>
-      <a :href="`https://line.me/R/share?text=若筠和恩騰婚禮邀請函 ${ encodeURI(SITE_URL) + '?openExternalBrowser=1' }`" class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" target="_blank" rel="noopener noreferrer">
+      <a :href="`https://line.me/R/share?text=若筠和恩騰婚禮邀請函 ${ encodeURI(SITE_URL) + '?openExternalBrowser=1' }`" class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors md:hidden" target="_blank" rel="noopener noreferrer">
         <LineIcon  class="size-4"/>
         <span>分享</span>
       </a>
@@ -137,6 +145,8 @@ import useShare from '../composables/useShare'
 const SITE_URL = 'https://sandra.nosegates.com'
 
 const calender = 'https://www.google.com/calendar/render?action=TEMPLATE&text=OOO%E5%A9%9A%E7%A6%AE&details=%E8%A8%98%E5%BE%97%E5%8F%83%E5%8A%A0OOO%E5%A9%9A%E7%A6%AE&location=%E9%81%A0%E6%9D%B1SOGO%20%E5%8F%B0%E5%8C%97%E5%BF%A0%E5%AD%9D%E9%A4%A8&dates=20241212T033000.000Z%2F20241212T060000.000Z'
+
+const map = `https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg&travelmode=driving&destination=川門子`
 
 const {
   days,
