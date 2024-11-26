@@ -1,7 +1,8 @@
 <template>
   <div class=" pt-[10svh]" :class="{ 'text-background': isLightBox }">
     <template v-if="photo">
-      <img loading="lazy" :style="`view-transition-name: photo-${route.params.id};`" class=" max-h-[80svh] mx-auto" :src="photo.url" alt="photo">
+      <img loading="lazy" :style="`view-transition-name: photo-${route.params.id};`" class=" max-h-[80svh] mx-auto"
+        :src="photo.url" alt="photo">
       <div class=" text-center">長按圖片可下載</div>
     </template>
     <div v-else class=" text-center">

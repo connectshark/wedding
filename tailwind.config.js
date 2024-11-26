@@ -6,10 +6,11 @@ export default {
   ],
   darkMode: ['selector'],
   theme: {
+    fontFamily: {
+      main: [`FakePearl`, 'system-ui', `Arial`, `Helvetica`, `sans-serif`, 'sans-serif', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas'],
+      title: [`ChenYuluoyan`, 'system-ui', `Arial`, `Helvetica`, `sans-serif`, 'sans-serif', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas']
+    },
     extend: {
-      fontFamily: {
-        'main': [`FakePearl`, 'system-ui', `Arial`, `Helvetica`, `sans-serif`, 'sans-serif', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas']
-      },
       colors: {
         'text': 'rgb(var(--text) / <alpha-value>)',
         'background': 'rgb(var(--background) / <alpha-value>)',

@@ -46,6 +46,11 @@
   font-weight: 700;
 }
 
+@font-face {
+  font-family: ChenYuluoyan;
+  src: url(https://cdn.jsdelivr.net/gh/Chenyu-otf/chenyuluoyan_thin@latest/ChenYuluoyan-Thin.ttf);
+}
+
 html {
   view-transition-name: none;
 }
