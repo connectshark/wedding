@@ -45,8 +45,10 @@ const vClickOutside = {
         <span>{{ SITE_NAME }}</span>
       </router-link>
       <details class=" relative" v-clickOutside>
-        <summary class="list-none p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10"><i class='bx bx-menu bx-sm'></i></summary>
-        <ul ref="list" class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background">
+        <summary class="list-none p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10">
+          <i class='bx bx-menu bx-sm'></i>
+        </summary>
+        <ul ref="list" class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background border border-text/10">
           <li v-for="page in pages" class="border-b last:border-none">
             <router-link class="p-4 block text-sm/loose" :to="page.url">{{ page.name }}</router-link>
           </li>

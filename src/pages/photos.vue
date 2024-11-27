@@ -3,13 +3,12 @@
     <h1 class="text-2xl/loose md:text-4xl/loose text-center">相簿</h1>
     <p class="text-center text-text/80">點擊圖片可看放大圖</p>
   </div>
-  <div class=" container mx-auto px-1">
-    <ul class="gap-1 columns-2 md:columns-3 xl:columns-4 mb-20">
-      <li v-for="photo in photos" class=" mb-1">
+  <div>
+    <ul class="gap-0 columns-2 md:columns-3 xl:columns-4 mb-20">
+      <li v-for="photo in photos">
         <figure>
           <router-link class="block" :to="`/photo/${photo.id}`">
-            <img draggable="false" :style="{ viewTransitionName: isStart ? '' : `photo-${photo.id}` }" loading="lazy"
-              :src="photo.url" alt="photo">
+            <img draggable="false" :style="{ viewTransitionName: isStart ? '' : `photo-${photo.id}` }" loading="lazy" :src="photo.url" alt="photo">
           </router-link>
         </figure>
       </li>
@@ -54,7 +53,7 @@ const photos = [
   },
   {
     id: '4',
-    url: '/4.jpg'
+    url: 'https://images.unsplash.com/photo-1517456363055-5d162a453d6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDExMjB8MHwxfGFsbHx8fHx8fHx8fDE3MzI2MDk1MjF8&ixlib=rb-4.0.3&q=80&w=1080'
   }
 ]
 </script>

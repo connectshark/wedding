@@ -22,7 +22,7 @@ export default defineConfig({
   plugins: [
     vue(),
     VueRouter({
-      importMode: (filepath) => filepath.includes('index') ? 'sync' : 'async'
+      importMode: (filepath) => filepath.includes('/photo/') ? 'sync' : 'async'
     }),
     VueDevTools(),
     fetchStaticData()

@@ -3,7 +3,7 @@
     <p>邀請對我們而言重要的你</p>
     <p>見證一場儀式，不算盛大，卻足夠用心</p>
   </div>
-  <div class="font-light text-center">
+  <div class="text-center">
     <figure class="py-10 max-w-3xl mx-auto">
       <img draggable="false"class="object-cover object-center shadow-xl w-full" src="https://images.unsplash.com/photo-1634729108541-516d16ddceec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDExMjB8MHwxfGFsbHx8fHx8fHx8fDE3MzI2MDY4NDJ8&ixlib=rb-4.0.3&q=80&w=1080" alt="首圖">
     </figure>
@@ -11,7 +11,7 @@
       <h1>婚禮邀請函</h1>
       <p class="text-6xl/relaxed">若筠 & 恩騰</p>
       <p>我們結婚啦</p>
-      <p>welcome to our wedding.</p>
+      <p>Welcome to our wedding.</p>
     </div>
     <div>
       <p>人的一生有三萬多天，很開心這一天，你專為我們而來</p>
@@ -20,7 +20,7 @@
       <SoundComponents/>
     </div>
     <figure class="py-10 max-w-3xl mx-auto">
-      <img draggable="false"class="object-cover object-center shadow-xl w-full rounded-md" src="https://images.unsplash.com/photo-1517456363055-5d162a453d6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDExMjB8MHwxfGFsbHx8fHx8fHx8fDE3MzI2MDk1MjF8&ixlib=rb-4.0.3&q=80&w=1080" alt="">
+      <img draggable="false"class="object-cover object-center shadow-xl w-full" src="https://images.unsplash.com/photo-1517456363055-5d162a453d6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDExMjB8MHwxfGFsbHx8fHx8fHx8fDE3MzI2MDk1MjF8&ixlib=rb-4.0.3&q=80&w=1080" alt="">
     </figure>
     <div class=" pt-20 pb-40">
       <p>2019 - 2024</p>
@@ -39,7 +39,10 @@
   </section>
   <section class="mb-20">
     <div class="w-5/6 mx-auto">
-      <h2 class="text-2xl/loose text-center">婚禮時間/Time</h2>
+      <div class="font-title text-3xl text-center">
+        <h2>婚禮時間</h2>
+        <p>Time</p>
+      </div>
       <div>
         <img loading="lazy" draggable="false" class="max-w-96 aspect-square mx-auto" src="../assets/svg/planner.svg" alt="calendar">
       </div>
@@ -47,28 +50,28 @@
         <ul class=" flex justify-evenly max-w-2xl mx-auto">
           <li class="text-center">
             <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ days }}</div>
-            <p class="font-light">Day(s)</p>
+            <p>Day(s)</p>
           </li>
           <li>
             <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
           </li>
           <li class="text-center">
             <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ hours }}</div>
-            <p class="font-light">Hour(s)</p>
+            <p>Hour(s)</p>
           </li>
           <li>
             <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
           </li>
           <li class="text-center">
             <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ minutes }}</div>
-            <p class="font-light">Minute(s)</p>
+            <p>Minute(s)</p>
           </li>
           <li>
             <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
           </li>
           <li class="text-center">
             <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ seconds }}</div>
-            <p class="font-light">Second(s)</p>
+            <p>Second(s)</p>
           </li>
         </ul>
       </div>
@@ -76,7 +79,10 @@
   </section>
   <section class="mb-20">
     <div class="w-5/6 mx-auto">
-      <h2 class="text-xl/loose text-center mb-10">婚禮地址/Address</h2>
+      <div class="font-title text-3xl text-center">
+        <h2>婚禮地址</h2>
+        <p>Address</p>
+      </div>
       <div class="mb-10">
         <iframe class="max-w-[400px] w-full mx-auto aspect-video" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3614.782681954402!2d121.28191951151508!3d25.041448077719046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34681fe77bb58c05%3A0xd840689761d00517!2z5bed6ZaA5a2Q5pmC5bCa6aSQ5buz!5e0!3m2!1szh-TW!2stw!4v1731997994027!5m2!1szh-TW!2stw" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       </div>
@@ -92,7 +98,9 @@
   </section>
   <section class="mb-20">
     <div>
-      <h2 class="text-2xl/loose md:text-4xl/loose text-center mb-10">祝福</h2>
+      <div class="font-title text-3xl text-center">
+        <h2>親友的祝福</h2>
+      </div>
       <ul class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-3xl">
         <li v-for="(avatar, i) in avatars"
           class="subject flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
