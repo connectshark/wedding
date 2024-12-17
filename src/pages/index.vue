@@ -3,29 +3,25 @@
     <p>邀請對我們而言重要的你</p>
     <p>見證一場儀式，不算盛大，卻足夠用心</p>
   </div>
-  <div class="text-center">
-    <figure class="py-10 max-w-3xl mx-auto">
-      <img draggable="false"class="object-cover object-center shadow-xl w-full" src="https://images.unsplash.com/photo-1634729108541-516d16ddceec?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDExMjB8MHwxfGFsbHx8fHx8fHx8fDE3MzI2MDY4NDJ8&ixlib=rb-4.0.3&q=80&w=1080" alt="首圖">
-    </figure>
-    <div class="font-title mb-10 text-3xl text-text/80">
-      <h1>婚禮邀請函</h1>
-      <p class="text-6xl/relaxed">若筠 & 恩騰</p>
-      <p>我們結婚啦</p>
-      <p>Welcome to our wedding.</p>
-    </div>
-    <div>
-      <p>人的一生有三萬多天，很開心這一天，你專為我們而來</p>
-    </div>
-    <div class="py-10">
-      <SoundComponents/>
-    </div>
-    <figure class="py-10 max-w-3xl mx-auto">
-      <img draggable="false"class="object-cover object-center shadow-xl w-full" src="https://images.unsplash.com/photo-1517456363055-5d162a453d6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDExMjB8MHwxfGFsbHx8fHx8fHx8fDE3MzI2MDk1MjF8&ixlib=rb-4.0.3&q=80&w=1080" alt="">
-    </figure>
-    <div class=" pt-20 pb-40">
-      <p>2019 - 2024</p>
-      <p>見證一場儀式，不算盛大，卻足夠用心</p>
-    </div>
+  <figure class="py-10 max-w-3xl mx-auto">
+    <img loading="lazy" draggable="false"class="object-cover object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00174.webp" alt="首圖">
+  </figure>
+  <div class="font-title mb-10 text-3xl text-text/80 text-center">
+    <h1>婚禮邀請函</h1>
+    <p class="text-6xl/relaxed">若筠 & 恩騰</p>
+    <p>我們結婚啦</p>
+    <p>Welcome to our wedding.</p>
+  </div>
+  <p class="text-center">人的一生有三萬多天，很開心這一天，你專為我們而來</p>
+  <div class="py-10">
+    <SoundComponents/>
+  </div>
+  <figure class="py-10 max-w-3xl mx-auto">
+    <img loading="lazy" draggable="false"class="object-contain object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00186.webp" alt="">
+  </figure>
+  <div class="pt-20 pb-40 text-center">
+    <p>2019 - 2024</p>
+    <p>見證一場儀式，不算盛大，卻足夠用心</p>
   </div>
   <section>
     <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10 *:shadow *:z-10 *:transition-transform *:overflow-hidden">
@@ -98,20 +94,19 @@
   </section>
   <section class="mb-20">
     <div>
-      <div class="font-title text-3xl text-center">
-        <h2>親友的祝福</h2>
-      </div>
-      <ul class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-3xl">
-        <li v-for="(avatar, i) in avatars"
-          class="subject flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
+      <h2 class="font-title text-center text-3xl/loose">親友的祝福</h2>
+      <div v-if="loading"></div>
+      <ul v-else class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl">
+        <li v-for="(page, i) in data.results"
+          class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
           <div class="flex-shrink-0 group-odd:order-1">
-            <p class="text-center">羅友人</p>
+            <p class="text-center">{{ page.properties.name.title[0].plain_text }}</p>
             <figure class="p-1 rounded-full w-20 bg-gradient-to-tr from-primary to-accent">
               <img loading="lazy" draggable="false" class="rounded-full object-center object-cover aspect-square" :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
             </figure>
           </div>
           <div class="pb-10 mb-auto">
-            <p class="bg-background/80 border border-secondary p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none">{{ avatar.text }}</p>
+            <p class="bg-background/80 border border-secondary p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none">{{ page.properties.content.rich_text[0].plain_text }}</p>
           </div>
         </li>
       </ul>
@@ -179,6 +174,7 @@ import ShareIcon from '../components/icons/ShareIcon.vue'
 import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
 import SoundComponents from '../components/SoundComponents.vue'
+import useFetch from '../composables/useFetch'
 
 const SITE_URL = 'https://sandra.nosegates.com'
 
@@ -196,34 +192,26 @@ const {
 const photos = [
   {
     id: '1',
-    url: `/1.avif`
+    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00205.webp`
   },
   {
     id: '2',
-    url: `/2.avif`
+    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00296.webp`
   },
   {
     id: '3',
-    url: '/3.avif'
+    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00261.webp'
   },
   {
     id: '4',
-    url: 'https://images.unsplash.com/photo-1523975804200-ad0324aaf9ed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDExMjB8MHwxfGFsbHx8fHx8fHx8fDE3MzI2MDk4MjZ8&ixlib=rb-4.0.3&q=80&w=1080'
+    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00209.webp'
   }
 ]
 
-const avatars = [
-  { text: '永浴愛河永浴愛河永浴愛河永浴愛河' },
-  { text: '永浴愛河永浴愛河永浴愛河永浴永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴永浴愛河永浴愛河永浴愛河永浴愛河愛河永浴愛河愛河' },
-  { text: '永浴愛河永浴愛河永浴愛河' },
-  { text: '永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河' },
-  { text: '永浴愛河' },
-  { text: '永浴愛河永浴愛河永浴愛河永浴愛河' },
-  { text: '永浴愛河' },
-  { text: '永浴愛河' },
-  { text: '永浴愛河' },
-  { text: '永浴愛河永浴愛河永永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河永浴愛河浴愛河永浴愛河永浴愛河' }
-]
+const {
+  data,
+  loading
+} = useFetch('http://localhost:3000/notion', {})
 
 const {
   share,

@@ -14,7 +14,7 @@
       </li>
     </ul>
     <p class=" text-center">
-      <router-link to="/" class=" underline"><i class='bx bx-home'></i>回首頁</router-link>
+      <router-link to="/" class="underline"><i class='bx bx-home'></i>回首頁</router-link>
     </p>
   </div>
 </template>

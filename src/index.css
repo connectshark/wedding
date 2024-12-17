@@ -4,11 +4,11 @@
 
 @layer base {
   :root {
-    --text: 12 11 9;
+    --text: 51 51 51;
     --background: 250 248 245;
-    --primary: 210 176 132;
+    --primary: 255 175 204;
     --secondary: 223 192 150;
-    --accent: 221 166 95;
+    --accent: 255 215 0;
   }
 }
 

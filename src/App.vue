@@ -115,11 +115,8 @@ const vClickOutside = {
         <a class="p-1 rounded md:hover:bg-text/10 active:bg-text/10" href="https://www.instagram.com/joyun1191/" target="_blank" rel="noopener noreferrer">
           <i class='bx bxl-instagram bx-sm align-middle'></i>
         </a>
-        <a class="p-1 rounded md:hover:bg-text/10 active:bg-text/10" href="https://github.com/connectshark/wedding" target="_blank" rel="noopener noreferrer">
-          <i class='bx bxl-github bx-sm align-middle'></i>
-        </a>
       </p>
-      <p class=" text-xs/loose lg:text-sm/loose">Copyright <i class='bx bx-copyright'/> 2024<router-link class=" hover:underline" to="/">{{ SITE_NAME }}</router-link> <a class=" underline" href="https://github.com/connectshark/wedding/blob/main/LICENSE" target="_blank">CC-BY-SA-4.0</a> License.</p>
+      <p class=" text-xs/loose lg:text-sm/loose">Copyright <i class='bx bx-copyright'/> 2024 <a class=" underline" href="https://studio.justlikeboss.com" target="_blank">NS工作室</a> 版權所有.</p>
     </div>
   </footer>
 </template>
