@@ -1,5 +1,4 @@
 import { fileURLToPath } from 'url'
-
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import VueDevTools from 'vite-plugin-vue-devtools'
@@ -23,7 +22,6 @@ const fetchPhotos = () => {
     async buildEnd () {
       const fetch_response = await fetch('https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos.json')
       const data = await fetch_response.json()
-      const result = data.map(item => item.name.split('.')[0])
       writeFileSync('./public/photos.json', JSON.stringify(result))
     }
   }
@@ -37,8 +35,7 @@ export default defineConfig({
       importMode: (filepath) => filepath.includes('/photo/') ? 'sync' : 'async'
     }),
     VueDevTools(),
-    fetchStaticData(),
-    fetchPhotos()
+    fetchStaticData()
   ],
   server: {
     port: 8080

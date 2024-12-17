@@ -14,6 +14,7 @@
         </figure>
       </li>
     </ul>
+    <p class=" text-center mb-10">剩下的照片將於 2025/11/15 公開</p>
     <p class=" text-center">
       <router-link to="/" class="underline"><i class='bx bx-home'></i>回首頁</router-link>
     </p>

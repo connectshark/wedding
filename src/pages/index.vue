@@ -208,10 +208,12 @@ const photos = [
   }
 ]
 
+const URL = import.meta.env.VITE_COMMENTS_API
+
 const {
   data,
   loading
-} = useFetch('http://localhost:3000/notion', {})
+} = useFetch(URL + '/notion', {})
 
 const {
   share,

@@ -9,7 +9,6 @@ export const router = createRouter({
   }
 })
 
-
 router.beforeEach((to, from) => {
   if (from.matched.length) {
     const fromMatch = from.matched[from.matched.length - 1]
