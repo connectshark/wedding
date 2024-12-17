@@ -1,8 +1,8 @@
 <template>
   <div class=" pt-[10svh]" :class="{ 'text-background': isLightBox }">
     <template v-if="photo">
-      <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${route.params.id};`" class=" max-h-[80svh] mx-auto"
-        :src="photo.url" alt="photo">
+      <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${photoID};`" class="max-h-[80svh] mx-auto"
+        :src="photo" alt="photo">
       <div class=" text-center">長按圖片可下載</div>
     </template>
     <div v-else class=" text-center">
@@ -21,28 +21,9 @@ const route = useRoute()
 
 const isLightBox = route.meta.lightBox
 
-const photos = [
-  {
-    id: '1',
-    url: `/1.avif`
-  },
-  {
-    id: '2',
-    url: `/2.avif`
-  },
-  {
-    id: '3',
-    url: '/3.avif'
-  },
-  {
-    id: '4',
-    url: 'https://images.unsplash.com/photo-1517456363055-5d162a453d6d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3wzNDExMjB8MHwxfGFsbHx8fHx8fHx8fDE3MzI2MDk1MjF8&ixlib=rb-4.0.3&q=80&w=1080'
-  }
-]
-
 const photoID = route.params.id
 
-const photo = photos.find(photo => photo.id === photoID)
+const photo = `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/${ photoID }.webp`
 
 </script>
 

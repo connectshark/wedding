@@ -4,7 +4,7 @@
     <p>見證一場儀式，不算盛大，卻足夠用心</p>
   </div>
   <figure class="py-10 max-w-3xl mx-auto">
-    <img loading="lazy" draggable="false"class="object-cover object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00174.webp" alt="首圖">
+    <img loading="lazy" draggable="false"class="object-cover object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
   </figure>
   <div class="font-title mb-10 text-3xl text-text/80 text-center">
     <h1>婚禮邀請函</h1>
@@ -12,16 +12,16 @@
     <p>我們結婚啦</p>
     <p>Welcome to our wedding.</p>
   </div>
-  <p class="text-center">人的一生有三萬多天，很開心這一天，你專為我們而來</p>
+  <p class="text-center">愛讓我們相遇，承諾讓我們攜手共進</p>
   <div class="py-10">
     <SoundComponents/>
   </div>
   <figure class="py-10 max-w-3xl mx-auto">
-    <img loading="lazy" draggable="false"class="object-contain object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00186.webp" alt="">
+    <img loading="lazy" draggable="false"class="object-contain object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="">
   </figure>
   <div class="pt-20 pb-40 text-center">
-    <p>2019 - 2024</p>
-    <p>見證一場儀式，不算盛大，卻足夠用心</p>
+    <p>2019 - 2025</p>
+    <p>愛情的旅程，感謝有你相伴</p>
   </div>
   <section>
     <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10 *:shadow *:z-10 *:transition-transform *:overflow-hidden">
@@ -187,24 +187,24 @@ const {
   minutes,
   seconds,
   hours
-} = useCountdown('2024-12-31')
+} = useCountdown('2025-11-15')
 
 const photos = [
   {
     id: '1',
-    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00205.webp`
+    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00205.webp`
   },
   {
     id: '2',
-    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00296.webp`
+    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00296.webp`
   },
   {
     id: '3',
-    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00261.webp'
+    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00261.webp'
   },
   {
     id: '4',
-    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/DSC00209.webp'
+    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00209.webp'
   }
 ]
 

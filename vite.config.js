@@ -17,6 +17,18 @@ const fetchStaticData = () => {
   }
 }
 
+const fetchPhotos = () => {
+  return {
+    name: 'photos',
+    async buildEnd () {
+      const fetch_response = await fetch('https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos.json')
+      const data = await fetch_response.json()
+      const result = data.map(item => item.name.split('.')[0])
+      writeFileSync('./public/photos.json', JSON.stringify(result))
+    }
+  }
+}
+
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   plugins: [
@@ -25,7 +37,8 @@ export default defineConfig({
       importMode: (filepath) => filepath.includes('/photo/') ? 'sync' : 'async'
     }),
     VueDevTools(),
-    fetchStaticData()
+    fetchStaticData(),
+    fetchPhotos()
   ],
   server: {
     port: 8080
