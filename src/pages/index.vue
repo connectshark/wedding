@@ -20,13 +20,13 @@
     <img loading="lazy" draggable="false"class="object-contain object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="">
   </figure>
   <div class="pt-20 pb-40 text-center">
-    <p>2019 - 2025</p>
-    <p>愛情的旅程，感謝有你相伴</p>
+    <p class=" text-2xl/loose">2019 - 2025</p>
+    <p>愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
   <section>
-    <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10 *:shadow *:z-10 *:transition-transform *:overflow-hidden">
+    <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10 *:z-10 *:transition-transform *:overflow-hidden">
       <figure v-for="photo in photos" class="odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
-        <img loading="lazy" draggable="false" class="aspect-[9/16] h-full w-full object-cover object-center rounded-md" :src="photo.url" alt="photo">
+        <img loading="lazy" draggable="false" class="aspect-[9/16] h-full w-full object-cover object-center rounded-md shadow" :src="photo.url" alt="photo">
       </figure>
     </div>
     <div class=" text-center py-20">
@@ -45,28 +45,28 @@
       <div class="py-10">
         <ul class=" flex justify-evenly max-w-2xl mx-auto">
           <li class="text-center">
-            <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ days }}</div>
+            <div class="text-3xl md:text-5xl font-semibold text-secondary mb-2">{{ days }}</div>
             <p>Day(s)</p>
           </li>
           <li>
-            <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
+            <div class=" text-2xl md:text-4xl text-secondary font-semibold">:</div>
           </li>
           <li class="text-center">
-            <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ hours }}</div>
+            <div class="text-3xl md:text-5xl font-semibold text-secondary mb-2">{{ hours }}</div>
             <p>Hour(s)</p>
           </li>
           <li>
-            <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
+            <div class=" text-2xl md:text-4xl text-secondary font-semibold">:</div>
           </li>
           <li class="text-center">
-            <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ minutes }}</div>
+            <div class="text-3xl md:text-5xl font-semibold text-secondary mb-2">{{ minutes }}</div>
             <p>Minute(s)</p>
           </li>
           <li>
-            <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
+            <div class=" text-2xl md:text-4xl text-secondary font-semibold">:</div>
           </li>
           <li class="text-center">
-            <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ seconds }}</div>
+            <div class="text-3xl md:text-5xl font-semibold text-secondary mb-2">{{ seconds }}</div>
             <p>Second(s)</p>
           </li>
         </ul>
