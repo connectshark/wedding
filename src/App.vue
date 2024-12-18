@@ -38,14 +38,14 @@ const vClickOutside = {
 </script>
 
 <template>
-  <header class="backdrop-blur sticky top-0 z-20 bg-background/10">
+  <header class="backdrop-blur-sm sticky top-0 z-20 bg-background/10">
     <div class=" w-5/6 mx-auto py-2 flex items-center justify-between">
       <router-link class="p-3 rounded-xl active:bg-text/10 md:hover:bg-text/10 flex items-center gap-2" to="/">
         <img class="size-8 aspect-square" src="./assets/logo.png" alt="logo">
         <span>{{ SITE_NAME }}</span>
       </router-link>
-      <details class=" relative" v-clickOutside>
-        <summary class="list-none p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10">
+      <details class="relative" v-clickOutside>
+        <summary class="p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10">
           <i class='bx bx-menu bx-sm'></i>
         </summary>
         <ul ref="list" class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background border border-text/10">
@@ -61,7 +61,7 @@ const vClickOutside = {
   </main>
 
   <Teleport to="#modal">
-    <div v-if="route.meta.lightBox" @click="router.back()" class="fixed z-20 inset-0 bg-text/70 w-full h-full backdrop-blur">
+    <div v-if="route.meta.lightBox" @click="router.back()" class="fixed z-20 inset-0 bg-text/70 w-full h-full backdrop-blur-sm">
       <router-view name="lightBox"/>
     </div>
   </Teleport>
@@ -79,7 +79,7 @@ const vClickOutside = {
         </h5>
         <ul>
           <li>
-            <a class="p-1 inline-block rounded active:bg-text/10 md:hover:bg-text/10" href="mailto:contace@nosegates.com">
+            <a class="p-1 inline-block rounded-sm active:bg-text/10 md:hover:bg-text/10" href="mailto:contace@nosegates.com">
               <i class='bx bxl-gmail bx-sm align-middle'></i>
             </a>
           </li>
@@ -112,7 +112,7 @@ const vClickOutside = {
     </div>
     <div class="w-5/6 mx-auto py-10 text-center text-text/80">
       <p class="mb-10 flex items-center gap-4 justify-center">
-        <a class="p-1 rounded md:hover:bg-text/10 active:bg-text/10" href="https://www.instagram.com/joyun1191/" target="_blank" rel="noopener noreferrer">
+        <a class="p-1 rounded-sm md:hover:bg-text/10 active:bg-text/10" href="https://www.instagram.com/joyun1191/" target="_blank" rel="noopener noreferrer">
           <i class='bx bxl-instagram bx-sm align-middle'></i>
         </a>
       </p>

@@ -1,14 +1,41 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --text: #333333;
+  --background: #FAF8F5;
+  --primary: #FFAFCC;
+  --secondary: #DFC096;
+  --accent: #FFD700;
+
+  --font-*: initial;
+  --font-main: FakePearl, system-ui, Arial, Helvetica, sans-serif, sans-serif,
+    SFMono-Regular, Menlo, Monaco, Consolas;
+  --font-title: ChenYuluoyan, system-ui, Arial, Helvetica, sans-serif,
+    sans-serif, SFMono-Regular, Menlo, Monaco, Consolas;
+
+  --color-text: var(--text);
+  --color-background: var(--background);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
+}
 
 @layer base {
-  :root {
-    --text: 51 51 51;
-    --background: 250 248 245;
-    --primary: 255 175 204;
-    --secondary: 223 192 150;
-    --accent: 255 215 0;
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+  details > summary {
+    list-style: none;
+  }
+  details > summary::marker,
+  details > summary::-webkit-details-marker {
+    display: none;
   }
 }
 

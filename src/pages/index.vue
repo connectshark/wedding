@@ -26,7 +26,7 @@
   <section>
     <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10 *:z-10 *:transition-transform *:overflow-hidden">
       <figure v-for="photo in photos" class="odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
-        <img loading="lazy" draggable="false" class="aspect-[9/16] h-full w-full object-cover object-center rounded-md shadow" :src="photo.url" alt="photo">
+        <img loading="lazy" draggable="false" class="aspect-9/16 h-full w-full object-cover object-center rounded-md shadow-sm" :src="photo.url" alt="photo">
       </figure>
     </div>
     <div class=" text-center py-20">
@@ -99,9 +99,9 @@
       <ul v-else class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl">
         <li v-for="(page, i) in data.results"
           class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
-          <div class="flex-shrink-0 group-odd:order-1">
+          <div class="shrink-0 group-odd:order-1">
             <p class="text-center">{{ page.properties.name.title[0].plain_text }}</p>
-            <figure class="p-1 rounded-full w-20 bg-gradient-to-tr from-primary to-accent">
+            <figure class="p-1 rounded-full w-20 bg-linear-to-tr from-primary to-accent">
               <img loading="lazy" draggable="false" class="rounded-full object-center object-cover aspect-square" :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
             </figure>
           </div>
@@ -120,7 +120,7 @@
       </div>
       <div class=" text-center">
         <a :href="calender" target="_blank" rel="noopener noreferrer"
-          class=" inline-block p-3 rounded-xl bg-primary/50 shadow hover:bg-primary/80">
+          class=" inline-block p-3 rounded-xl bg-primary/50 shadow-sm hover:bg-primary/80">
           <CalenderIcon />
         </a>
       </div>
@@ -215,11 +215,13 @@ const {
   loading
 } = useFetch(URL + '/notion', {})
 
+
+const VITE_SITE_NAME = import.meta.env.VITE_SITE_NAME
 const {
   share,
   isShare
 } = useShare({
-  title: '若筠&恩騰婚禮邀請函',
+  title: VITE_SITE_NAME,
   url: SITE_URL
 })
 </script>
