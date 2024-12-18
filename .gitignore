@@ -17,7 +17,11 @@ dist-ssr
 /cypress/videos/
 /cypress/screenshots/
 
-# Editor directories and files
+/public/brands.json
+/public/threads.json
+
+package-lock.json
+
 .vscode/*
 !.vscode/extensions.json
 .idea
