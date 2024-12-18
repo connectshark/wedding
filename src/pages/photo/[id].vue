@@ -1,11 +1,16 @@
 <template>
   <div class=" pt-[10svh]" :class="{ 'text-background': isLightBox }">
     <template v-if="photoID">
-      <picture class="py-10 max-w-3xl mx-auto block">
+      <picture class="max-w-3xl mx-auto block">
         <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/${ photoID }.webp`" media="(min-width: 1600px)">
         <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/2x/${ photoID }.webp`" media="(min-width: 768px)">
         <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`" media="(max-width: 767px)">
-        <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${photoID};`" class="max-h-[80svh] mx-auto" :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`" alt="首圖">
+        <img loading="lazy" draggable="false"
+          :style="`view-transition-name: photo-${photoID};`"
+          class="h-[80svh] w-full object-contain object-center"
+          :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`"
+          :alt="`婚紗照${photoID}`"
+        >
       </picture>
       <div class=" text-center">長按圖片可下載</div>
     </template>

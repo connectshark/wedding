@@ -28,6 +28,17 @@ const fetchPhotos = () => {
   }
 }
 
+const fetchFriendsThreads = () => {
+  return {
+    name: 'json',
+    async buildEnd () {
+      const fetch_response = await fetch('https://imgur-server.zeabur.app/notion')
+      const data = await fetch_response.json()
+      writeFileSync('./public/threads.json', JSON.stringify(data))
+    }
+  }
+}
+
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   plugins: [
@@ -37,7 +48,8 @@ export default defineConfig({
       importMode: (filepath) => filepath.includes('/photo/') ? 'sync' : 'async'
     }),
     VueDevTools(),
-    fetchStaticData()
+    fetchStaticData(),
+    fetchFriendsThreads()
   ],
   server: {
     port: 8080

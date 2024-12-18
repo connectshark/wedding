@@ -1,11 +1,14 @@
 <template>
-  <div class=" py-16">
-    <h1 class="text-2xl/loose md:text-4xl/loose text-center">相簿</h1>
-    <p class="text-center text-text/80">點擊圖片可看放大圖</p>
+  <div class="text-center py-16">
+    <h1 class="font-title text-5xl">相簿</h1>
+    <p class="font-title text-3xl mb-5">Album</p>
+    <p class="text-text/80">點擊圖片可看放大圖</p>
   </div>
   <div>
-    <div v-if="loading"></div>
-    <ul v-else class="gap-0 columns-2 md:columns-3 xl:columns-4 mb-20">
+    <div v-if="loading" class=" text-center">
+      <i class='bx bx-loader bx-spin' />
+    </div>
+    <ul v-else class="gap-0 columns-2 mb-20">
       <li v-for="photo in photos">
         <figure>
           <router-link class="block" :to="`/photo/${photo}`">
@@ -30,7 +33,7 @@ const isStart = ref(false)
 onBeforeRouteLeave((to, from, next) => {
   const id = to.params.id
   if (id) {
-    document.startViewTransition(async () => {
+    document.startViewTransition(() => {
       isStart.value = true
       next()
     })

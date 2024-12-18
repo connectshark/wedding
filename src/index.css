@@ -5,7 +5,7 @@
 @theme {
   --text: #333333;
   --background: #FAF8F5;
-  --primary: #FFAFCC;
+  --primary: #fe66d5;
   --secondary: #DFC096;
   --accent: #FFD700;
 
@@ -84,19 +84,4 @@ html {
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 1s;
-}
-
-.subject {
-  animation: reveal linear both;
-  animation-timeline: view(block);
-  animation-range: contain 0% contain 40%;
-}
-
-@keyframes reveal {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
