@@ -44,8 +44,8 @@ const vClickOutside = {
         <img class="size-8 aspect-square" src="./assets/logo.png" alt="logo">
         <span>{{ SITE_NAME }}</span>
       </router-link>
-      <details class=" relative" v-clickOutside>
-        <summary class="list-none p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10">
+      <details class="relative" v-clickOutside>
+        <summary class="p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10">
           <i class='bx bx-menu bx-sm'></i>
         </summary>
         <ul ref="list" class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background border border-text/10">
