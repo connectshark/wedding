@@ -49,8 +49,11 @@ const {
 
 </script>
 
-<route lang="json">{
+<route lang="json">
+{
   "meta": {
-    "type": "container"
+    "type": "container",
+    "title": "婚紗相簿"
   }
-}</route>
+}
+</route>

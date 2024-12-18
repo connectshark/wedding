@@ -28,9 +28,12 @@ const isLightBox = route.meta.lightBox
 const photoID = route.params.id
 </script>
 
-<route lang="json">{
+<route lang="json">
+{
   "meta": {
     "type": "content",
-    "lightBox": false
+    "lightBox": false,
+    "title": "婚紗照"
   }
-}</route>
+}
+</route>
