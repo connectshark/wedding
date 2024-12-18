@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import VueDevTools from 'vite-plugin-vue-devtools'
 import VueRouter from 'unplugin-vue-router/vite'
+import tailwindcss from '@tailwindcss/vite'
 import { writeFileSync } from 'fs'
 
 const fetchStaticData = () => {
@@ -31,6 +32,7 @@ const fetchPhotos = () => {
 export default defineConfig({
   plugins: [
     vue(),
+    tailwindcss(),
     VueRouter({
       importMode: (filepath) => filepath.includes('/photo/') ? 'sync' : 'async'
     }),
