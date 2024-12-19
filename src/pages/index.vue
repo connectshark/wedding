@@ -25,7 +25,7 @@
   </div>
   <section class="w-11/12 max-w-4xl mx-auto">
     <div class="perspective-distant *:scale-85 *:odd:rotate-y-4 *:even:-rotate-y-4 *:transform-3d *:shadow-xl *:transition-all *:duration-500 *:ease-in *:rounded-md *:overflow-clip">
-      <figure ref="cards" v-for="photo in photos" class="md:mb-0" not-last:mb-10>
+      <figure ref="cards" v-for="photo in photos" class="not-last:mb-10">
         <img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
       </figure>
     </div>
