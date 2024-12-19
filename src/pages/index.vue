@@ -23,6 +23,16 @@
     <p class=" text-2xl/loose">2019 - 2025</p>
     <p>愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
+  <section class="w-11/12 max-w-4xl mx-auto">
+    <div class="perspective-distant *:scale-85 *:odd:rotate-y-4 *:even:-rotate-y-4 *:transform-3d *:shadow-xl *:transition-all *:duration-500 *:ease-in *:rounded-md *:overflow-clip">
+      <figure ref="cards" v-for="photo in photos" class="md:mb-0" not-last:mb-10>
+        <img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
+      </figure>
+    </div>
+    <div class=" text-center py-20">
+      <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px]">搶先看照片</router-link>
+    </div>
+  </section>
   <section>
     <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10 *:z-10 *:transition-transform *:overflow-hidden">
       <figure v-for="photo in photos" class="odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
@@ -210,6 +220,7 @@ import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
 import SoundComponents from '../components/SoundComponents.vue'
 import useFetch from '../composables/useFetch'
+import { onMounted, ref } from 'vue'
 
 const SITE_URL = 'https://sandra.nosegates.com'
 
@@ -248,6 +259,23 @@ const {
   loading
 } = useFetch('/threads.json', {})
 
+const cards = ref(null)
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show')
+    } else {
+      entry.target.classList.remove('show')
+    }
+  })
+}, {
+  rootMargin: '-10% 0px -30% 0px'
+})
+onMounted(() => {
+  cards.value.forEach(card => {
+    observer.observe(card)
+  })
+})
 
 const VITE_SITE_NAME = import.meta.env.VITE_SITE_NAME
 const {

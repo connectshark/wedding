@@ -71,7 +71,7 @@ const vClickOutside = {
     <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
       <div>
         <h5 class="mb-4">
-          <router-link to="/" class="flex items-center gap-2 max-w-fit group p-3">
+          <router-link to="/" class="flex items-center gap-2 max-w-fit group">
             <img class=" grayscale group-hover:grayscale-0 rounded-full size-8"
               src="./assets/logo.png" alt="logo">
             <span>{{ SITE_NAME }}</span>
