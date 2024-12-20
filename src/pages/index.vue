@@ -8,7 +8,7 @@
   </figure>
   <div class="font-title mb-10 text-3xl text-text/80 text-center">
     <h1>婚禮邀請函</h1>
-    <p class="text-6xl/relaxed">若筠 & 恩騰</p>
+    <p class="text-6xl/relaxed">若筠&恩騰</p>
     <p>我們結婚啦</p>
     <p>Welcome to our wedding.</p>
   </div>
@@ -23,17 +23,17 @@
     <p class=" text-2xl/loose">2019 - 2025</p>
     <p>愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
-  <section class="w-11/12 max-w-4xl mx-auto">
-    <div class="perspective-distant *:scale-85 *:odd:rotate-y-4 *:even:-rotate-y-4 *:transform-3d *:shadow-xl *:transition-all *:duration-500 *:ease-in *:rounded-md *:overflow-clip">
-      <figure ref="cards" v-for="photo in photos" class="not-last:mb-10">
+  <section class="bg-accent/20 mb-20 py-30">
+    <div class="w-11/12 max-w-4xl mb-20 mx-auto perspective-distant *:scale-75 *:odd:rotate-y-8 *:even:-rotate-y-8 *:-translate-z-5 *:transform-3d *:shadow-xs *:transition-all *:duration-500 *:ease-in *:rounded-md *:overflow-clip">
+      <figure ref="cards" v-for="photo in photos" class="not-last:mb-10 md:w-3/4 md:even:ml-auto">
         <img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
       </figure>
     </div>
-    <div class=" text-center py-20">
-      <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px]">搶先看照片</router-link>
+    <div class="text-center">
+      <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px] text-lg">搶先看照片 ></router-link>
     </div>
   </section>
-  <section>
+  <!-- <section>
     <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10 *:z-10 *:transition-transform *:overflow-hidden">
       <figure v-for="photo in photos" class="odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
         <img loading="lazy" draggable="false" class="aspect-9/16 h-full w-full object-cover object-center rounded-md shadow-sm" :src="photo.url" alt="photo">
@@ -42,22 +42,25 @@
     <div class=" text-center py-20">
       <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px]">搶先看照片</router-link>
     </div>
-  </section>
-  <section class="mb-20">
+  </section> -->
+  <section class="mb-40">
     <div class="w-5/6 mx-auto">
-      <div class="font-title text-3xl text-center">
+      <div class="font-title text-3xl text-center py-10">
         <h2>婚禮時間</h2>
         <p>Time</p>
       </div>
       <h3 class=" text-center text-5xl font-title">2025 11 15 (六) 午宴</h3>
+      <div class="text-center py-10 bg-white p-10 border border-secondary rounded-3xl w-5/6 mx-auto max-w-2xl">
+        <CalenderComponent :date="15"/>
+      </div>
       <div>
         <img loading="lazy" draggable="false" class="max-w-96 aspect-square mx-auto" src="../assets/svg/planner.svg" alt="calendar">
       </div>
     </div>
   </section>
-  <section class="mb-20">
+  <section class="mb-40">
     <div class="w-5/6 mx-auto">
-      <div class="font-title text-3xl text-center">
+      <div class="font-title text-3xl text-center py-10">
         <h2>婚禮位置</h2>
         <p>Address</p>
       </div>
@@ -116,7 +119,10 @@
   </section>
   <section class="mb-20">
     <div>
-      <h2 class="font-title text-center text-3xl/loose">親友的祝福</h2>
+      <div class="font-title text-3xl text-center py-10">
+        <h2>來自親友的祝福</h2>
+        <p>Best wishes</p>
+      </div>
       <div v-if="loading" class=" text-center">
         <i class='bx bx-loader bx-spin' />
       </div>
@@ -137,11 +143,12 @@
     </div>
   </section>
   <section class="mb-20">
-    <div class=" text-center font-title">
-      <h2 class="text-3xl">距離婚禮剩下</h2>
+    <div class="font-title text-3xl text-center py-10">
+      <h2>距離婚禮剩下時間</h2>
+      <p>Countdown</p>
     </div>
     <div class="py-10">
-      <ul class=" flex justify-evenly max-w-2xl mx-auto w-11/12">
+      <ul class=" flex justify-evenly max-w-lg mx-auto w-11/12">
         <li class="text-center">
           <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ days }}</div>
           <p>天</p>
@@ -172,7 +179,10 @@
   </section>
   <section>
     <div class="w-5/6 mx-auto">
-      <h2 class="text-2xl/loose md:text-4xl/loose text-center">分享邀請函</h2>
+    <div class="font-title text-3xl text-center py-10">
+      <h2>分享婚禮邀請函</h2>
+      <p>Share</p>
+    </div>
       <p class="text-center mb-10">把這些資訊分享給可能需要知道的人吧！</p>
       <div class="flex items-center justify-evenly max-w-3xl mx-auto flex-wrap gap-3">
         <button
@@ -219,6 +229,7 @@ import ShareIcon from '../components/icons/ShareIcon.vue'
 import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
 import SoundComponents from '../components/SoundComponents.vue'
+import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
 import { onMounted, ref } from 'vue'
 
@@ -313,3 +324,11 @@ const {
   z-index: 1;
 }
 </style>
+
+<route lang="json">
+{
+  "meta": {
+    "title": "婚禮邀請函"
+  }
+}
+</route>

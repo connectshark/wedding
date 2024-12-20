@@ -2,20 +2,37 @@
 import { useRoute, useRouter } from 'vue-router'
 import useFetch from './composables/useFetch'
 import { ref } from 'vue'
+import LogoComponents from './components/logo.vue'
 const route = useRoute()
 const router = useRouter()
-
-const SITE_NAME = '若筠&恩騰'
 
 const {
   data: brands
 } = useFetch('/brands.json', {})
 
+const navs = [
+  {
+    url: '/photos',
+    name: '相簿'
+  }
+]
 const pages = [
   {
     url: '/photos',
     name: '相簿'
   },
+  {
+    url: '/privacy-policy',
+    name: '隱私權政策'
+  },
+  {
+    url: '/contact',
+    name: '聯絡我們'
+  },
+  {
+    url: '/license',
+    name: '版權聲明'
+  }
 ]
 const list = ref(null)
 
@@ -40,16 +57,16 @@ const vClickOutside = {
 <template>
   <header class="backdrop-blur-sm sticky top-0 z-20 bg-background/40">
     <div class=" w-5/6 mx-auto py-2 flex items-center justify-between">
-      <router-link class="p-3 rounded-xl active:bg-text/10 md:hover:bg-text/10 flex items-center gap-2" to="/">
+      <router-link class=" text-text/80 p-1 rounded-xl active:bg-text/10 md:hover:bg-text/10 flex items-center gap-2" to="/">
         <img class="size-8 aspect-square" src="./assets/logo.png" alt="logo">
-        <span>{{ SITE_NAME }}</span>
+        <LogoComponents class="fill-current"/>
       </router-link>
       <details class="relative" v-clickOutside>
         <summary class="p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10">
           <i class='bx bx-menu bx-sm'></i>
         </summary>
         <ul ref="list" class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background border border-text/10">
-          <li v-for="page in pages" class="border-b last:border-none">
+          <li v-for="page in navs" class="border-b last:border-none">
             <router-link class="p-4 block text-sm/loose" :to="page.url">{{ page.name }}</router-link>
           </li>
         </ul>
@@ -74,7 +91,7 @@ const vClickOutside = {
           <router-link to="/" class="flex items-center gap-2 max-w-fit group">
             <img class=" grayscale group-hover:grayscale-0 rounded-full size-8"
               src="./assets/logo.png" alt="logo">
-            <span>{{ SITE_NAME }}</span>
+            <LogoComponents class="fill-current"/>
           </router-link>
         </h5>
         <ul>
@@ -88,8 +105,8 @@ const vClickOutside = {
       <div>
         <h6 class="mb-4 text-text/70"><i class='bx bx-bookmark'></i>分頁</h6>
         <ul>
-          <li>
-            <router-link class="text-sm/loose hover:underline" to="/photos">相簿</router-link>
+          <li v-for="page in pages" class="not-last:mb-2">
+            <router-link class="text-sm/loose hover:underline" :to="page.url">{{ page.name }}</router-link>
           </li>
         </ul>
       </div>
