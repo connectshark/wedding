@@ -30,35 +30,10 @@
       </figure>
     </div>
     <div class="text-center">
-      <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px] text-lg">搶先看照片 ></router-link>
+      <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px] text-lg">搶先看照片</router-link>
     </div>
   </section>
-  <!-- <section>
-    <div class="w-11/12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto photo-section relative mb-10 *:z-10 *:transition-transform *:overflow-hidden">
-      <figure v-for="photo in photos" class="odd:-translate-y-8 even:translate-y-8 md:hover:scale-110">
-        <img loading="lazy" draggable="false" class="aspect-9/16 h-full w-full object-cover object-center rounded-md shadow-sm" :src="photo.url" alt="photo">
-      </figure>
-    </div>
-    <div class=" text-center py-20">
-      <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px]">搶先看照片</router-link>
-    </div>
-  </section> -->
-  <section class="mb-40">
-    <div class="w-5/6 mx-auto">
-      <div class="font-title text-3xl text-center py-10">
-        <h2>婚禮時間</h2>
-        <p>Time</p>
-      </div>
-      <h3 class=" text-center text-5xl font-title">2025 11 15 (六) 午宴</h3>
-      <div class="text-center py-10 bg-white p-10 border border-secondary rounded-3xl w-5/6 mx-auto max-w-2xl">
-        <CalenderComponent :date="15"/>
-      </div>
-      <div>
-        <img loading="lazy" draggable="false" class="max-w-96 aspect-square mx-auto" src="../assets/svg/planner.svg" alt="calendar">
-      </div>
-    </div>
-  </section>
-  <section class="mb-40">
+  <section class="mb-20">
     <div class="w-5/6 mx-auto">
       <div class="font-title text-3xl text-center py-10">
         <h2>婚禮位置</h2>
@@ -140,6 +115,27 @@
           </div>
         </li>
       </ul>
+    </div>
+  </section>
+  <section class="mb-20">
+    <div class="w-5/6 mx-auto">
+      <div class="font-title text-3xl text-center py-10">
+        <h2>婚禮時間</h2>
+        <p>Time</p>
+      </div>
+      <h3 class=" text-center text-5xl font-title">2025 11 15 (六) 午宴</h3>
+      <div>
+        <img loading="lazy" draggable="false" class="max-w-96 aspect-square mx-auto" src="../assets/svg/planner.svg" alt="calendar">
+      </div>
+      <div class="text-center py-10 bg-white p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
+        <CalenderComponent :date="15"/>
+      </div>
+      <div class="flex justify-center">
+        <a title="點擊將這天加入日曆" class="flex items-center gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
+          <CalenderIcon/>
+          <span>點擊將這天加入日曆</span>
+        </a>
+      </div>
     </div>
   </section>
   <section class="mb-20">
@@ -235,7 +231,7 @@ import { onMounted, ref } from 'vue'
 
 const SITE_URL = 'https://sandra.nosegates.com'
 
-const calender = 'https://www.google.com/calendar/render?action=TEMPLATE&text=OOO%E5%A9%9A%E7%A6%AE&details=%E8%A8%98%E5%BE%97%E5%8F%83%E5%8A%A0OOO%E5%A9%9A%E7%A6%AE&location=%E9%81%A0%E6%9D%B1SOGO%20%E5%8F%B0%E5%8C%97%E5%BF%A0%E5%AD%9D%E9%A4%A8&dates=20241212T033000.000Z%2F20241212T060000.000Z'
+const calender = 'https://www.google.com/calendar/render?action=TEMPLATE&text=若筠與恩騰婚宴❤️&dates=20251115T040000Z/20251115T070000Z&location=川門子時尚餐廳&details=誠摯的邀請您一同參與我們盛大的婚禮，分享幸福的時光'
 
 const map = `https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg&travelmode=driving&destination=川門子`
 

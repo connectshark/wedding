@@ -3,6 +3,7 @@ import { useRoute, useRouter } from 'vue-router'
 import useFetch from './composables/useFetch'
 import { ref } from 'vue'
 import LogoComponents from './components/logo.vue'
+import LogoIcon from './components/icons/LogoIcon.vue'
 const route = useRoute()
 const router = useRouter()
 
@@ -58,7 +59,7 @@ const vClickOutside = {
   <header class="backdrop-blur-sm sticky top-0 z-20 bg-background/40">
     <div class=" w-5/6 mx-auto py-2 flex items-center justify-between">
       <router-link class=" text-text/80 p-1 rounded-xl active:bg-text/10 md:hover:bg-text/10 flex items-center gap-2" to="/">
-        <img class="size-8 aspect-square" src="./assets/logo.png" alt="logo">
+        <LogoIcon class=" size-8"/>
         <LogoComponents class="fill-current"/>
       </router-link>
       <details class="relative" v-clickOutside>
@@ -83,14 +84,12 @@ const vClickOutside = {
     </div>
   </Teleport>
   <footer class="bg-text/10">
-    <div class="bg-background py-10 rounded-b-[3rem]">
-    </div>
+    <div class="bg-background py-10 rounded-b-[3rem]"></div>
     <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
       <div>
         <h5 class="mb-4">
-          <router-link to="/" class="flex items-center gap-2 max-w-fit group">
-            <img class=" grayscale group-hover:grayscale-0 rounded-full size-8"
-              src="./assets/logo.png" alt="logo">
+          <router-link to="/" class="flex items-center gap-2">
+            <LogoIcon class="size-8"/>
             <LogoComponents class="fill-current"/>
           </router-link>
         </h5>

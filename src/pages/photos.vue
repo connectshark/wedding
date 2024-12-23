@@ -8,9 +8,9 @@
     <div v-if="loading" class=" text-center">
       <i class='bx bx-loader bx-spin' />
     </div>
-    <ul v-else class="gap-0 columns-2 mb-20">
-      <li v-for="photo in photos">
-        <figure>
+    <ul v-else class="gap-3 columns-[150px] mb-20 w-11/12 mx-auto">
+      <li v-for="photo in photos" class="mb-3">
+        <figure class=" rounded-2xl overflow-clip">
           <router-link class="block" :to="`/photo/${photo}`">
             <img draggable="false" :style="{ viewTransitionName: isStart ? '' : `photo-${photo}` }" loading="lazy" :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/${ photo }.webp`" alt="photo">
           </router-link>
