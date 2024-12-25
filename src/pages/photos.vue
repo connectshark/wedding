@@ -5,18 +5,16 @@
     <p class="text-text/80">點擊圖片可看放大圖</p>
   </div>
   <div>
-    <div v-if="loading" class=" text-center">
-      <i class='bx bx-loader bx-spin' />
-    </div>
-    <ul v-else class="gap-3 columns-[150px] mb-20 w-11/12 mx-auto">
-      <li v-for="photo in photos" class="mb-3">
-        <figure class=" rounded-2xl overflow-clip">
-          <router-link class="block" :to="`/photo/${photo}`">
-            <img draggable="false" :style="{ viewTransitionName: isStart ? '' : `photo-${photo}` }" loading="lazy" :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/${ photo }.webp`" alt="photo">
-          </router-link>
-        </figure>
-      </li>
-    </ul>
+    <Suspense>
+      <template #default>
+        <PhotosComponents />
+      </template>
+      <template #fallback>
+        <div class=" text-center">
+          <i class='bx bx-loader bx-md bx-spin' />
+        </div>
+      </template>
+    </Suspense>
     <p class=" text-center mb-10">剩下的照片將於 2025/11/15 公開</p>
     <p class=" text-center">
       <router-link to="/" class="underline"><i class='bx bx-home'></i>回首頁</router-link>
@@ -25,30 +23,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
-import { onBeforeRouteLeave } from 'vue-router'
-import useFetch from '../composables/useFetch'
-
-const isStart = ref(false)
-onBeforeRouteLeave((to, from, next) => {
-  const id = to.params.id
-  if (id) {
-    document.startViewTransition(() => {
-      isStart.value = true
-      next()
-    })
-  } else {
-    isStart.value = false
-    next()
-  }
-})
-
-const {
-  data: photos,
-  loading
-} = useFetch('/photos.json', {
-  immediate: true
-})
+import PhotosComponents from '../components/PhotosComponents.vue'
 
 </script>
 

@@ -24,8 +24,11 @@
     <p>愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
   <section class="bg-accent/20 mb-20 py-30">
-    <div class="w-11/12 max-w-4xl mb-20 mx-auto perspective-distant *:scale-75 *:odd:rotate-y-8 *:even:-rotate-y-8 *:-translate-z-5 *:transform-3d *:shadow-xs *:transition-all *:duration-500 *:ease-in *:rounded-md *:overflow-clip">
-      <figure ref="cards" v-for="photo in photos" class="not-last:mb-10 md:w-3/4 md:even:ml-auto">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 py-10 w-11/12 max-w-4xl mb-20 mx-auto *:rounded-md *:shadow">
+      <figure
+        class="odd:-translate-y-10 even:translate-y-10"
+        v-for="photo in photos"
+        v-motion-slide-visible-once-bottom>
         <img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
       </figure>
     </div>
@@ -85,8 +88,8 @@
       <div>
         <p class="flex justify-center">
           <a class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" :href="map" target="_blank" rel="noopener noreferrer">
+            <i class='bx bxs-navigation' />
             <span>導航到會場</span>
-            <i class='bx bxs-navigation'></i>
           </a>
         </p>
       </div>
@@ -101,8 +104,23 @@
       <div v-if="loading" class=" text-center">
         <i class='bx bx-loader bx-spin' />
       </div>
-      <ul v-else class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl">
-        <li v-for="(page, i) in data.results"
+      <ul v-else class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl overflow-clip">
+        <li
+          v-for="(page, i) in data.results"
+          v-motion
+          :initial="{
+            opacity: 0,
+            y: 100,
+          }"
+          :visible="{
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: 200,
+              type: 'keyframes',
+              ease: 'easeInOut',
+            }
+          }"
           class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
           <div class="shrink-0 group-odd:order-1">
             <p class="text-center">{{ page.properties.name.title[0].plain_text }}</p>
@@ -123,10 +141,7 @@
         <h2>婚禮時間</h2>
         <p>Time</p>
       </div>
-      <h3 class=" text-center text-5xl font-title">2025 11 15 (六) 午宴</h3>
-      <div>
-        <img loading="lazy" draggable="false" class="max-w-96 aspect-square mx-auto" src="../assets/svg/planner.svg" alt="calendar">
-      </div>
+      <h3 class=" mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-roll-visible-once-right class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
       <div class="text-center py-10 bg-white p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
         <CalenderComponent :date="15"/>
       </div>
@@ -138,12 +153,12 @@
       </div>
     </div>
   </section>
-  <section class="mb-20">
+  <section class="mb-20 overflow-clip">
     <div class="font-title text-3xl text-center py-10">
       <h2>距離婚禮剩下時間</h2>
       <p>Countdown</p>
     </div>
-    <div class="py-10">
+    <div v-motion-pop-visible class="py-10">
       <ul class=" flex justify-evenly max-w-lg mx-auto w-11/12">
         <li class="text-center">
           <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ days }}</div>
@@ -227,11 +242,9 @@ import useShare from '../composables/useShare'
 import SoundComponents from '../components/SoundComponents.vue'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
-import { onMounted, ref } from 'vue'
-
 const SITE_URL = 'https://sandra.nosegates.com'
 
-const calender = 'https://www.google.com/calendar/render?action=TEMPLATE&text=若筠與恩騰婚宴❤️&dates=20251115T040000Z/20251115T070000Z&location=川門子時尚餐廳&details=誠摯的邀請您一同參與我們盛大的婚禮，分享幸福的時光'
+const calender = 'https://www.google.com/calendar/render?action=TEMPLATE&text=若筠與恩騰婚宴❤️&dates=20251115T040000Z/20251115T070000Z&location=川門子時尚餐廳&details=誠摯的邀請您一同參與我們盛大的婚禮，分享幸福的時光&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg'
 
 const map = `https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg&travelmode=driving&destination=川門子`
 
@@ -265,24 +278,6 @@ const {
   data,
   loading
 } = useFetch('/threads.json', {})
-
-const cards = ref(null)
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('show')
-    } else {
-      entry.target.classList.remove('show')
-    }
-  })
-}, {
-  rootMargin: '-10% 0px -30% 0px'
-})
-onMounted(() => {
-  cards.value.forEach(card => {
-    observer.observe(card)
-  })
-})
 
 const VITE_SITE_NAME = import.meta.env.VITE_SITE_NAME
 const {

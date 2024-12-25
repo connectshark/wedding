@@ -6,7 +6,7 @@
 @theme {
   --text: #333333;
   --background: #FAF8F5;
-  --primary: #fe66d5;
+  --primary: #ff9671;
   --secondary: #b283a2;
   --accent: #df8955;
 
@@ -91,6 +91,7 @@
 
 html {
   view-transition-name: none;
+  scroll-behavior: smooth;
 }
 ::view-transition-old(root),
 ::view-transition-new(root) {

@@ -12,7 +12,6 @@
           :alt="`婚紗照${photoID}`"
         >
       </picture>
-      <div class=" text-center">長按圖片可下載</div>
     </template>
     <div v-else class=" text-center">
       <p><i class='bx bx-camera-off bx-md'></i></p>

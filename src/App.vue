@@ -56,8 +56,8 @@ const vClickOutside = {
 </script>
 
 <template>
-  <header class="backdrop-blur-sm sticky top-0 z-20 bg-background/40">
-    <div class=" w-5/6 mx-auto py-2 flex items-center justify-between">
+  <header class="sticky top-0 z-20 pt-3">
+    <div class="backdrop-blur-sm bg-background/50 w-11/12 mx-auto p-2 flex items-center justify-between rounded-xl">
       <router-link class=" text-text/80 p-1 rounded-xl active:bg-text/10 md:hover:bg-text/10 flex items-center gap-2" to="/">
         <LogoIcon class=" size-8"/>
         <LogoComponents class="fill-current"/>
