@@ -24,7 +24,7 @@
     <p>愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
   <section class="bg-accent/20 mb-20 py-30">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 py-10 w-11/12 max-w-4xl mb-20 mx-auto *:rounded-md *:shadow">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 py-10 w-11/12 max-w-4xl mb-20 mx-auto *:rounded-md *:shadow *:overflow-clip">
       <figure
         class="odd:-translate-y-10 even:translate-y-10"
         v-for="photo in photos"
