@@ -28,7 +28,7 @@
       <figure
         class="odd:-translate-y-10 even:translate-y-10"
         v-for="photo in photos"
-        v-motion-slide-visible-bottom
+        v-motion-slide-visible-once-bottom
         :delay="100"
         :duration="500"
       ><img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
@@ -44,7 +44,7 @@
         <h2>婚禮位置</h2>
         <p>Address</p>
       </div>
-      <ul class=" w-80 mx-auto mb-10">
+      <ul class="w-80 mx-auto mb-10">
         <li class="flex items-center gap-2 mb-4">
           <div>
             <i class='bx bxs-map bx-sm align-middle'></i>
@@ -98,6 +98,24 @@
     </div>
   </section>
   <section class="mb-20">
+    <div class="w-5/6 mx-auto overflow-clip">
+      <div class="font-title text-3xl text-center py-10">
+        <h2>婚禮時間</h2>
+        <p>Time</p>
+      </div>
+      <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-roll-visible-once-right :duration="500" :delay="400" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
+      <div class="text-center py-10 bg-white p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
+        <CalenderComponent :date="15"/>
+      </div>
+      <div class="flex justify-center">
+        <a title="點擊將這天加入日曆" class="flex items-center gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
+          <CalenderIcon/>
+          <span>點擊將這天加入日曆</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  <section class="mb-20">
     <div>
       <div class="font-title text-3xl text-center py-10">
         <h2>來自親友的祝福</h2>
@@ -109,7 +127,7 @@
       <ul v-else class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl overflow-clip">
         <li
           v-for="(page, i) in data.results"
-          v-motion-slide-visible-bottom
+          v-motion-slide-visible-once-bottom
           :delay="100"
           :duration="500"
           class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
@@ -126,31 +144,13 @@
       </ul>
     </div>
   </section>
-  <section class="mb-20">
-    <div class="w-5/6 mx-auto">
-      <div class="font-title text-3xl text-center py-10">
-        <h2>婚禮時間</h2>
-        <p>Time</p>
-      </div>
-      <h3 class=" overflow-clip mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-roll-visible-once-right :duration="500" :delay="100" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
-      <div class="text-center py-10 bg-white p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
-        <CalenderComponent :date="15"/>
-      </div>
-      <div class="flex justify-center">
-        <a title="點擊將這天加入日曆" class="flex items-center gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
-          <CalenderIcon/>
-          <span>點擊將這天加入日曆</span>
-        </a>
-      </div>
-    </div>
-  </section>
   <section class="mb-20 overflow-clip">
     <div class="font-title text-3xl text-center py-10">
       <h2>距離婚禮剩下時間</h2>
       <p>Countdown</p>
     </div>
     <div
-      v-motion-pop-visible
+      v-motion-pop-visible-once
       :delay="100"
       class="py-10">
       <ul class=" flex justify-evenly max-w-lg mx-auto w-11/12">

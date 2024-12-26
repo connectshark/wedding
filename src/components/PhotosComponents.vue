@@ -3,6 +3,7 @@
   <li
     v-for="(photo, i) in photos"
     v-motion
+    :delay="300"
     :initial="{
       opacity: 0,
       y: 100,
@@ -12,8 +13,7 @@
       y: 0,
       transition: {
         type: 'spring',
-        stiffness: '100',
-        delay: 500,
+        stiffness: '100'
       },
     }"
     :duration="500"
