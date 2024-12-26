@@ -29,8 +29,9 @@
         class="odd:-translate-y-10 even:translate-y-10"
         v-for="photo in photos"
         v-motion-slide-visible-bottom
-        :delay="100">
-        <img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
+        :delay="100"
+        :duration="500"
+      ><img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
       </figure>
     </div>
     <div class="text-center">
@@ -110,6 +111,7 @@
           v-for="(page, i) in data.results"
           v-motion-slide-visible-bottom
           :delay="100"
+          :duration="500"
           class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
           <div class="shrink-0 group-odd:order-1">
             <p class="text-center">{{ page.properties.name.title[0].plain_text }}</p>
@@ -130,7 +132,7 @@
         <h2>婚禮時間</h2>
         <p>Time</p>
       </div>
-      <h3 class=" mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-roll-visible-once-right :delay="100" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
+      <h3 class=" overflow-clip mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-roll-visible-once-right :duration="500" :delay="100" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
       <div class="text-center py-10 bg-white p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
         <CalenderComponent :date="15"/>
       </div>
