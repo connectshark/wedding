@@ -98,12 +98,12 @@
     </div>
   </section>
   <section class="mb-20">
-    <div class="w-5/6 mx-auto overflow-clip">
+    <div class="w-5/6 mx-auto">
       <div class="font-title text-3xl text-center py-10">
         <h2>婚禮時間</h2>
         <p>Time</p>
       </div>
-      <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-roll-visible-once-right :duration="500" :delay="400" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
+      <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once :duration="500" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
       <div class="text-center py-10 bg-white p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
         <CalenderComponent :date="15"/>
       </div>
