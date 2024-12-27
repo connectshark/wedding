@@ -5,7 +5,11 @@ export const router = createRouter({
   history: createWebHistory(),
   routes,
   scrollBehavior (to, from) {
-    return { top: 0 }
+    let position = 0
+    if (from.meta.type === 'container' && to.meta.type === 'content' || from.meta.type === 'content' && to.meta.type === 'container') {
+      position = undefined
+    }
+    return { top: position }
   }
 })
 

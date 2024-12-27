@@ -19,11 +19,12 @@
   <figure class="py-10 max-w-3xl mx-auto">
     <img loading="lazy" draggable="false"class="object-contain object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="">
   </figure>
-  <div class="pt-20 pb-40 text-center">
+  <div class="py-20 text-center">
     <p class=" text-2xl/loose">2019 - 2025</p>
     <p>愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
-  <section class="bg-accent/20 mb-20 py-30">
+  <div class="bg-accent/20 rounded-t-full h-20" />
+  <section class="bg-accent/20 ">
     <div class="grid grid-cols-2 md:grid-cols-4 gap-3 py-10 w-11/12 max-w-4xl mb-20 mx-auto *:rounded-md *:shadow *:overflow-clip">
       <figure
         class="odd:-translate-y-10 even:translate-y-10"
@@ -38,13 +39,14 @@
       <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px] text-lg">搶先看照片</router-link>
     </div>
   </section>
+  <div class="bg-accent/20 rounded-b-full h-20" />
   <section class="mb-20">
     <div class="w-5/6 mx-auto">
       <div class="font-title text-3xl text-center py-10">
         <h2>婚禮位置</h2>
         <p>Address</p>
       </div>
-      <ul class="w-80 mx-auto mb-10">
+      <ul class="max-w-80 mx-auto mb-10">
         <li class="flex items-center gap-2 mb-4">
           <div>
             <i class='bx bxs-map bx-sm align-middle'></i>
@@ -103,7 +105,7 @@
         <h2>婚禮時間</h2>
         <p>Time</p>
       </div>
-      <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once :duration="500" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
+      <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once :duration="500" :delay="200" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
       <div class="text-center py-10 bg-white p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
         <CalenderComponent :date="15"/>
       </div>
@@ -183,10 +185,12 @@
     </div>
   </section>
   <section>
-    <div class="w-5/6 mx-auto">
-    <div class="font-title text-3xl text-center py-10">
-      <h2>分享婚禮邀請函</h2>
-      <p>Share</p>
+    <div class="w-5/6 mx-auto py-20">
+    <div class="font-title text-3xl text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
+      <div class="relative">
+        <h2>分享婚禮邀請函</h2>
+        <p>Share</p>
+      </div>
     </div>
       <p class="text-center mb-10">把這些資訊分享給可能需要知道的人吧！</p>
       <div class="flex items-center justify-evenly max-w-3xl mx-auto flex-wrap gap-3">
@@ -282,33 +286,6 @@ const {
   url: SITE_URL
 })
 </script>
-
-<style scoped>
-.photo-section::before,
-.photo-section::after {
-  --size: 40%;
-  content: '';
-  position: absolute;
-  width: var(--size);
-  aspect-ratio: 1 / 1;
-  border-radius: 50%;
-  filter: blur(2.5rem);
-
-}
-
-.photo-section::before {
-  right: 10%;
-  top: 0%;
-  background-color: rgb(var(--accent));
-}
-
-.photo-section::after {
-  left: 10%;
-  bottom: 0%;
-  background-color: rgb(var(--primary));
-  z-index: 1;
-}
-</style>
 
 <route lang="json">
 {

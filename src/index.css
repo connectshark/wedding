@@ -38,10 +38,44 @@
   details > summary::-webkit-details-marker {
     display: none;
   }
+  .title-blur {
+    &::after,
+    &::before {
+      content: '';
+      position: absolute;
+      width: 5rem;
+      height: 5rem;
+      border-radius: 999rem;
+      filter: blur(2rem);
+    }
+  }
+  .title-blur::before {
+    left: 15%;
+    top: 10%;
+    animation: bump 2s infinite alternate;
+  }
+  .title-blur::after {
+    right: 15%;
+    bottom: 10%;
+    animation: bump-reverse 4.5s infinite alternate .5s;
+  }
 }
 
-.show {
-  @apply rotate-y-0 scale-100 shadow-2xl translate-z-0;
+@keyframes bump {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(50%);
+  }
+}
+@keyframes bump-reverse {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
 }
 
 @font-face {

@@ -53,14 +53,21 @@ const vClickOutside = {
     document.removeEventListener('click', el.clickOutsideEvent)
   }
 }
+
+const isSticky = ref(false)
+const scrollHandler = () => {
+  isSticky.value = window.scrollY > 0
+}
+window.addEventListener('scroll', scrollHandler)
+
 </script>
 
 <template>
-  <header class="sticky top-0 z-20 pt-3">
-    <div class="backdrop-blur-sm bg-background/50 w-11/12 mx-auto p-2 flex items-center justify-between rounded-xl">
-      <router-link class=" text-text/80 p-1 rounded-xl active:bg-text/10 md:hover:bg-text/10 flex items-center gap-2" to="/">
-        <LogoIcon class=" size-8"/>
-        <LogoComponents class="fill-current"/>
+  <header :class="{ 'mb-0 pt-3 px-3': isSticky, 'mb-3': !isSticky }" class="sticky top-0 z-20 transition-all ease-in-out duration-500">
+    <div :class="{ 'bg-background/80': isSticky, 'bg-background/50': !isSticky }" class="backdrop-blur-sm transition-all ease-in-out duration-500 w-11/12 mx-auto p-2 flex items-center justify-between rounded-2xl">
+      <router-link class="text-text/80 p-1 rounded-xl active:bg-text/10 md:hover:bg-text/10" to="/">
+        <LogoIcon class="size-8 inline-block align-middle"/>
+        <LogoComponents class="fill-current inline-block align-middle ml-2"/>
       </router-link>
       <details class="relative" v-clickOutside>
         <summary class="p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10">
@@ -68,7 +75,7 @@ const vClickOutside = {
         </summary>
         <ul ref="list" class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background border border-text/10">
           <li v-for="page in navs" class="border-b last:border-none">
-            <router-link class="p-4 block text-sm/loose" :to="page.url">{{ page.name }}</router-link>
+            <router-link class="p-4 block text-sm/loose bg-background" :to="page.url">{{ page.name }}</router-link>
           </li>
         </ul>
       </details>
@@ -83,14 +90,14 @@ const vClickOutside = {
       <router-view name="lightBox"/>
     </div>
   </Teleport>
+  <div class="bg-[url('/curve.svg')] bg-cover bg-center bg-no-repeat py-20"></div>
   <footer class="bg-text/10">
-    <div class="bg-background py-10 rounded-b-[3rem]"></div>
-    <div class="w-5/6 mx-auto pt-20 pb-10 grid md:grid-cols-3 gap-8">
+    <div class="w-5/6 mx-auto py-10 grid md:grid-cols-3 gap-8">
       <div>
         <h5 class="mb-4">
-          <router-link to="/" class="flex items-center gap-2">
-            <LogoIcon class="size-8"/>
-            <LogoComponents class="fill-current"/>
+          <router-link to="/" class="inline-block text-text/80">
+            <LogoIcon class="size-8 inline-block align-middle"/>
+            <LogoComponents class="fill-current inline-block align-middle ml-2"/>
           </router-link>
         </h5>
         <ul>
