@@ -125,9 +125,13 @@
 
 html {
   view-transition-name: none;
-  scroll-behavior: smooth;
 }
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 1s;
+}
+@utility scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }

@@ -16,6 +16,15 @@
   <div class="py-10">
     <SoundComponents/>
   </div>
+  <div>
+    <div class="font-title text-3xl text-center py-10 text-text/80">
+      <h2>婚禮表單</h2>
+      <p>form</p>
+    </div>
+    <div class="text-center">
+      <div>願意參與我們婚禮的親朋好友們請一定要填寫表單</div>
+    </div>
+  </div>
   <figure class="py-10 max-w-3xl mx-auto">
     <img loading="lazy" draggable="false"class="object-contain object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="">
   </figure>
@@ -23,26 +32,19 @@
     <p class=" text-2xl/loose">2019 - 2025</p>
     <p>愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
-  <div class="bg-accent/20 rounded-t-full h-20" />
-  <section class="bg-accent/20 ">
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 py-10 w-11/12 max-w-4xl mb-20 mx-auto *:rounded-md *:shadow *:overflow-clip">
-      <figure
-        class="odd:-translate-y-10 even:translate-y-10"
-        v-for="photo in photos"
-        v-motion-slide-visible-once-bottom
-        :delay="100"
-        :duration="500"
-      ><img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
+  <section class="bg-accent/20 rounded-4xl py-20">
+    <div class="sm:gap-3 max-w-5xl mb-10 sm:snap-none scrollbar-hidden sm:py-10 snap-x w-5/6 mx-auto overflow-x-auto flex gap-6 rounded *:shrink-0 *:snap-center *:rounded *:overflow-clip *:shadow">
+      <figure class="w-3/5 sm:w-auto sm:shrink sm:odd:translate-y-5 sm:even:-translate-y-5" v-for="photo in photos">
+        <img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
       </figure>
     </div>
     <div class="text-center">
       <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px] text-lg">搶先看照片</router-link>
     </div>
   </section>
-  <div class="bg-accent/20 rounded-b-full h-20" />
   <section class="mb-20">
     <div class="w-5/6 mx-auto">
-      <div class="font-title text-3xl text-center py-10">
+      <div class="font-title text-3xl text-center py-10 text-text/80">
         <h2>婚禮位置</h2>
         <p>Address</p>
       </div>
@@ -101,7 +103,7 @@
   </section>
   <section class="mb-20">
     <div class="w-5/6 mx-auto">
-      <div class="font-title text-3xl text-center py-10">
+      <div class="font-title text-3xl text-center py-10 text-text/80">
         <h2>婚禮時間</h2>
         <p>Time</p>
       </div>
@@ -119,7 +121,7 @@
   </section>
   <section class="mb-20">
     <div>
-      <div class="font-title text-3xl text-center py-10">
+      <div class="font-title text-3xl text-center py-10 text-text/80">
         <h2>來自親友的祝福</h2>
         <p>Best wishes</p>
       </div>
@@ -147,7 +149,7 @@
     </div>
   </section>
   <section class="mb-20 overflow-clip">
-    <div class="font-title text-3xl text-center py-10">
+    <div class="font-title text-3xl text-center py-10 text-text/80">
       <h2>距離婚禮剩下時間</h2>
       <p>Countdown</p>
     </div>
@@ -185,8 +187,8 @@
     </div>
   </section>
   <section>
-    <div class="w-5/6 mx-auto py-20">
-    <div class="font-title text-3xl text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
+    <div class="w-5/6 mx-auto py-20 max-w-120">
+    <div class="font-title text-3xl text-text/80 text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
       <div class="relative">
         <h2>分享婚禮邀請函</h2>
         <p>Share</p>
