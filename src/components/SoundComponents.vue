@@ -8,12 +8,14 @@
 </template>
 
 <script setup>
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 
 const sound = ref('')
 
-onMounted(() => {
-  sound.value.play()
+defineExpose({
+  playSound: () => {
+    sound.value.play()
+  }
 })
 </script>
