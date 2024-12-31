@@ -1,5 +1,5 @@
 <template>
-<ul class="gap-3 columns-2 mb-20 w-11/12 mx-auto md:columns-3">
+<ul class="gap-3 columns-[150px] mb-20 px-3">
   <li
     v-for="(photo, i) in photos"
     v-motion

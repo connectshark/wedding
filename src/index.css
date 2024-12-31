@@ -131,24 +131,43 @@ html {
   animation-duration: 1s;
 }
 
-html:has(.cover) {
+html:has(.welcome) {
   overflow: clip;
 }
-.cover {
-  position: fixed;
-  inset: 0;
-  z-index: 20;
-  background-image: url('/bg.jpg');
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(2rem);
-}
-
 .v-leave-active {
   transition: opacity 1s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .v-leave-to {
   opacity: 0;
+}
+
+.red {
+  animation: wave 5s ease-in-out alternate infinite;
+  transform-origin: bottom right;
+}
+.yel {
+  animation: wave2 12s ease-in-out alternate-reverse infinite;
+  transform-origin: bottom left;
+}
+
+@keyframes wave {
+  0% {
+    rotate: 0deg;
+    translateY: 0;
+  }
+  100% {
+    rotate: -15deg;
+    translateY: 2rem;
+  }
+}
+@keyframes wave2 {
+  0% {
+    rotate: 5deg;
+    translateY: 0;
+  }
+  100% {
+    rotate: 15deg;
+    translateY: -2rem;
+  }
 }

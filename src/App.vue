@@ -1,9 +1,19 @@
 <script setup>
+import RoseFlowerComponents from './components/img/RoseFlowerComponents.vue'
+import RoseCuateFlowerComponents from './components/img/RoseCuateFlowerComponents.vue'
 import { useRoute, useRouter } from 'vue-router'
 import useFetch from './composables/useFetch'
 import { ref } from 'vue'
 import LogoComponents from './components/logo.vue'
 import LogoIcon from './components/icons/LogoIcon.vue'
+import SoundComponents from './components/SoundComponents.vue'
+
+const sound = ref(null)
+const started = ref(false)
+const startViewWebsite = () => {
+  started.value = true
+  sound.value.playSound()
+}
 const route = useRoute()
 const router = useRouter()
 
@@ -69,22 +79,46 @@ window.addEventListener('scroll', scrollHandler)
         <LogoIcon class="size-8 inline-block align-middle"/>
         <LogoComponents class="fill-current inline-block align-middle ml-2"/>
       </router-link>
-      <details class="relative" v-clickOutside>
-        <summary class="p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10">
-          <i class='bx bx-menu bx-sm'></i>
-        </summary>
-        <ul ref="list" class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background border border-text/10">
-          <li v-for="page in navs" class="border-b last:border-none">
-            <router-link class="p-4 block text-sm/loose bg-background" :to="page.url">{{ page.name }}</router-link>
-          </li>
-        </ul>
-      </details>
+      <nav class="flex items-center gap-4">
+        <SoundComponents ref="sound" class="p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10" />
+        <details class="relative" v-clickOutside>
+          <summary class="p-2 rounded-md cursor-pointer active:bg-text/10 md:hover:bg-text/10">
+            <i class='bx bx-menu bx-sm'></i>
+          </summary>
+          <ul ref="list" class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background border border-text/10">
+            <li v-for="page in navs" class="border-b last:border-none">
+              <router-link class="p-4 block text-sm/loose bg-background" :to="page.url">{{ page.name }}</router-link>
+            </li>
+          </ul>
+        </details>
+      </nav>
     </div>
   </header>
   <main>
     <router-view />
   </main>
 
+  <Teleport to="#modal">
+  <Transition>
+    <div v-if="!started" @click="startViewWebsite" class="fixed inset-0 z-20  flex items-center justify-center backdrop-blur-lg welcome bg-background/50">
+      <div class="font-title text-3xl text-text/90 text-center bg-[url('/bg.jpg')] max-w-90 w-full h-full max-h-120 flex items-center justify-center rounded-4xl border-6 border-text/30 relative">
+        <div class="size-40 red absolute bottom-0 -left-[20%]">
+          <RoseFlowerComponents />
+        </div>
+        <div class="size-40 yel absolute -top-10 -right-[10%]">
+          <RoseCuateFlowerComponents />
+        </div>
+        <div>
+          <h1>婚禮邀請函</h1>
+          <p class="text-6xl/relaxed">若筠&恩騰</p>
+          <p>我們結婚啦</p>
+          <p>Welcome to our wedding.</p>
+          <p class="group"><span class="cursor-pointer before:absolute before:w-full before:transition-all group-hover:before:h-full before:h-1/2  before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class=" relative">Start</span></span></p>
+        </div>
+      </div>
+    </div>
+  </Transition>
+  </Teleport>
   <Teleport to="#modal">
     <div v-if="route.meta.lightBox" @click="router.back()" class="fixed z-20 inset-0 bg-text/70 w-full h-full backdrop-blur-sm">
       <router-view name="lightBox"/>

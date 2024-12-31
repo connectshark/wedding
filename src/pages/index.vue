@@ -1,17 +1,4 @@
 <template>
-  <Teleport to="#modal">
-    <Transition>
-      <div v-if="!started" @click="startViewWebsite" class="cover">
-        <div class="font-title text-3xl text-text/90 text-center">
-          <h1>婚禮邀請函</h1>
-          <p class="text-6xl/relaxed">若筠&恩騰</p>
-          <p>我們結婚啦</p>
-          <p>Welcome to our wedding.</p>
-          <p class=" group"><span class="cursor-pointer before:absolute before:w-full before:transition-all group-hover:before:h-full before:h-1/2  before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class=" relative">Start</span></span></p>
-        </div>
-      </div>
-    </Transition>
-  </Teleport>
   <div class="text-right w-11/12 mx-auto max-w-3xl">
     <p>邀請對我們而言重要的你</p>
     <p>見證一場儀式，不算盛大，卻足夠用心</p>
@@ -26,9 +13,6 @@
     <p>Welcome to our wedding.</p>
   </div>
   <p class="text-center">愛讓我們相遇，承諾讓我們攜手共進</p>
-  <div class="py-10">
-    <SoundComponents ref="sound" />
-  </div>
   <div>
     <div class="font-title text-3xl text-center py-10 text-text/80">
       <h2>婚禮表單</h2>
@@ -252,18 +236,8 @@ import FacebookIcon from '../components/icons/FacebookIcon.vue'
 import ShareIcon from '../components/icons/ShareIcon.vue'
 import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
-import SoundComponents from '../components/SoundComponents.vue'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
-
-import { ref } from 'vue'
-
-const started = ref(false)
-const sound = ref(null)
-const startViewWebsite = () => {
-  sound.value.playSound()
-  started.value = true
-}
 
 const SITE_URL = 'https://sandra.nosegates.com'
 
