@@ -19,8 +19,8 @@
     :duration="500"
     class="mb-3">
     <figure class=" rounded-2xl overflow-clip">
-      <router-link class="block hover:brightness-70" :to="`/photo/${photo}`">
-        <img class=" object-contain" draggable="false" :style="{ viewTransitionName: isStart ? '' : `photo-${photo}` }" loading="lazy" :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/${ photo }.webp`" alt="photo">
+      <router-link class="block active:brightness-70 hover:brightness-70" :to="`/photo/${photo}`">
+        <img class="object-contain" draggable="false" :style="{ viewTransitionName: isStart ? '' : `photo-${photo}` }" loading="lazy" :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/${ photo }.webp`" alt="photo">
       </router-link>
     </figure>
   </li>
