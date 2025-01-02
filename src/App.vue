@@ -2,7 +2,6 @@
 import RoseFlowerComponents from './components/img/RoseFlowerComponents.vue'
 import RoseCuateFlowerComponents from './components/img/RoseCuateFlowerComponents.vue'
 import { useRoute, useRouter } from 'vue-router'
-import useFetch from './composables/useFetch'
 import { ref } from 'vue'
 import LogoComponents from './components/logo.vue'
 import LogoIcon from './components/icons/LogoIcon.vue'
@@ -17,9 +16,12 @@ const startViewWebsite = () => {
 const route = useRoute()
 const router = useRouter()
 
-const {
-  data: brands
-} = useFetch('/brands.json', {})
+const brands = [
+  {
+    name: 'NS工作室',
+    url: 'https://studio.justlikeboss.com'
+  }
+]
 
 const navs = [
   {
@@ -69,7 +71,7 @@ const scrollHandler = () => {
   isSticky.value = window.scrollY > 0
 }
 window.addEventListener('scroll', scrollHandler)
-
+const year = new Date().getFullYear()
 </script>
 
 <template>
@@ -173,7 +175,7 @@ window.addEventListener('scroll', scrollHandler)
           <i class='bx bxl-instagram bx-md align-middle'></i>
         </a>
       </p>
-      <p class="text-sm/loose mb-4">Copyright <i class='bx bx-copyright'/> 2024 <a class=" underline" href="https://studio.justlikeboss.com" target="_blank">NS工作室</a> 版權所有</p>
+      <p class="text-sm/loose mb-4">Copyright <i class='bx bx-copyright'/> {{ year }} <a class="underline" href="https://studio.justlikeboss.com" target="_blank">婚禮邀請函 若筠&恩騰</a> 版權所有</p>
       <p class="text-sm/loose">本網站由 <a class="underline" href="https://studio.justlikeboss.com" target="_blank">NS工作室</a> 製作</p>
     </div>
   </footer>
