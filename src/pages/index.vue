@@ -1,4 +1,5 @@
 <template>
+<div class="mb-20">
   <div class="text-right w-11/12 mx-auto max-w-3xl">
     <p>邀請對我們而言重要的你</p>
     <p>見證一場儀式，不算盛大，卻足夠用心</p>
@@ -6,15 +7,16 @@
   <figure class="py-10 max-w-3xl mx-auto">
     <img loading="lazy" draggable="false"class="object-cover object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
   </figure>
-  <div class="font-title mb-10 text-3xl text-text/80 text-center">
+  <div class="font-title mb-10 text-4xl text-text/80 text-center">
     <h1>婚禮邀請函</h1>
-    <p class="text-6xl/relaxed">若筠&恩騰</p>
+    <p class="text-6xl/relaxed title-blur relative before:bg-accent/80 after:bg-secondary/80">若筠&恩騰</p>
     <p>我們結婚啦</p>
     <p>Welcome to our wedding.</p>
   </div>
   <p class="text-center">愛讓我們相遇，承諾讓我們攜手共進</p>
-  <div>
-    <div class="font-title text-3xl text-center py-10 text-text/80">
+</div>
+  <div v-motion-slide-visible-once-bottom>
+    <div class="font-title text-4xl text-center py-10 text-text/80">
       <h2>婚禮表單</h2>
       <p>form</p>
     </div>
@@ -29,7 +31,7 @@
     <p class=" text-2xl/loose">2019 - 2025</p>
     <p>愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
-  <section class="bg-accent/20 rounded-4xl py-20">
+  <section v-motion-slide-visible-once-bottom class="bg-accent/20 rounded-4xl py-20">
     <div class="sm:gap-3 max-w-5xl mb-10 sm:snap-none sm:py-10 snap-x w-5/6 mx-auto overflow-x-auto flex gap-6 rounded *:shrink-0 *:snap-center *:rounded *:overflow-clip *:shadow">
       <figure class="w-3/5 sm:w-auto sm:shrink sm:odd:translate-y-5 sm:even:-translate-y-5" v-for="photo in photos">
         <img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
@@ -41,11 +43,11 @@
   </section>
   <section class="mb-20">
     <div class="w-5/6 mx-auto">
-      <div class="font-title text-3xl text-center py-10 text-text/80">
+      <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 text-text/80">
         <h2>婚禮位置</h2>
         <p>Address</p>
       </div>
-      <ul class="max-w-80 mx-auto mb-10">
+      <ul v-motion-slide-visible-once-bottom class="max-w-80 mx-auto mb-10">
         <li class="flex items-center gap-2 mb-4">
           <div>
             <i class='bx bxs-map bx-sm align-middle'></i>
@@ -90,7 +92,7 @@
       </div>
       <div>
         <p class="flex justify-center">
-          <a class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" :href="map" target="_blank" rel="noopener noreferrer">
+          <a class="flex items-center font-medium gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none" :href="map" target="_blank" rel="noopener noreferrer">
             <i class='bx bxs-navigation' />
             <span>導航到會場</span>
           </a>
@@ -100,32 +102,32 @@
   </section>
   <section class="mb-20">
     <div class="w-5/6 mx-auto">
-      <div class="font-title text-3xl text-center py-10 text-text/80">
+      <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 text-text/80">
         <h2>婚禮時間</h2>
         <p>Time</p>
       </div>
       <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once :duration="500" :delay="200" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
-      <div class="text-center py-10 bg-white p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
+      <div class="text-center py-10 bg-white/50 drop-shadow-2xl p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
         <CalenderComponent :date="15"/>
       </div>
       <div class="flex justify-center">
-        <a title="點擊將這天加入日曆" class="flex items-center gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
+        <a title="將這天加入日曆" class="flex items-center font-medium gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-transparent" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
           <CalenderIcon/>
-          <span>點擊將這天加入日曆</span>
+          <span>將這天加入日曆</span>
         </a>
       </div>
     </div>
   </section>
   <section class="mb-20">
     <div>
-      <div class="font-title text-3xl text-center py-10 text-text/80">
+      <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 text-text/80">
         <h2>來自親友的祝福</h2>
         <p>Best wishes</p>
       </div>
       <div v-if="loading" class=" text-center">
         <i class='bx bx-loader bx-spin' />
       </div>
-      <ul v-else class="bg-secondary/20 p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl overflow-clip">
+      <ul v-else class="bg-secondary/20 backdrop-blur-3xl p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl overflow-clip">
         <li
           v-for="(page, i) in data.results"
           v-motion-slide-visible-once-bottom
@@ -146,7 +148,7 @@
     </div>
   </section>
   <section class="mb-20 overflow-clip">
-    <div class="font-title text-3xl text-center py-10 text-text/80">
+    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 text-text/80">
       <h2>距離婚禮剩下時間</h2>
       <p>Countdown</p>
     </div>
@@ -185,8 +187,8 @@
   </section>
   <section>
     <div class="w-5/6 mx-auto py-20 max-w-120">
-    <div class="font-title text-3xl text-text/80 text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
-      <div class="relative">
+    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-text/80 text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
+      <div class="relative z-10">
         <h2>分享婚禮邀請函</h2>
         <p>Share</p>
       </div>
@@ -195,29 +197,30 @@
       <div class="flex items-center justify-evenly max-w-3xl mx-auto flex-wrap gap-3">
         <button
           v-if="isShare" type="button"
-          class="flex items-center gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors"
+          class="flex items-center font-medium gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none"
           @click="share"><ShareIcon class="size-4" />
           <span>分享</span>
         </button>
         <a :href="`https://www.facebook.com/sharer.php?u=${encodeURI(SITE_URL)}&hashtag=%23婚禮邀請函`"
-          class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors"
+          class="flex items-center font-medium gap-2 border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none"
           target="_blank" rel="noopener noreferrer">
           <FacebookIcon class="size-4" />
           <span>分享</span>
         </a>
         <a :href="`https://line.me/R/share?text=若筠和恩騰婚禮邀請函 ${ encodeURI(SITE_URL) }?openExternalBrowser=1`"
-          class="flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors md:hidden"
+          class="flex items-center font-medium gap-2 border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none md:hidden"
           target="_blank" rel="noopener noreferrer">
           <LineIcon class="size-4" />
           <span>分享</span>
         </a>
-        <a class="hidden md:flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors"
+        <a class="hidden md:flex font-medium items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none"
           :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=若筠與恩騰的婚禮專頁`" target="_blank"
           rel="noopener noreferrer">
           <ThreadsIcon class="size-4" />
           <span>分享</span>
         </a>
-        <a class="md:hidden flex items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:bg-text hover:text-background transition-colors"
+        
+        <a class="md:hidden flex font-medium items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none"
           :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=${encodeURI(SITE_URL)}`"
           target="_blank" rel="noopener noreferrer">
           <ThreadsIcon class="size-4" />

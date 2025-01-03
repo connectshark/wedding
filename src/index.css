@@ -47,6 +47,7 @@
       height: 5rem;
       border-radius: 999rem;
       filter: blur(2rem);
+      z-index: 2;
     }
   }
   .title-blur::before {
@@ -131,9 +132,6 @@ html {
   animation-duration: 1s;
 }
 
-html:has(.welcome) {
-  overflow: clip;
-}
 .v-leave-active {
   transition: opacity 1s cubic-bezier(1, 0.5, 0.8, 1);
 }

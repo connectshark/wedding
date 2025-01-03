@@ -38,6 +38,7 @@ const photos = await fetch_response.json()
 
 onBeforeRouteLeave((to, from, next) => {
   const id = to.params.id
+  if (!document.startViewTransition) next()
   if (id) {
     document.startViewTransition(() => {
       isStart.value = true
