@@ -1,5 +1,8 @@
 <template>
-  <div class=" pt-[10svh]" :class="{ 'text-background': isLightBox }">
+  <div>
+    <div class=" w-11/12 mx-auto text-right min-h-[10svh]">
+      <button v-if="isLightBox"><i class='bx bx-x bx-md align-middle'></i></button>
+    </div>
     <template v-if="photoID">
       <picture class="max-w-3xl mx-auto block">
         <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/${ photoID }.webp`" media="(min-width: 1600px)">

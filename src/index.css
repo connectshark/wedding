@@ -10,11 +10,9 @@
   --secondary: #b283a2;
   --accent: #df8955;
 
-  --font-*: initial;
-  --font-main: FakePearl, system-ui, Arial, Helvetica, sans-serif, sans-serif,
-    SFMono-Regular, Menlo, Monaco, Consolas;
-  --font-title: ChenYuluoyan, system-ui, Arial, Helvetica, sans-serif,
-    sans-serif, SFMono-Regular, Menlo, Monaco, Consolas;
+  --font-main: FakePearl, system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
+  --font-title: ChenYuluoyan, system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
+  --font-sans: 'Inter', system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
 
   --color-text: var(--text);
   --color-background: var(--background);
