@@ -45,7 +45,7 @@ export default defineConfig({
     vue(),
     tailwindcss(),
     VueRouter({
-      importMode: (filepath) => filepath.includes('/photo/') ? 'sync' : 'async'
+      importMode: (filepath) => filepath.includes(['/photo/', 'index']) ? 'sync' : 'async'
     }),
     VueDevTools(),
     fetchStaticData(),

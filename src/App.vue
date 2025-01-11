@@ -102,9 +102,25 @@ const year = new Date().getFullYear()
 
   <Teleport to="#modal">
   <Transition>
-    <div v-if="!started" @click="startViewWebsite" class="fixed inset-0 z-20  flex items-center justify-center backdrop-blur-lg welcome bg-background/50">
-      <div class="font-title text-3xl text-text/90 text-center bg-[url('/bg.jpg')] max-w-80 w-full h-full max-h-120 flex items-center justify-center rounded-4xl border-6 border-text/30 relative">
-        <div class="size-40 red absolute bottom-0 -left-[20%]">
+    <div v-if="!started" @click="startViewWebsite" class="fixed inset-0 z-20 flex items-center justify-center backdrop-blur-3xl welcome bg-background/30">
+      <div
+        v-motion
+        :initial="{
+          scale: .8,
+          rotateY: -50,
+          opacity: 0
+        }"
+        :enter="{
+          scale: 1,
+          rotateY: 0,
+          opacity: 1,
+          transition: {
+            duration: 1000,
+            delay: 200
+          },
+        }"
+        class="font-title text-3xl text-text/90 text-center bg-[url('/bg.jpg')] max-w-80 w-full h-full max-h-120 flex items-center justify-center rounded-4xl border-6 border-text/30 relative"
+      ><div class="size-40 red absolute bottom-0 -left-[20%]">
           <RoseFlowerComponents />
         </div>
         <div class="size-40 yel absolute -top-10 -right-[10%]">
@@ -115,7 +131,9 @@ const year = new Date().getFullYear()
           <p class="text-6xl/relaxed">若筠&恩騰</p>
           <p>我們結婚啦</p>
           <p>Welcome to our wedding.</p>
-          <p class="group"><span class="cursor-pointer before:absolute before:w-full before:transition-all group-hover:before:h-full before:h-1/2  before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class=" relative">Start</span></span></p>
+          <p class="group">
+            <span class="cursor-pointer before:absolute before:w-full before:transition-all group-hover:before:h-full before:h-1/2  before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class=" relative">Start</span></span>
+          </p>
         </div>
       </div>
     </div>
