@@ -103,7 +103,7 @@ useScroller(photoContainerRef)
 </div>
 
 <section ref="photoContainerRef" class="bg-text h-[400svh] overflow-x-clip">
-  <div :style="{ transform: `translateX(calc(var(--scroll) * 300vw))` }" class="sticky top-0 flex items-center h-svh transition-transform ease-linear">
+  <div :style="{ transform: `translateX(calc(var(--scroll) * 300vw))` }" class="sticky top-0 flex items-center h-svh">
     <div class="shrink-0 w-svw pt-30 pb-10 px-10 h-full" v-for="photo in photos">
       <figure class="h-full w-full">
         <img loading="lazy" draggable="false" class=" w-full h-full object-contain object-center" :src="photo.url" alt="photo">
