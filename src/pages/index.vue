@@ -1,3 +1,66 @@
+<script setup>
+import useCountdown from '../composables/useCountdown'
+import ThreadsIcon from '../components/icons/ThreadsIcon.vue'
+import LineIcon from '../components/icons/LineIcon.vue'
+import FacebookIcon from '../components/icons/FacebookIcon.vue'
+import ShareIcon from '../components/icons/ShareIcon.vue'
+import CalenderIcon from '../components/icons/CalenderIcon.vue'
+import useShare from '../composables/useShare'
+import CalenderComponent from '../components/calender.vue'
+import useFetch from '../composables/useFetch'
+import { ref } from 'vue'
+import useScroller from '../composables/useScroller'
+
+const SITE_URL = 'https://sandra.nosegates.com'
+
+const calender = 'https://www.google.com/calendar/render?action=TEMPLATE&text=若筠與恩騰婚宴❤️&dates=20251115T040000Z/20251115T070000Z&location=川門子時尚餐廳&details=誠摯的邀請您一同參與我們盛大的婚禮，分享幸福的時光&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg'
+
+const map = `https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg&travelmode=driving&destination=川門子`
+
+const {
+  days,
+  minutes,
+  seconds,
+  hours
+} = useCountdown('2025-11-15')
+
+const photos = [
+  {
+    id: '1',
+    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00205.webp`
+  },
+  {
+    id: '2',
+    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00296.webp`
+  },
+  {
+    id: '3',
+    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00261.webp'
+  },
+  {
+    id: '4',
+    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00209.webp'
+  }
+]
+
+const {
+  data,
+  loading
+} = useFetch('/threads.json', {})
+
+const VITE_SITE_NAME = import.meta.env.VITE_SITE_NAME
+const {
+  share,
+  isShare
+} = useShare({
+  title: VITE_SITE_NAME,
+  url: SITE_URL
+})
+
+const photoContainerRef = ref(null)
+useScroller(photoContainerRef)
+</script>
+
 <template>
 <div class="mb-20">
   <div class="text-right w-11/12 mx-auto max-w-3xl">
@@ -7,7 +70,7 @@
   <figure class="py-10 max-w-3xl mx-auto">
     <img loading="lazy" draggable="false"class="object-cover object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
   </figure>
-  <div class="font-title mb-10 text-4xl text-text/90 text-center">
+  <div class="font-title text-4xl text-text/90 text-center mb-10">
     <h1>婚禮邀請函</h1>
     <p class="z-3 text-6xl/relaxed title-blur relative before:bg-accent/80 after:bg-secondary/80">若筠&恩騰</p>
     <p>我們結婚啦</p>
@@ -26,35 +89,39 @@
 </div>
 <div class="py-30">
   <figure class="max-w-3xl mx-auto">
-    <p v-motion-slide-visible-once-top :delay="500" :duration="800"
+    <p v-motion-slide-visible-top :delay="500" :duration="800"
       class="text-9xl font-black text-text/90 text-center font-sans -mb-8">2019</p>
     <img loading="lazy" draggable="false"
       class="object-contain object-center w-full relative z-2"
       src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
-    <figcaption v-motion-slide-visible-once-bottom :duration="800"
+    <figcaption v-motion-slide-visible-bottom :duration="800"
       class="text-9xl font-black text-center font-sans -mt-8 text-text/90">2025</figcaption>
   </figure>
 </div>
 <div class="py-20 text-center">
   <p class=" font-title text-4xl w-5/6 mx-auto">愛情的旅程，感謝有你們和妳們相伴</p>
 </div>
-<section v-motion-slide-visible-once-bottom class="bg-accent/20 rounded-4xl py-20">
-  <div class="sm:gap-3 max-w-5xl mb-10 sm:snap-none sm:py-10 snap-x w-5/6 mx-auto overflow-x-auto flex gap-6 rounded *:shrink-0 *:snap-center *:rounded *:overflow-clip *:shadow">
-    <figure class="w-3/5 sm:w-auto sm:shrink sm:odd:translate-y-5 sm:even:-translate-y-5" v-for="photo in photos">
-      <img loading="lazy" draggable="false" class="w-full object-contain object-center" :src="photo.url" alt="photo">
-    </figure>
-  </div>
-  <div class="text-center">
-    <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px] text-lg">搶先看照片</router-link>
+
+<section ref="photoContainerRef" class="bg-text h-[400svh] overflow-x-clip">
+  <div :style="{ transform: `translateX(calc(var(--scroll) * 300vw))` }" class="sticky top-0 flex items-center h-svh transition-transform ease-in-out duration-300">
+    <div class="shrink-0 w-svw pt-30 pb-10 px-10 h-full" v-for="photo in photos">
+      <figure class="h-full w-full">
+        <img loading="lazy" draggable="false" class=" w-full h-full object-contain object-center" :src="photo.url" alt="photo">
+      </figure>
+    </div>
   </div>
 </section>
+<div v-motion-slide-visible-once-bottom class="text-center py-20">
+  <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px] text-lg">搶先看照片</router-link>
+</div>
 <section class="mb-20">
   <div class="w-5/6 mx-auto">
-    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 text-text/80">
+  <MotionGroup preset="slideVisibleOnceBottom">
+    <div class="font-title text-4xl text-center py-10 text-text/80">
       <h2>婚禮位置</h2>
       <p>Address</p>
     </div>
-    <ul v-motion-slide-visible-once-bottom class="max-w-80 mx-auto mb-10">
+    <ul class="max-w-80 mx-auto mb-10">
       <li class="flex items-center gap-2 mb-4">
         <div>
           <i class='bx bxs-map bx-sm align-middle'></i>
@@ -105,6 +172,7 @@
         </a>
       </p>
     </div>
+  </MotionGroup>
   </div>
 </section>
   <section class="mb-20">
@@ -235,64 +303,6 @@
     </div>
   </section>
 </template>
-
-<script setup>
-import useCountdown from '../composables/useCountdown'
-import ThreadsIcon from '../components/icons/ThreadsIcon.vue'
-import LineIcon from '../components/icons/LineIcon.vue'
-import FacebookIcon from '../components/icons/FacebookIcon.vue'
-import ShareIcon from '../components/icons/ShareIcon.vue'
-import CalenderIcon from '../components/icons/CalenderIcon.vue'
-import useShare from '../composables/useShare'
-import CalenderComponent from '../components/calender.vue'
-import useFetch from '../composables/useFetch'
-
-const SITE_URL = 'https://sandra.nosegates.com'
-
-const calender = 'https://www.google.com/calendar/render?action=TEMPLATE&text=若筠與恩騰婚宴❤️&dates=20251115T040000Z/20251115T070000Z&location=川門子時尚餐廳&details=誠摯的邀請您一同參與我們盛大的婚禮，分享幸福的時光&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg'
-
-const map = `https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg&travelmode=driving&destination=川門子`
-
-const {
-  days,
-  minutes,
-  seconds,
-  hours
-} = useCountdown('2025-11-15')
-
-const photos = [
-  {
-    id: '1',
-    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00205.webp`
-  },
-  {
-    id: '2',
-    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00296.webp`
-  },
-  {
-    id: '3',
-    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00261.webp'
-  },
-  {
-    id: '4',
-    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00209.webp'
-  }
-]
-
-const {
-  data,
-  loading
-} = useFetch('/threads.json', {})
-
-const VITE_SITE_NAME = import.meta.env.VITE_SITE_NAME
-const {
-  share,
-  isShare
-} = useShare({
-  title: VITE_SITE_NAME,
-  url: SITE_URL
-})
-</script>
 
 <route lang="json">
 {

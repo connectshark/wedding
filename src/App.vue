@@ -105,19 +105,21 @@ const year = new Date().getFullYear()
     <div v-if="!started" @click="startViewWebsite" class="fixed inset-0 z-20 flex items-center justify-center backdrop-blur-3xl welcome bg-background/30">
       <div
         v-motion
+        :delay="200"
         :initial="{
           scale: .8,
           rotateY: -50,
-          opacity: 0
+          opacity: 0,
         }"
         :enter="{
           scale: 1,
           rotateY: 0,
           opacity: 1,
           transition: {
-            duration: 1000,
-            delay: 200
-          },
+            duration: 1500,
+            type: 'keyframes',
+            ease: 'backOut',
+          }
         }"
         class="font-title text-3xl text-text/90 text-center bg-[url('/bg.jpg')] max-w-80 w-full h-full max-h-120 flex items-center justify-center rounded-4xl border-6 border-text/30 relative"
       ><div class="size-40 red absolute bottom-0 -left-[20%]">
