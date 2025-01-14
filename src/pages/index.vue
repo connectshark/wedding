@@ -8,8 +8,6 @@ import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
-import { ref } from 'vue'
-import useScroller from '../composables/useScroller'
 
 const SITE_URL = 'https://sandra.nosegates.com'
 
@@ -57,8 +55,6 @@ const {
   url: SITE_URL
 })
 
-const photoContainerRef = ref(null)
-useScroller(photoContainerRef)
 </script>
 
 <template>
@@ -102,18 +98,36 @@ useScroller(photoContainerRef)
   <p class=" font-title text-4xl w-5/6 mx-auto">愛情的旅程，感謝有你們和妳們相伴</p>
 </div>
 
-<section ref="photoContainerRef" class="bg-text h-[400svh] overflow-x-clip">
-  <div :style="{ transform: `translateX(calc(var(--scroll) * 300vw))` }" class="sticky top-0 flex items-center h-svh">
-    <div class="shrink-0 w-svw pt-30 pb-10 px-10 h-full" v-for="photo in photos">
-      <figure class="h-full w-full">
-        <img loading="lazy" draggable="false" class=" w-full h-full object-contain object-center" :src="photo.url" alt="photo">
-      </figure>
-    </div>
+<section class="bg-text py-20">
+  <div class="h-[200svh] mb-30" v-for="(photo, i) in photos">
+    <figure class="perspective-distant sticky top-24">
+      <img
+        v-motion
+        :delay="200"
+        :initial="{
+          scale: .8,
+          rotateZ: 10 * (i % 2 === 0 ? 1 : -1),
+          rotateY: 40 * (i % 2 === 0 ? 1 : -1),
+          opacity: 0,
+        }"
+        :visible="{
+          scale: 1,
+          rotateZ: 0,
+          rotateY: 0,
+          opacity: 1,
+          transition: {
+            duration: 800,
+            type: 'keyframes',
+            ease: 'easeIn',
+          }
+        }"
+        loading="lazy" draggable="false" class=" w-5/6 max-w-96 max-h-[75svh] mx-auto object-contain object-center" :src="photo.url" alt="photo">
+    </figure>
+  </div>
+  <div v-motion-slide-visible-once-bottom class="text-center py-20">
+    <router-link to="/photos" class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
   </div>
 </section>
-<div v-motion-slide-visible-once-bottom class="text-center py-20">
-  <router-link to="/photos" class="underline decoration-primary decoration-4 hover:underline-offset-[-4px] text-lg">搶先看照片</router-link>
-</div>
 <section class="mb-20">
   <div class="w-5/6 mx-auto">
   <MotionGroup preset="slideVisibleOnceBottom">

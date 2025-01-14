@@ -102,7 +102,7 @@ const year = new Date().getFullYear()
 
   <Teleport to="#modal">
   <Transition>
-    <div v-if="!started" @click="startViewWebsite" class="fixed inset-0 z-20 flex items-center justify-center backdrop-blur-3xl welcome bg-background/30">
+    <div data-name="welcome" v-if="!started" @click.once="startViewWebsite" class=" perspective-distant fixed inset-0 z-20 flex items-center justify-center backdrop-blur-3xl bg-background/30">
       <div
         v-motion
         :delay="200"
