@@ -79,6 +79,7 @@ useIntersectionObserver(headerRef, (entries) => {
 </script>
 
 <template>
+  <div>
   <div ref="headerRef" />
   <header :class="{ 'mb-0 pt-3 px-3': isSticky, 'mb-3': !isSticky }" class="sticky top-0 z-20 transition-all ease-in-out duration-500">
     <div :class="{ 'bg-linear-to-br from-background/90 from-40% to-secondary/20': isSticky }" class="backdrop-blur-sm transition-all ease-in-out duration-500 w-11/12 mx-auto p-2 flex items-center justify-between rounded-2xl">
@@ -153,6 +154,7 @@ useIntersectionObserver(headerRef, (entries) => {
       <router-view name="lightBox"/>
     </div>
   </Teleport>
+  </div>
   <div class="bg-[url('/curve.svg')] bg-cover bg-center bg-no-repeat py-20"></div>
   <footer class="bg-text/10">
     <div class="w-5/6 mx-auto py-10 grid md:grid-cols-3 gap-8">

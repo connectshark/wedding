@@ -68,7 +68,7 @@ const {
   </figure>
   <div class="font-title text-4xl text-text/90 text-center mb-10">
     <h1>婚禮邀請函</h1>
-    <p class="z-3 text-6xl/relaxed title-blur relative before:bg-accent/80 after:bg-secondary/80">若筠&恩騰</p>
+    <p class="z-3 max-w-xl mx-auto text-6xl/relaxed title-blur relative before:bg-accent/80 after:bg-secondary/80">若筠&恩騰</p>
     <p>我們結婚啦</p>
     <p>Welcome to our wedding.</p>
   </div>
@@ -105,24 +105,22 @@ const {
         v-motion
         :delay="200"
         :initial="{
-          scale: .6,
-          rotateY: 40 * (i % 2 === 0 ? 1 : -1),
-          opacity: 0,
+          scale: .5,
+          rotateY: 40 * (i % 2 === 0 ? 1 : -1)
         }"
         :visible="{
           scale: 1,
           rotateY: 0,
-          opacity: 1,
           transition: {
             duration: 500,
             type: 'keyframes',
             ease: 'easeIn',
           }
         }"
-        loading="lazy" draggable="false" class=" w-5/6 max-w-96 max-h-[75svh] mx-auto object-contain object-center" :src="photo.url" alt="photo">
+        loading="lazy" draggable="false" class="w-5/6 max-w-96 max-h-[75svh] mx-auto object-contain object-center" :src="photo.url" alt="photo">
     </figure>
   </div>
-  <div v-motion-slide-visible-once-bottom class="text-center py-20">
+  <div v-motion-slide-visible-once-bottom class="text-center">
     <router-link to="/photos" class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
   </div>
 </section>
