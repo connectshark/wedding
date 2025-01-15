@@ -58,7 +58,7 @@ const {
 </script>
 
 <template>
-<div class="mb-20">
+<div class="mb-20 min-h-svh">
   <div class="text-right w-11/12 mx-auto max-w-3xl">
     <p>邀請對我們而言重要的你</p>
     <p>見證一場儀式，不算盛大，卻足夠用心</p>
@@ -97,26 +97,24 @@ const {
 <div class="py-20 text-center">
   <p class=" font-title text-4xl w-5/6 mx-auto">愛情的旅程，感謝有你們和妳們相伴</p>
 </div>
-
-<section class="bg-text py-20">
+<div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20"></div>
+<section class="bg-text py-20 bg-[url('/bubble.svg')] bg-center">
   <div class="h-[200svh] mb-30" v-for="(photo, i) in photos">
     <figure class="perspective-distant sticky top-24">
       <img
         v-motion
         :delay="200"
         :initial="{
-          scale: .8,
-          rotateZ: 10 * (i % 2 === 0 ? 1 : -1),
+          scale: .6,
           rotateY: 40 * (i % 2 === 0 ? 1 : -1),
           opacity: 0,
         }"
         :visible="{
           scale: 1,
-          rotateZ: 0,
           rotateY: 0,
           opacity: 1,
           transition: {
-            duration: 800,
+            duration: 500,
             type: 'keyframes',
             ease: 'easeIn',
           }
@@ -128,6 +126,7 @@ const {
     <router-link to="/photos" class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
   </div>
 </section>
+<div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 -scale-y-100"></div>
 <section class="mb-20">
   <div class="w-5/6 mx-auto">
   <MotionGroup preset="slideVisibleOnceBottom">
@@ -245,28 +244,28 @@ const {
       class="py-10">
       <ul class=" flex justify-evenly max-w-md mx-auto w-11/12">
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ days }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ days }}</div>
           <p>天</p>
         </li>
         <li>
           <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ hours }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ hours }}</div>
           <p>時</p>
         </li>
         <li>
           <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ minutes }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ minutes }}</div>
           <p>分</p>
         </li>
         <li>
           <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2">{{ seconds }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ seconds }}</div>
           <p>秒</p>
         </li>
       </ul>

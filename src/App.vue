@@ -2,12 +2,13 @@
 import RoseFlowerComponents from './components/img/RoseFlowerComponents.vue'
 import RoseCuateFlowerComponents from './components/img/RoseCuateFlowerComponents.vue'
 import { useRoute, useRouter } from 'vue-router'
-import { ref } from 'vue'
+import { ref, useTemplateRef } from 'vue'
 import LogoComponents from './components/logo.vue'
 import LogoIcon from './components/icons/LogoIcon.vue'
 import SoundComponents from './components/SoundComponents.vue'
+import useIntersectionObserver from './composables/useIntersectionObserver'
 
-const sound = ref(null)
+const sound = useTemplateRef('sound')
 const started = ref(false)
 const startViewWebsite = () => {
   started.value = true
@@ -47,7 +48,7 @@ const pages = [
     name: '版權聲明'
   }
 ]
-const list = ref(null)
+const list = useTemplateRef('list')
 
 const vClickOutside = {
   beforeMount (el) {
@@ -67,14 +68,18 @@ const vClickOutside = {
 }
 
 const isSticky = ref(false)
-const scrollHandler = () => {
-  isSticky.value = window.scrollY > 0
-}
-window.addEventListener('scroll', scrollHandler)
 const year = new Date().getFullYear()
+
+const headerRef = useTemplateRef('headerRef')
+useIntersectionObserver(headerRef, (entries) => {
+  entries.forEach(entry => {
+    isSticky.value = !entry.isIntersecting
+  })
+}, { threshold: 0 })
 </script>
 
 <template>
+  <div ref="headerRef" />
   <header :class="{ 'mb-0 pt-3 px-3': isSticky, 'mb-3': !isSticky }" class="sticky top-0 z-20 transition-all ease-in-out duration-500">
     <div :class="{ 'bg-linear-to-br from-background/90 from-40% to-secondary/20': isSticky }" class="backdrop-blur-sm transition-all ease-in-out duration-500 w-11/12 mx-auto p-2 flex items-center justify-between rounded-2xl">
       <router-link class="text-text/80 p-1 rounded-xl active:bg-text/10 md:hover:bg-text/10" to="/">
@@ -110,11 +115,13 @@ const year = new Date().getFullYear()
           scale: .8,
           rotateY: -50,
           opacity: 0,
+          boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)',
         }"
         :enter="{
           scale: 1,
           rotateY: 0,
           opacity: 1,
+          boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
           transition: {
             duration: 1500,
             type: 'keyframes',
