@@ -8,6 +8,14 @@ import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
+import StackCard from '../components/StackCard.vue'
+
+const photos = [
+  { id: '1', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00205.webp` },
+  { id: '2', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00296.webp` },
+  { id: '3', url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00261.webp' },
+  { id: '4', url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00209.webp' }
+]
 
 const SITE_URL = 'https://sandra.nosegates.com'
 
@@ -22,24 +30,6 @@ const {
   hours
 } = useCountdown('2025-11-15')
 
-const photos = [
-  {
-    id: '1',
-    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00205.webp`
-  },
-  {
-    id: '2',
-    url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00296.webp`
-  },
-  {
-    id: '3',
-    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00261.webp'
-  },
-  {
-    id: '4',
-    url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00209.webp'
-  }
-]
 
 const {
   data,
@@ -99,26 +89,12 @@ const {
 </div>
 <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20"></div>
 <section class="bg-text py-20 bg-[url('/bubble.svg')] bg-center">
-  <div class="h-[200svh] mb-30" v-for="(photo, i) in photos">
-    <figure class="perspective-distant sticky top-24">
-      <img
-        v-motion
-        :delay="200"
-        :initial="{
-          scale: .5,
-          rotateY: 40 * (i % 2 === 0 ? 1 : -1)
-        }"
-        :visible="{
-          scale: 1,
-          rotateY: 0,
-          transition: {
-            duration: 500,
-            type: 'keyframes',
-            ease: 'easeIn',
-          }
-        }"
-        loading="lazy" draggable="false" class="w-5/6 max-w-96 max-h-[75svh] mx-auto object-contain object-center" :src="photo.url" alt="photo">
-    </figure>
+  <div>
+    <StackCard
+      v-for="(photo, index) in photos"
+      :url="photo.url"
+      :index="index"
+    />
   </div>
   <div v-motion-slide-visible-once-bottom class="text-center">
     <router-link to="/photos" class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
