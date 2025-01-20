@@ -24,7 +24,7 @@
       </template>
     </Suspense>
     <div class="text-center">
-      <p class="mb-10">剩下的照片將於 2025/11/15 公開</p>
+      <p class="mb-10">剩餘的照片將於 2025/11/15 公開</p>
       <p>
         <router-link to="/" class="underline"><i class='bx bx-home'></i>回首頁</router-link>
       </p>

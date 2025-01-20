@@ -1,6 +1,6 @@
 <template>
-<ul class="gap-3 columns-2 md:columns-3 xl:columns-4 mb-20 px-3 relative before:absolute before:size-40 before:bg-secondary before:rounded-full before:blur-3xl before:left-1/3 before:top-0
-    after:absolute after:size-40 after:bg-primary after:rounded-full after:blur-3xl after:right-1/3 after:top-1/2">
+<ul class="gap-3 columns-2 md:columns-3 xl:columns-4 mb-20 px-3 relative before:absolute before:size-40 before:bg-secondary before:rounded-full before:blur-3xl before:left-1/3 before:top-1/10
+    after:absolute after:size-40 after:bg-primary after:rounded-full after:blur-3xl after:right-1/3 after:bottom-1/10">
   <li
     v-for="(photo, i) in photos"
     v-motion
@@ -51,5 +51,5 @@ onBeforeRouteLeave((to, from, next) => {
 })
 const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
 
-await wait(500)
+await wait(200)
 </script>

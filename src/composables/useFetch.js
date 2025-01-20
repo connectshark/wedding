@@ -1,7 +1,6 @@
 import { ref } from 'vue'
 
 export default (url, {
-  method = 'GET',
   immediate = true,
   onError = () => {}
 }) => {
@@ -15,11 +14,15 @@ export default (url, {
     data.value = null
 
     const fetch_options = {
-      method,
+      method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
         'accept': 'application/json'
       }
+    }
+
+    if (body) {
+      fetch_options.body = body
+      fetch_options.method = 'POST'
     }
 
     const fetch_response = await fetch(url, fetch_options)

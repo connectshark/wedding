@@ -51,7 +51,11 @@
     bottom: 10%;
     animation: bump-reverse 4.5s infinite alternate .5s;
   }
+  .magic-btn {
+    @apply bg-linear-to-br/oklch from-primary to-secondary/80 hover:animate-pulse text-background items-center font-medium gap-2 cursor-pointer rounded-full py-2 px-6 hover:scale-105 transition active:scale-95;
+  }
 }
+
 
 @keyframes bump {
   0% {

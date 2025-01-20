@@ -45,6 +45,25 @@ const {
   url: SITE_URL
 })
 
+const EMAIL_SUBSCRIBE = import.meta.env.VITE_EMAIL_SUBSCRIBE
+const {
+  doFetch: subScribe,
+  data: subscribeResult,
+  loading: subscribeLoading
+} = useFetch(EMAIL_SUBSCRIBE, {
+  immediate: false,
+  method: 'POST',
+  onError: () => {
+    console.log('Error')
+  }
+})
+const sendForm = async () => {
+  const form = new URLSearchParams()
+  form.append('email', 'bobhus394@gmail.com')
+  form.append('name', '葉恩騰')
+  await subScribe(form)
+}
+
 </script>
 
 <template>
@@ -54,15 +73,26 @@ const {
     <p>見證一場儀式，不算盛大，卻足夠用心</p>
   </div>
   <figure class="py-10 max-w-3xl mx-auto">
-    <img loading="lazy" draggable="false"class="object-cover object-center shadow-xl w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
+    <img loading="lazy" draggable="false"class="object-cover object-center w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
   </figure>
-  <div class="font-title text-4xl text-text/90 text-center mb-10">
+  <p class="text-center">愛讓我們相遇，承諾讓我們攜手共進</p>
+</div>
+<div class="py-30">
+  <figure class="max-w-3xl mx-auto">
+    <p v-motion-slide-visible-top :duration="800" class="text-9xl font-black text-center font-sans -mb-10">2019</p>
+    <img loading="lazy" draggable="false"
+      class="object-contain object-center w-full"
+      src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
+    <figcaption v-motion-slide-visible-bottom :duration="800" class="text-9xl font-black text-center font-sans -mt-10">2025</figcaption>
+  </figure>
+</div>
+<div>
+  <div class="font-title text-4xl text-text/90 text-center mb-10 ">
     <h1>婚禮邀請函</h1>
     <p class="z-3 max-w-xl mx-auto text-6xl/relaxed title-blur relative before:bg-accent/80 after:bg-secondary/80">若筠&恩騰</p>
     <p>我們結婚啦</p>
     <p>Welcome to our wedding.</p>
   </div>
-  <p class="text-center">愛讓我們相遇，承諾讓我們攜手共進</p>
 </div>
 <div v-motion-slide-visible-once-bottom>
   <div class="font-title text-4xl text-center py-10 text-text/80">
@@ -73,22 +103,11 @@ const {
     <div>願意參與我們婚禮的親朋好友們請一定要填寫表單</div>
   </div>
 </div>
-<div class="py-30">
-  <figure class="max-w-3xl mx-auto">
-    <p v-motion-slide-visible-top :delay="500" :duration="800"
-      class="text-9xl font-black text-text/90 text-center font-sans -mb-8">2019</p>
-    <img loading="lazy" draggable="false"
-      class="object-contain object-center w-full relative z-2"
-      src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
-    <figcaption v-motion-slide-visible-bottom :duration="800"
-      class="text-9xl font-black text-center font-sans -mt-8 text-text/90">2025</figcaption>
-  </figure>
-</div>
 <div class="py-20 text-center">
   <p class=" font-title text-4xl w-5/6 mx-auto">愛情的旅程，感謝有你們和妳們相伴</p>
 </div>
-<div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20"></div>
-<section class="bg-text py-20 bg-[url('/bubble.svg')] bg-center">
+<div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30" />
+<section class="bg-text py-20 bg-center">
   <div>
     <StackCard
       v-for="(photo, index) in photos"
@@ -100,10 +119,9 @@ const {
     <router-link to="/photos" class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
   </div>
 </section>
-<div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 -scale-y-100"></div>
+<div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30 -scale-100" />
 <section class="mb-20">
   <div class="w-5/6 mx-auto">
-  <MotionGroup preset="slideVisibleOnceBottom">
     <div class="font-title text-4xl text-center py-10 text-text/80">
       <h2>婚禮位置</h2>
       <p>Address</p>
@@ -153,13 +171,12 @@ const {
     </div>
     <div>
       <p class="flex justify-center">
-        <a class="flex items-center font-medium gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none" :href="map" target="_blank" rel="noopener noreferrer">
+        <a class="magic-btn flex" :href="map" target="_blank" rel="noopener noreferrer">
           <i class='bx bxs-navigation' />
           <span>導航到會場</span>
         </a>
       </p>
     </div>
-  </MotionGroup>
   </div>
 </section>
   <section class="mb-20">
@@ -169,11 +186,11 @@ const {
         <p>Time</p>
       </div>
       <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once :duration="500" :delay="200" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
-      <div class="text-center py-10 bg-white/50 drop-shadow-2xl p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
+      <div class="text-center py-10 bg-white/50 p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
         <CalenderComponent :date="15"/>
       </div>
       <div class="flex justify-center">
-        <a title="將這天加入日曆" class="flex items-center font-medium gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-transparent" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
+        <a title="將這天加入日曆" class="magic-btn flex" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
           <CalenderIcon/>
           <span>將這天加入日曆</span>
         </a>
@@ -253,34 +270,34 @@ const {
         <p>Share</p>
       </div>
     </div>
-      <p class="text-center mb-10">把這些資訊分享給可能需要知道的人吧！</p>
-      <div class="flex items-center justify-evenly max-w-3xl mx-auto flex-wrap gap-3">
+      <p class="text-center mb-10">選擇自己最常用的社群方分享出去吧！</p>
+      <div class="flex flex-col md:flex-row items-center justify-evenly max-w-3xl mx-auto flex-wrap gap-6 md:gap-3">
         <button
           v-if="isShare" type="button"
-          class="flex items-center font-medium gap-2 cursor-pointer border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none"
+          class="magic-btn flex"
           @click="share"><ShareIcon class="size-4" />
           <span>分享</span>
         </button>
         <a :href="`https://www.facebook.com/sharer.php?u=${encodeURI(SITE_URL)}&hashtag=%23婚禮邀請函`"
-          class="flex items-center font-medium gap-2 border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none"
+          class="magic-btn flex"
           target="_blank" rel="noopener noreferrer">
           <FacebookIcon class="size-4" />
           <span>分享</span>
         </a>
         <a :href="`https://line.me/R/share?text=若筠和恩騰婚禮邀請函 ${ encodeURI(SITE_URL) }?openExternalBrowser=1`"
-          class="flex items-center font-medium gap-2 border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none md:hidden"
+          class="magic-btn flex md:hidden"
           target="_blank" rel="noopener noreferrer">
           <LineIcon class="size-4" />
           <span>分享</span>
         </a>
-        <a class="hidden md:flex font-medium items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none"
+        <a class="hidden md:flex magic-btn"
           :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=若筠與恩騰的婚禮專頁`" target="_blank"
           rel="noopener noreferrer">
           <ThreadsIcon class="size-4" />
           <span>分享</span>
         </a>
         
-        <a class="md:hidden flex font-medium items-center gap-2 border border-text text-text rounded-full py-1 px-3 hover:scale-105 hover:shadow-2xl hover:shadow-secondary/80 hover:border-secondary transition active:scale-95 active:shadow-none"
+        <a class="md:hidden magic-btn flex"
           :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=${encodeURI(SITE_URL)}`"
           target="_blank" rel="noopener noreferrer">
           <ThreadsIcon class="size-4" />
