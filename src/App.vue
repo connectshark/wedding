@@ -157,8 +157,8 @@ useIntersectionObserver(headerRef, (entries) => {
   </div>
   <div class="bg-[url('/curve.svg')] bg-cover bg-center bg-no-repeat py-20"></div>
   <footer class="bg-text/10">
-    <div class="w-5/6 mx-auto py-10 grid md:grid-cols-3 gap-8">
-      <div>
+    <div class="w-5/6 mx-auto py-10 grid md:grid-cols-4 gap-8">
+      <div class="md:col-span-2">
         <h5 class="mb-4">
           <router-link to="/" class="inline-block text-text/80">
             <LogoIcon class="size-8 inline-block align-middle"/>

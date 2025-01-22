@@ -8,7 +8,7 @@
     </thead>
     <tbody>
       <tr v-for="row in days" :key="row[0]">
-        <td class="" v-for="item in row" :class="{ 'bg-primary rounded-2xl': item === props.date }">{{ item }}</td>
+        <td class=" leading-relaxed" v-for="item in row" :class="{ 'bg-primary rounded-2xl': item === props.date }">{{ item }}</td>
       </tr>
     </tbody>
   </table>

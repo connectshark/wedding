@@ -67,7 +67,7 @@ const sendForm = async () => {
 </script>
 
 <template>
-<div class="mb-20 min-h-svh">
+<section class="mb-20">
   <div class="text-right w-11/12 mx-auto max-w-3xl">
     <p>邀請對我們而言重要的你</p>
     <p>見證一場儀式，不算盛大，卻足夠用心</p>
@@ -76,13 +76,11 @@ const sendForm = async () => {
     <img loading="lazy" draggable="false"class="object-cover object-center w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
   </figure>
   <p class="text-center">愛讓我們相遇，承諾讓我們攜手共進</p>
-</div>
+</section>
 <div class="py-30">
-  <figure class="max-w-3xl mx-auto">
+  <figure class="max-w-2xl mx-auto">
     <p v-motion-slide-visible-top :duration="800" class="text-9xl font-black text-center font-sans -mb-10">2019</p>
-    <img loading="lazy" draggable="false"
-      class="object-contain object-center w-full"
-      src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
+    <img loading="lazy" draggable="false" class="object-contain object-center w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
     <figcaption v-motion-slide-visible-bottom :duration="800" class="text-9xl font-black text-center font-sans -mt-10">2025</figcaption>
   </figure>
 </div>
@@ -95,7 +93,7 @@ const sendForm = async () => {
   </div>
 </div>
 <div v-motion-slide-visible-once-bottom>
-  <div class="font-title text-4xl text-center py-10 text-text/80">
+  <div class="font-title text-4xl text-center py-10">
     <h2>婚禮表單</h2>
     <p>form</p>
   </div>
@@ -122,7 +120,7 @@ const sendForm = async () => {
 <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30 -scale-100" />
 <section class="mb-20">
   <div class="w-5/6 mx-auto">
-    <div class="font-title text-4xl text-center py-10 text-text/80">
+    <div class="font-title text-4xl text-center py-10">
       <h2>婚禮位置</h2>
       <p>Address</p>
     </div>
@@ -179,58 +177,57 @@ const sendForm = async () => {
     </div>
   </div>
 </section>
-  <section class="mb-20">
-    <div class="w-5/6 mx-auto">
-      <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 text-text/80">
-        <h2>婚禮時間</h2>
-        <p>Time</p>
-      </div>
-      <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once :duration="500" :delay="200" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
-      <div class="text-center py-10 bg-white/50 p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-md mb-10">
-        <CalenderComponent :date="15"/>
-      </div>
-      <div class="flex justify-center">
-        <a title="將這天加入日曆" class="magic-btn flex" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
-          <CalenderIcon/>
-          <span>將這天加入日曆</span>
-        </a>
-      </div>
+<section class="mb-20 bg-text/5 py-20 relative before:absolute before:top-0 before:border-r-50 before:border-b-50 before:border-transparent before:border-b-background before:left-1/2 before:-rotate-45 before:-translate-y-1/2 before:-translate-x-1/2
+  after:absolute after:bottom-0 after:border-r-50 after:border-b-50 after:border-transparent after:border-b-text/5 after:left-1/2 after:-rotate-45 after:translate-y-1/2 after:-translate-x-1/2">
+  <div class="w-5/6 mx-auto">
+    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10">
+      <h2>婚禮時間</h2>
+      <p>Time</p>
     </div>
-  </section>
-  <section class="mb-20">
-    <div>
-      <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 text-text/80">
-        <h2>來自親友的祝福</h2>
-        <p>Best wishes</p>
-      </div>
-      <div v-if="loading" class=" text-center">
-        <i class='bx bx-loader bx-spin' />
-      </div>
-      <ul v-else class="bg-secondary/20 backdrop-blur-3xl p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl overflow-clip">
-        <li
-          v-for="(page, i) in data.results"
-          v-motion-slide-visible-once-bottom
-          class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto"
-        ><div class="shrink-0 group-odd:order-1">
-            <p class="text-center">{{ page.properties.name.title[0].plain_text }}</p>
-            <figure class="p-1 rounded-full w-20 bg-linear-to-tr from-primary to-accent">
-              <img loading="lazy" draggable="false" class="rounded-full object-center object-cover aspect-square" :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
-            </figure>
-          </div>
-          <div class="pb-10 mb-auto">
-            <p class="bg-background/80 border border-secondary p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none">{{ page.properties.content.rich_text[0].plain_text }}</p>
-          </div>
-        </li>
-      </ul>
+    <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once :duration="500" :delay="200" class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">午宴</span></span></h3>
+    <div class="text-center bg-background p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-sm mb-10">
+      <CalenderComponent :date="15"/>
     </div>
-  </section>
-  <section class="mb-20 overflow-clip">
-    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 text-text/80">
+    <div class="flex justify-center">
+      <a title="將這天加入日曆" class="magic-btn flex" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
+        <CalenderIcon/>
+        <span>將這天加入日曆</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="mb-20">
+  <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10">
+    <h2>來自親友的祝福</h2>
+    <p>Best wishes</p>
+  </div>
+  <div v-if="loading" class=" text-center">
+    <i class='bx bx-loader bx-spin' />
+  </div>
+  <ul v-else class="bg-secondary/20 backdrop-blur-3xl p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl overflow-clip">
+    <li
+      v-for="(page, i) in data.results"
+      v-motion-slide-visible-once-bottom
+      class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto"
+    ><div class="shrink-0 group-odd:order-1">
+        <p class="text-center">{{ page.properties.name.title[0].plain_text }}</p>
+        <figure class="p-1 rounded-full w-20 bg-linear-to-tr from-primary to-accent">
+          <img loading="lazy" draggable="false" class="rounded-full object-center object-cover aspect-square" :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
+        </figure>
+      </div>
+      <div class="pb-10 mb-auto">
+        <p class="bg-background/80 border border-secondary p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none">{{ page.properties.content.rich_text[0].plain_text }}</p>
+      </div>
+    </li>
+  </ul>
+</section>
+  <section class="mb-20">
+    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10">
       <h2>距離婚禮剩下時間</h2>
       <p>Countdown</p>
     </div>
     <div
-      v-motion-pop-visible-once
+      v-motion-fade-visible-once
       :delay="100"
       class="py-10">
       <ul class=" flex justify-evenly max-w-md mx-auto w-11/12">
@@ -264,7 +261,7 @@ const sendForm = async () => {
   </section>
   <section>
     <div class="w-5/6 mx-auto py-20 max-w-120">
-    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-text/80 text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
+    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
       <div class="relative z-10">
         <h2>分享婚禮邀請函</h2>
         <p>Share</p>
