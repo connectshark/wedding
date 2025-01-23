@@ -1,7 +1,7 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-@variant dark (&:where(.dark, .dark *));
+@variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 
 @theme {
   --text: #333333;
