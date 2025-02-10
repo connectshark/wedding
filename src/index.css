@@ -116,3 +116,9 @@ html {
   animation: wave2 12s ease-in-out alternate-reverse infinite;
   transform-origin: bottom left;
 }
+
+@font-face {
+  font-family: ChenYuluoyan;
+  src: url(https://cdn.jsdelivr.net/gh/Chenyu-otf/chenyuluoyan_thin@latest/ChenYuluoyan-Thin.ttf);
+  font-display: swap;
+}
