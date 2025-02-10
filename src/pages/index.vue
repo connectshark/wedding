@@ -45,52 +45,50 @@ const {
   url: SITE_URL
 })
 
-const EMAIL_SUBSCRIBE = import.meta.env.VITE_EMAIL_SUBSCRIBE
-const {
-  doFetch: subScribe,
-  data: subscribeResult,
-  loading: subscribeLoading
-} = useFetch(EMAIL_SUBSCRIBE, {
-  immediate: false,
-  method: 'POST',
-  onError: () => {
-    console.log('Error')
-  }
-})
-const sendForm = async () => {
-  const form = new URLSearchParams()
-  form.append('email', 'bobhus394@gmail.com')
-  form.append('name', '葉恩騰')
-  await subScribe(form)
-}
 
 </script>
 
 <template>
-<section class="mb-20">
+<section class="min-h-svh">
   <div class="text-right w-11/12 mx-auto max-w-3xl">
     <p>邀請對我們而言重要的你</p>
     <p>見證一場儀式，不算盛大，卻足夠用心</p>
   </div>
   <figure class="py-10 max-w-3xl mx-auto">
-    <img loading="lazy" draggable="false"class="object-cover object-center w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
+    <img loading="lazy" draggable="false" class="object-cover object-center w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
   </figure>
   <p class="text-center">愛讓我們相遇，承諾讓我們攜手共進</p>
 </section>
-<div class="py-30">
-  <figure class="max-w-2xl mx-auto">
-    <p v-motion-slide-visible-top :duration="800" class="text-9xl font-black text-center font-sans -mb-10">2019</p>
-    <img loading="lazy" draggable="false" class="object-contain object-center w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
-    <figcaption v-motion-slide-visible-bottom :duration="800" class="text-9xl font-black text-center font-sans -mt-10">2025</figcaption>
-  </figure>
-</div>
-<div>
+<div
+  v-motion
+  :initial="{
+    opacity: 0,
+    y: 100,
+  }"
+  :visible="{
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: 'spring',
+      stiffness: 450,
+      damping: 20,
+      mass: 2.5,
+    },
+  }"
+>
   <div class="font-title text-4xl text-text/90 text-center mb-10 ">
     <h1>婚禮邀請函</h1>
     <p class="z-3 max-w-xl mx-auto text-6xl/relaxed title-blur relative before:bg-accent/80 after:bg-secondary/80">若筠&恩騰</p>
     <p>我們結婚啦</p>
     <p>Welcome to our wedding.</p>
   </div>
+</div>
+<div class="py-30">
+  <figure class="max-w-2xl mx-auto">
+    <p v-motion-slide-visible-top :duration="800" class="text-9xl font-black text-center font-sans -mb-10">2019</p>
+    <img loading="lazy" draggable="false" class="object-contain object-center w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
+    <figcaption v-motion-slide-visible-bottom :duration="800" class="text-9xl font-black text-center font-sans -mt-10">2025</figcaption>
+  </figure>
 </div>
 <div v-motion-slide-visible-once-bottom>
   <div class="font-title text-4xl text-center py-10">
@@ -221,88 +219,88 @@ const sendForm = async () => {
     </li>
   </ul>
 </section>
-  <section class="mb-20">
-    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10">
-      <h2>距離婚禮剩下時間</h2>
-      <p>Countdown</p>
+<section class="mb-20">
+  <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10">
+    <h2>距離婚禮剩下時間</h2>
+    <p>Countdown</p>
+  </div>
+  <div
+    v-motion-fade-visible-once
+    :delay="100"
+    class="py-10">
+    <ul class=" flex justify-evenly max-w-md mx-auto w-11/12">
+      <li class="text-center">
+        <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ days }}</div>
+        <p>天</p>
+      </li>
+      <li>
+        <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
+      </li>
+      <li class="text-center">
+        <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ hours }}</div>
+        <p>時</p>
+      </li>
+      <li>
+        <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
+      </li>
+      <li class="text-center">
+        <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ minutes }}</div>
+        <p>分</p>
+      </li>
+      <li>
+        <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
+      </li>
+      <li class="text-center">
+        <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ seconds }}</div>
+        <p>秒</p>
+      </li>
+    </ul>
+  </div>
+</section>
+<section>
+  <div class="w-5/6 mx-auto py-20 max-w-120">
+  <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
+    <div class="relative z-10">
+      <h2>分享婚禮邀請函</h2>
+      <p>Share</p>
     </div>
-    <div
-      v-motion-fade-visible-once
-      :delay="100"
-      class="py-10">
-      <ul class=" flex justify-evenly max-w-md mx-auto w-11/12">
-        <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ days }}</div>
-          <p>天</p>
-        </li>
-        <li>
-          <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
-        </li>
-        <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ hours }}</div>
-          <p>時</p>
-        </li>
-        <li>
-          <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
-        </li>
-        <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ minutes }}</div>
-          <p>分</p>
-        </li>
-        <li>
-          <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
-        </li>
-        <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ seconds }}</div>
-          <p>秒</p>
-        </li>
-      </ul>
+  </div>
+    <p class="text-center mb-10">選擇自己最常用的社群方分享出去吧！</p>
+    <div class="flex flex-col md:flex-row items-center justify-evenly max-w-3xl mx-auto flex-wrap gap-6 md:gap-3">
+      <button
+        v-if="isShare" type="button"
+        class="magic-btn flex"
+        @click="share"><ShareIcon class="size-4" />
+        <span>分享</span>
+      </button>
+      <a :href="`https://www.facebook.com/sharer.php?u=${encodeURI(SITE_URL)}&hashtag=%23婚禮邀請函`"
+        class="magic-btn flex"
+        target="_blank" rel="noopener noreferrer">
+        <FacebookIcon class="size-4" />
+        <span>分享</span>
+      </a>
+      <a :href="`https://line.me/R/share?text=若筠和恩騰婚禮邀請函 ${ encodeURI(SITE_URL) }?openExternalBrowser=1`"
+        class="magic-btn flex md:hidden"
+        target="_blank" rel="noopener noreferrer">
+        <LineIcon class="size-4" />
+        <span>分享</span>
+      </a>
+      <a class="hidden md:flex magic-btn"
+        :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=若筠與恩騰的婚禮專頁`" target="_blank"
+        rel="noopener noreferrer">
+        <ThreadsIcon class="size-4" />
+        <span>分享</span>
+      </a>
+      
+      <a class="md:hidden magic-btn flex"
+        :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=${encodeURI(SITE_URL)}`"
+        target="_blank" rel="noopener noreferrer">
+        <ThreadsIcon class="size-4" />
+        <span>分享</span>
+      </a>
     </div>
-  </section>
-  <section>
-    <div class="w-5/6 mx-auto py-20 max-w-120">
-    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
-      <div class="relative z-10">
-        <h2>分享婚禮邀請函</h2>
-        <p>Share</p>
-      </div>
-    </div>
-      <p class="text-center mb-10">選擇自己最常用的社群方分享出去吧！</p>
-      <div class="flex flex-col md:flex-row items-center justify-evenly max-w-3xl mx-auto flex-wrap gap-6 md:gap-3">
-        <button
-          v-if="isShare" type="button"
-          class="magic-btn flex"
-          @click="share"><ShareIcon class="size-4" />
-          <span>分享</span>
-        </button>
-        <a :href="`https://www.facebook.com/sharer.php?u=${encodeURI(SITE_URL)}&hashtag=%23婚禮邀請函`"
-          class="magic-btn flex"
-          target="_blank" rel="noopener noreferrer">
-          <FacebookIcon class="size-4" />
-          <span>分享</span>
-        </a>
-        <a :href="`https://line.me/R/share?text=若筠和恩騰婚禮邀請函 ${ encodeURI(SITE_URL) }?openExternalBrowser=1`"
-          class="magic-btn flex md:hidden"
-          target="_blank" rel="noopener noreferrer">
-          <LineIcon class="size-4" />
-          <span>分享</span>
-        </a>
-        <a class="hidden md:flex magic-btn"
-          :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=若筠與恩騰的婚禮專頁`" target="_blank"
-          rel="noopener noreferrer">
-          <ThreadsIcon class="size-4" />
-          <span>分享</span>
-        </a>
-        
-        <a class="md:hidden magic-btn flex"
-          :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=${encodeURI(SITE_URL)}`"
-          target="_blank" rel="noopener noreferrer">
-          <ThreadsIcon class="size-4" />
-          <span>分享</span>
-        </a>
-      </div>
-    </div>
-  </section>
+  </div>
+</section>
 </template>
 
 <route lang="json">

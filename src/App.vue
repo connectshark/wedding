@@ -82,7 +82,7 @@ useIntersectionObserver(headerRef, (entries) => {
   <div>
   <div ref="headerRef" />
   <header :class="{ 'mb-0 pt-1.5 px-3': isSticky, 'mb-3': !isSticky }" class="sticky top-0 z-20 transition-all ease-in-out duration-500">
-    <div :class="{ 'bg-linear-to-br from-background/90 from-40% to-secondary/20': isSticky }" class="backdrop-blur-sm transition-all ease-in-out duration-500 w-11/12 mx-auto p-2 flex items-center justify-between rounded-2xl">
+    <div :class="{ 'bg-linear-to-br/oklch from-background/90 from-40% to-secondary/20': isSticky }" class="backdrop-blur-sm transition-all ease-in-out duration-500 w-11/12 mx-auto p-2 flex items-center justify-between rounded-2xl">
       <router-link class="text-text/80 p-1 rounded-xl active:bg-text/10 md:hover:bg-text/10" to="/">
         <LogoIcon class="size-8 inline-block align-middle"/>
         <LogoComponents class="fill-current inline-block align-middle ml-2"/>

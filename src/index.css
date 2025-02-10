@@ -10,7 +10,7 @@
   --secondary: #b283a2;
   --accent: #df8955;
 
-  --font-main: FakePearl, system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
+  --font-main: "LXGW WenKai TC", system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
   --font-title: ChenYuluoyan, system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
   --font-sans: 'Inter', system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
 
@@ -54,69 +54,42 @@
   .magic-btn {
     @apply bg-linear-to-br/oklch from-primary to-secondary/80 hover:animate-pulse text-background items-center font-medium gap-2 cursor-pointer rounded-full py-2 px-6 hover:scale-105 transition active:scale-95;
   }
-}
-
-
-@keyframes bump {
-  0% {
-    transform: translateY(0);
+  @keyframes bump {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(50%);
+    }
   }
-  100% {
-    transform: translateY(50%);
+  @keyframes bump-reverse {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50%);
+    }
   }
-}
-@keyframes bump-reverse {
-  0% {
-    transform: translateY(0);
+  @keyframes wave {
+    0% {
+      rotate: 0deg;
+      translateY: 0;
+    }
+    100% {
+      rotate: -15deg;
+      translateY: 2rem;
+    }
   }
-  100% {
-    transform: translateY(-50%);
+  @keyframes wave2 {
+    0% {
+      rotate: 5deg;
+      translateY: 0;
+    }
+    100% {
+      rotate: 15deg;
+      translateY: -2rem;
+    }
   }
-}
-
-@font-face {
-  font-family: FakePearl;
-  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-ExtraLight.woff2) format("woff2")
-  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-ExtraLight.woff) format("woff");
-  font-weight: 300;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: FakePearl;
-  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff2) format("woff2")
-  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Light.woff) format("woff");
-  font-weight: 400;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: FakePearl;
-  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff2) format("woff2")
-  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Regular.woff) format("woff");
-  font-weight: 500;
-  font-display: swap;
-}
-@font-face {
-  font-family: FakePearl;
-  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Medium.woff2) format("woff2")
-  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-Medium.woff) format("woff");
-  font-weight: 600;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: FakePearl;
-  src: url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-SemiBold.woff2) format("woff2")
-  , url(https://cdn.jsdelivr.net/gh/max32002/FakePearl@1.1/webfont/FakePearl-SemiBold.woff) format("woff");
-  font-weight: 700;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: ChenYuluoyan;
-  src: url(https://cdn.jsdelivr.net/gh/Chenyu-otf/chenyuluoyan_thin@latest/ChenYuluoyan-Thin.ttf);
-  font-display: swap;
 }
 
 html {
@@ -142,25 +115,4 @@ html {
 .yel {
   animation: wave2 12s ease-in-out alternate-reverse infinite;
   transform-origin: bottom left;
-}
-
-@keyframes wave {
-  0% {
-    rotate: 0deg;
-    translateY: 0;
-  }
-  100% {
-    rotate: -15deg;
-    translateY: 2rem;
-  }
-}
-@keyframes wave2 {
-  0% {
-    rotate: 5deg;
-    translateY: 0;
-  }
-  100% {
-    rotate: 15deg;
-    translateY: -2rem;
-  }
 }

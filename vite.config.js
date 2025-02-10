@@ -23,7 +23,7 @@ const fetchPhotos = () => {
     async buildEnd () {
       const fetch_response = await fetch('https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos.json')
       const data = await fetch_response.json()
-      writeFileSync('./public/photos.json', JSON.stringify(result))
+      writeFileSync('./public/photos.json', JSON.stringify(data))
     }
   }
 }

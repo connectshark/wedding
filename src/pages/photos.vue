@@ -8,9 +8,7 @@
       </span>
     </h1>
     <p class="font-title text-3xl mb-5">Album</p>
-    <p class="font-bold text-4xl/loose">
-      <span class="bg-clip-text text-transparent bg-gradient-to-br from-primary to-text/50">點圖放大</span>
-    </p>
+    <p class="font-bold text-4xl/loose underline decoration-accent">點圖放大</p>
   </div>
   <div>
     <Suspense @resolve="loading = false">
