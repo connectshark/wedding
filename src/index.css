@@ -1,8 +1,6 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-@variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
 @theme {
   --text: #333333;
   --background: #FAF8F5;
@@ -119,6 +117,7 @@ html {
 
 @font-face {
   font-family: ChenYuluoyan;
-  src: url(https://cdn.jsdelivr.net/gh/Chenyu-otf/chenyuluoyan_thin@latest/ChenYuluoyan-2.0-Thin.ttf);
+  src: url('./assets/font/ChenYuluoyan.ttf');
   font-display: swap;
+  font-weight: 400;
 }

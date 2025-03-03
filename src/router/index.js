@@ -45,5 +45,5 @@ router.beforeEach((to, from) => {
 export default router
 
 if (import.meta.hot) { 
-  handleHotUpdate(router) 
+  handleHotUpdate(router)
 } 

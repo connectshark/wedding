@@ -142,7 +142,7 @@ useIntersectionObserver(headerRef, (entries) => {
           <p>我們結婚啦</p>
           <p>Welcome to our wedding.</p>
           <p class="group">
-            <span class="cursor-pointer before:absolute before:w-full before:transition-all group-hover:before:h-full before:h-1/2  before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class=" relative">Open</span></span>
+            <span class="cursor-pointer before:absolute before:w-full before:transition-all group-hover:before:h-full before:h-1/2  before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative">Open</span></span>
           </p>
         </div>
       </div>
@@ -205,7 +205,7 @@ useIntersectionObserver(headerRef, (entries) => {
         </a>
       </p>
       <p class="text-sm/loose mb-4">Copyright <i class='bx bx-copyright'/> {{ year }} <a class="underline" href="https://sandra.nosegates.com" target="_blank">婚禮邀請函 若筠&恩騰</a> 版權所有</p>
-      <p class="text-sm/loose">本網站由 <a class="underline" href="https://studio.justlikeboss.com" target="_blank">NS工作室</a> 製作</p>
+      <p class="text-sm/loose">本網站由 <a class="underline" href="https://nosegates.com" target="_blank">葉恩騰</a> 製作</p>
     </div>
   </footer>
 </template>
