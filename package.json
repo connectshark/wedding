@@ -17,16 +17,17 @@
     "url": "https://github.com/connectshark"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.0.9",
-    "@vueuse/motion": "^2.2.6",
-    "pinia": "^2.3.1",
+    "@tailwindcss/vite": "^4.0.12",
+    "@vueuse/motion": "^3.0.3",
+    "motion": "^12.4.11",
+    "pinia": "^3.0.1",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "@vitejs/plugin-vue": "^5.2.1",
-    "tailwindcss": "^4.0.9",
+    "tailwindcss": "^4.0.12",
     "unplugin-vue-router": "^0.11.2",
     "vite": "^6.2.0",
     "vite-plugin-vue-devtools": "^7.7.2"

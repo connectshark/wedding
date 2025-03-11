@@ -8,7 +8,8 @@ import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
-import StackCard from '../components/StackCard.vue'
+import { scroll, animate } from 'motion'
+import { onUnmounted, onMounted, useTemplateRef } from 'vue'
 
 const photos = [
   { id: '1', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00205.webp` },
@@ -45,7 +46,18 @@ const {
   url: SITE_URL
 })
 
+const containerRef = useTemplateRef('container')
+const scrollerRef = useTemplateRef('scroller')
+let stopScrollAnimation
 
+onMounted(() => {
+  stopScrollAnimation = scroll(
+    animate(scrollerRef.value, { transform: ["none", `translateX(-${photos.length - 1}00vw)`] }),
+    { target: containerRef.value }
+  )
+})
+
+onUnmounted(() => stopScrollAnimation())
 </script>
 
 <template>
@@ -55,15 +67,15 @@ const {
       <p class=" text-xl w-4/5 mx-auto text-center">因為有你們，我們的幸福才更完整！</p>
     </div>
     <figure class="max-w-3xl mx-auto">
-      <img loading="lazy" draggable="false" class="object-cover object-center w-full"
+      <img draggable="false" class="object-cover object-center w-full"
         src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
     </figure>
   </section>
   <section class="py-10">
-      <div class="font-title text-4xl text-center py-10">
-        <h2>關於我們</h2>
-        <p>About</p>
-      </div>
+    <div class="font-title text-4xl text-center py-10">
+      <h2>關於我們</h2>
+      <p>About</p>
+    </div>
     <div class="w-4/5 mx-auto text-center text-xl/loose">
       <p>嗨～當你收到這封邀請函的時候</p>
       <p>我們的婚禮已經在倒數啦！</p>
@@ -72,20 +84,28 @@ const {
   <div class="py-30">
     <figure class="max-w-2xl mx-auto">
       <p v-motion-slide-visible-top :duration="800" class="text-9xl font-black text-center font-sans -mb-10">2019</p>
-      <img loading="lazy" draggable="false" class="object-contain object-center w-full md:w-120 transition-all mx-auto" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
-      <figcaption v-motion-slide-visible-bottom :duration="800" class="text-9xl font-black text-center font-sans -mt-10">2025</figcaption>
+      <img loading="lazy" draggable="false" class="object-contain object-center w-full md:w-120 transition-all mx-auto"
+        src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
+      <figcaption v-motion-slide-visible-bottom :duration="800"
+        class="text-9xl font-black text-center font-sans -mt-10">2025</figcaption>
     </figure>
   </div>
   <div class="py-20 text-center">
-    <p class=" font-title text-4xl w-5/6 mx-auto">愛情的旅程，感謝有你們和妳們相伴</p>
+    <p class="font-title text-4xl w-5/6 mx-auto">愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
   <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30" />
-  <section class="bg-text py-20 bg-center">
-    <div>
-      <StackCard v-for="(photo, index) in photos" :url="photo.url" :index="index" />
+  <section class="bg-text py-20">
+    <div ref="container" class="h-[400svh] overflow-x-clip mb-10">
+      <div ref="scroller" class="sticky top-20 flex items-center">
+        <figure class="shrink-0 w-svw h-[80svh]" v-for="img in photos" :key="img.id">
+          <img loading="lazy" draggable="false" class="w-1/2 mx-auto object-contain object-center h-full" :src="img.url"
+            alt="婚紗照">
+        </figure>
+      </div>
     </div>
-    <div v-motion-slide-visible-once-bottom class="text-center">
-      <router-link to="/photos" class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
+    <div v-motion-slide-visible-once-bottom :duration="400" class="text-center">
+      <router-link to="/photos"
+        class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
     </div>
   </section>
   <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30 -scale-100" />
