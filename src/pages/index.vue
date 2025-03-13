@@ -8,8 +8,8 @@ import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
-import { scroll, animate } from 'motion'
-import { onUnmounted, onMounted, useTemplateRef } from 'vue'
+import { useTemplateRef } from 'vue'
+import useScroller from '@/composables/useScroller'
 
 const photos = [
   { id: '1', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00205.webp` },
@@ -33,9 +33,9 @@ const {
 
 
 const {
-  data,
+  data: messages,
   loading
-} = useFetch('/threads.json', {})
+} = useFetch('https://opensheet.elk.sh/1ugNqY_23nVDGBme01MQvLCAEJ26pgB0-55XGDu4crA4/messages')
 
 const VITE_SITE_NAME = import.meta.env.VITE_SITE_NAME
 const {
@@ -48,16 +48,9 @@ const {
 
 const containerRef = useTemplateRef('container')
 const scrollerRef = useTemplateRef('scroller')
-let stopScrollAnimation
-
-onMounted(() => {
-  stopScrollAnimation = scroll(
-    animate(scrollerRef.value, { transform: ["none", `translateX(-${photos.length - 1}00vw)`] }),
-    { target: containerRef.value }
-  )
+useScroller(containerRef, scrollerRef, {
+  transform: ["none", `translateX(-${photos.length - 1}00vw)`]
 })
-
-onUnmounted(() => stopScrollAnimation())
 </script>
 
 <template>
@@ -95,15 +88,15 @@ onUnmounted(() => stopScrollAnimation())
   </div>
   <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30" />
   <section class="bg-text py-20">
-    <div ref="container" class="h-[400svh] overflow-x-clip mb-10">
+    <div ref="container" class="h-[400svh] overflow-x-clip mb-30">
       <div ref="scroller" class="sticky top-20 flex items-center">
         <figure class="shrink-0 w-svw h-[80svh]" v-for="img in photos" :key="img.id">
-          <img loading="lazy" draggable="false" class="w-1/2 mx-auto object-contain object-center h-full" :src="img.url"
+          <img loading="lazy" draggable="false" class="mx-auto object-contain object-center h-full" :src="img.url"
             alt="婚紗照">
         </figure>
       </div>
     </div>
-    <div v-motion-slide-visible-once-bottom :duration="400" class="text-center">
+    <div v-motion-slide-visible-bottom :duration="400" class="text-center">
       <router-link to="/photos"
         class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
     </div>
@@ -210,23 +203,23 @@ onUnmounted(() => stopScrollAnimation())
       <h2>來自親友的祝福</h2>
       <p>Best wishes</p>
     </div>
-    <div v-if="loading" class=" text-center">
+    <div v-if="loading" class="text-center">
       <i class='bx bx-loader bx-spin' />
     </div>
     <ul v-else class="bg-secondary/20 backdrop-blur-3xl p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl overflow-clip">
-      <li v-for="(page, i) in data.results" v-motion-slide-visible-once-bottom
+      <li v-for="(message, i) in messages" v-motion-slide-visible-once-bottom
         class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
         <div class="shrink-0 group-odd:order-1">
-          <p class="text-center">{{ page.properties.name.title[0].plain_text }}</p>
+          <p class="text-center">{{ message.name }}</p>
           <figure class="p-1 rounded-full w-20 bg-linear-to-tr from-primary to-accent">
             <img loading="lazy" draggable="false" class="rounded-full object-center object-cover aspect-square"
-              :src="`https://cdn.jsdelivr.net/gh/alohe/avatars/png/bluey_${i + 1}.png`" alt="avatar">
+              :src="message.avatar" alt="avatar">
           </figure>
         </div>
         <div class="pb-10 mb-auto">
           <p
             class="bg-background/80 border border-secondary p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none">
-            {{ page.properties.content.rich_text[0].plain_text }}</p>
+            {{ message.content }}</p>
         </div>
       </li>
     </ul>
