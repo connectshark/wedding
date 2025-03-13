@@ -90,8 +90,8 @@ useScroller(containerRef, scrollerRef, {
   <section class="bg-text py-20">
     <div ref="container" class="h-[400svh] overflow-x-clip mb-30">
       <div ref="scroller" class="sticky top-20 flex items-center">
-        <figure class="shrink-0 w-svw h-[80svh]" v-for="img in photos" :key="img.id">
-          <img draggable="false" class="mx-auto object-contain object-center h-full" :src="img.url" alt="婚紗照">
+        <figure class="shrink-0 w-svw h-[75svh]" v-for="img in photos" :key="img.id">
+          <img draggable="false" class="mx-auto w-11/12 object-contain object-center h-full" :src="img.url" alt="婚紗照">
         </figure>
       </div>
     </div>
