@@ -91,8 +91,7 @@ useScroller(containerRef, scrollerRef, {
     <div ref="container" class="h-[400svh] overflow-x-clip mb-30">
       <div ref="scroller" class="sticky top-20 flex items-center">
         <figure class="shrink-0 w-svw h-[80svh]" v-for="img in photos" :key="img.id">
-          <img loading="lazy" draggable="false" class="mx-auto object-contain object-center h-full" :src="img.url"
-            alt="婚紗照">
+          <img draggable="false" class="mx-auto object-contain object-center h-full" :src="img.url" alt="婚紗照">
         </figure>
       </div>
     </div>
