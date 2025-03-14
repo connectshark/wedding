@@ -12,10 +12,10 @@ import { useTemplateRef } from 'vue'
 import useScroller from '@/composables/useScroller'
 
 const photos = [
-  { id: '1', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00205.webp` },
-  { id: '2', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00296.webp` },
-  { id: '3', url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00261.webp' },
-  { id: '4', url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00209.webp' }
+  { id: '1', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00205.webp` },
+  { id: '2', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00296.webp` },
+  { id: '3', url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00261.webp' },
+  { id: '4', url: 'https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00209.webp' }
 ]
 
 const SITE_URL = 'https://sandra.nosegates.com'
@@ -54,35 +54,68 @@ useScroller(containerRef, scrollerRef, {
 </script>
 
 <template>
-  <section>
-    <div class="py-10">
-      <h2 class="text-center w-11/12 mx-auto text-5xl/loose font-title">我們要結婚啦！</h2>
-      <p class=" text-xl w-4/5 mx-auto text-center">因為有你們，我們的幸福才更完整！</p>
+  <section class="relative py-16">
+    <div class="py-12 text-center relative">
+      <div class="flex items-center justify-center mb-6">
+        <div class="w-16 h-px bg-primary"></div>
+        <i class='bx bxs-heart text-primary text-2xl mx-4'></i>
+        <div class="w-16 h-px bg-primary"></div>
+      </div>
+      <h2 class="text-6xl font-title tracking-wider">
+        愛在此刻綻放
+      </h2>
+      <p class="text-xl mt-4">
+        誠摯邀請您見證我們的幸福起點
+      </p>
     </div>
-    <figure class="max-w-3xl mx-auto">
-      <img draggable="false" class="object-cover object-center w-full"
-        src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00174.webp" alt="首圖">
+    <figure class="max-w-4xl mx-auto">
+      <img draggable="false" class="object-cover w-full shadow-xl"
+        src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00174.webp" alt="我們的婚禮">
     </figure>
   </section>
-  <section class="py-10">
-    <div class="font-title text-4xl text-center py-10">
-      <h2>關於我們</h2>
-      <p>About</p>
+  <div class="py-12 flex items-center justify-center">
+    <div class="w-1/4 h-px bg-linear-to-r/oklch from-transparent via-primary/80 to-transparent"></div>
+    <div class="px-6">
+      <i class='bx bxs-heart text-primary text-3xl animate-pulse'></i>
     </div>
-    <div class="w-4/5 mx-auto text-center text-xl/loose">
-      <p>嗨～當你收到這封邀請函的時候</p>
-      <p>我們的婚禮已經在倒數啦！</p>
-    </div>
-  </section>
-  <div class="py-30">
-    <figure class="max-w-2xl mx-auto">
-      <p v-motion-slide-visible-top :duration="800" class="text-9xl font-black text-center font-sans -mb-10">2019</p>
-      <img loading="lazy" draggable="false" class="object-contain object-center w-full md:w-120 transition-all mx-auto"
-        src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@latest/1x/DSC00186.webp" alt="web">
-      <figcaption v-motion-slide-visible-bottom :duration="800"
-        class="text-9xl font-black text-center font-sans -mt-10">2025</figcaption>
-    </figure>
+    <div class="w-1/4 h-px bg-linear-to-r/oklch from-transparent via-primary/80 to-transparent"></div>
   </div>
+  <section class="py-24 bg-linear-to-b/oklch via-primary/20 to-transparent">
+    <div class="font-title text-5xl text-center mb-20">
+      <h2 v-motion-slide-visible-once-top :duration="800" class="tracking-wide">
+        關於我們
+      </h2>
+      <p v-motion-slide-visible-once-bottom :duration="800" :delay="200" class="text-xl text-text/60 italic">
+        About Us
+      </p>
+    </div>
+    <div class="w-11/12 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <div v-motion-slide-visible-once-bottom :duration="1000" class="order-2 md:order-1">
+        <div class="bg-white/80 backdrop-blur-md p-10 rounded-3xl shadow-xl border border-primary/10">
+          <p class="text-xl font-serif leading-relaxed mb-4">嗨～當你收到這封邀請函的時候</p>
+          <p class="text-xl font-serif leading-relaxed">我們的婚禮已經在倒數啦！</p>
+          <div class="mt-8 flex gap-4 items-center text-text/70">
+            <div class="h-px flex-grow bg-linear-to-r/oklch via-primary to-primary/30"></div>
+            <i class='bx bx-heart-circle text-primary text-2xl'></i>
+            <div class="h-px flex-grow bg-linear-to-l/oklch via-primary to-primary/30"></div>
+          </div>
+          <p class="mt-8 text-lg font-serif italic text-text/70">"Love is not about how many days..."</p>
+        </div>
+      </div>
+      <div v-motion-slide-visible-once-bottom :duration="1000" class="order-1 md:order-2">
+        <div class="relative group">
+          <img
+            class="rounded-3xl shadow-2xl object-cover w-full aspect-[3/4] transition-transform duration-500 group-hover:scale-105"
+            src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00296.webp" alt="我們的故事"
+            loading="lazy" draggable="false" />
+          <div
+            class="border-2 border-secondary absolute -bottom-6 right-2 bg-white p-4 rounded-xl shadow-md rotate-6 transition-transform duration-500 group-hover:rotate-0">
+            <p class="font-sans font-bold text-xl text-secondary">2019 - 2025</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
   <div class="py-20 text-center">
     <p class="font-title text-4xl w-5/6 mx-auto">愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
@@ -101,11 +134,11 @@ useScroller(containerRef, scrollerRef, {
     </div>
   </section>
   <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30 -scale-100" />
-  <section class="mb-20">
+  <section class="pt-20 mb-20">
     <div class="w-5/6 mx-auto">
-      <div class="font-title text-4xl text-center py-10">
-        <h2>婚宴位置</h2>
-        <p>Address</p>
+      <div class="font-title text-4xl text-center mb-16">
+        <h2 v-motion-slide-visible-once-top :duration="600">婚宴位置</h2>
+        <p v-motion-slide-visible-once-bottom :duration="600" :delay="200" class="text-xl text-text/70">Address</p>
       </div>
       <ul class="max-w-80 mx-auto mb-10">
         <li class="flex items-center gap-2 mb-4">
@@ -157,7 +190,7 @@ useScroller(containerRef, scrollerRef, {
       </div>
       <div>
         <p class="flex justify-center">
-          <a class="magic-btn flex" :href="map" target="_blank" rel="noopener noreferrer">
+          <a class="magic-btn" :href="map" target="_blank" rel="noopener noreferrer">
             <i class='bx bxs-navigation' />
             <span>導航到會場</span>
           </a>
@@ -169,9 +202,9 @@ useScroller(containerRef, scrollerRef, {
     class="mb-20 bg-text/5 py-20 relative before:absolute before:top-0 before:border-r-50 before:border-b-50 before:border-transparent before:border-b-background before:left-1/2 before:-rotate-45 before:-translate-y-1/2 before:-translate-x-1/2
   after:absolute after:bottom-0 after:border-r-50 after:border-b-50 after:border-transparent after:border-b-text/5 after:left-1/2 after:-rotate-45 after:translate-y-1/2 after:-translate-x-1/2">
     <div class="w-5/6 mx-auto">
-      <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10">
-        <h2>婚禮時間</h2>
-        <p>Time</p>
+      <div class="font-title text-4xl text-center mb-16">
+        <h2 v-motion-slide-visible-once-top :duration="600">婚禮時間</h2>
+        <p v-motion-slide-visible-once-bottom :duration="600" :delay="200" class="text-xl text-text/70">Time</p>
       </div>
       <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once
           :duration="500" :delay="200"
@@ -188,19 +221,19 @@ useScroller(containerRef, scrollerRef, {
       </div>
     </div>
   </section>
-  <div v-motion-slide-visible-once-bottom>
-    <div class="font-title text-4xl text-center py-10">
-      <h2>婚禮表單</h2>
-      <p>form</p>
+  <div class="py-20">
+    <div class="font-title text-4xl text-center mb-16">
+      <h2 v-motion-slide-visible-once-top :duration="600">婚禮表單</h2>
+      <p v-motion-slide-visible-once-bottom :duration="600" :delay="200" class="text-xl text-text/70">form</p>
     </div>
     <div class="text-center">
       <div>願意參與我們婚禮的親朋好友們請一定要填寫表單</div>
     </div>
   </div>
   <section class="mb-20">
-    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10">
-      <h2>來自親友的祝福</h2>
-      <p>Best wishes</p>
+    <div class="font-title text-4xl text-center mb-16">
+      <h2 v-motion-slide-visible-once-top :duration="600">來自親友的祝福</h2>
+      <p v-motion-slide-visible-once-bottom :duration="600" :delay="200" class="text-xl text-text/70">Best wishes</p>
     </div>
     <div v-if="loading" class="text-center">
       <i class='bx bx-loader bx-spin' />
@@ -223,10 +256,11 @@ useScroller(containerRef, scrollerRef, {
       </li>
     </ul>
   </section>
+
   <section class="mb-20">
-    <div v-motion-slide-visible-once-bottom class="font-title text-4xl text-center py-10">
-      <h2>距離婚禮剩下時間</h2>
-      <p>Countdown</p>
+    <div class="font-title text-4xl text-center mb-16">
+      <h2 v-motion-slide-visible-once-top :duration="600">距離婚禮剩下時間</h2>
+      <p v-motion-slide-visible-once-bottom :duration="600" :delay="200" class="text-xl text-text/70">Countdown</p>
     </div>
     <div v-motion-fade-visible-once :delay="100" class="py-10">
       <ul class=" flex justify-evenly max-w-md mx-auto w-11/12">
