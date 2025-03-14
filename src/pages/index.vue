@@ -92,14 +92,14 @@ useScroller(containerRef, scrollerRef, {
     <div class="w-11/12 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div v-motion-slide-visible-once-bottom :duration="1000" class="order-2 md:order-1">
         <div class="bg-white/80 backdrop-blur-md p-10 rounded-3xl shadow-xl border border-primary/10">
-          <p class="text-xl font-serif leading-relaxed mb-4">嗨～當你收到這封邀請函的時候</p>
-          <p class="text-xl font-serif leading-relaxed">我們的婚禮已經在倒數啦！</p>
+          <p class="text-xl leading-relaxed mb-4">嗨～當你收到這封邀請函的時候</p>
+          <p class="text-xl leading-relaxed">我們的婚禮已經在倒數啦！</p>
           <div class="mt-8 flex gap-4 items-center text-text/70">
             <div class="h-px flex-grow bg-linear-to-r/oklch via-primary to-primary/30"></div>
             <i class='bx bx-heart-circle text-primary text-2xl'></i>
             <div class="h-px flex-grow bg-linear-to-l/oklch via-primary to-primary/30"></div>
           </div>
-          <p class="mt-8 text-lg font-serif italic text-text/70">"Love is not about how many days..."</p>
+          <p class="mt-8 text-lg text-text/70">"Love is not about how many days..."</p>
         </div>
       </div>
       <div v-motion-slide-visible-once-bottom :duration="1000" class="order-1 md:order-2">

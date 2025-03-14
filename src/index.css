@@ -98,14 +98,6 @@ html {
   animation-duration: 1s;
 }
 
-.v-leave-active {
-  transition: opacity 1s cubic-bezier(1, 0.5, 0.8, 1);
-}
-
-.v-leave-to {
-  opacity: 0;
-}
-
 .red {
   animation: wave 5s ease-in-out alternate infinite;
   transform-origin: bottom right;
