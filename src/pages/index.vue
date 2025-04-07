@@ -8,8 +8,8 @@ import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
+import { useScroll, motion, useTransform, useSpring } from 'motion-v'
 import { useTemplateRef } from 'vue'
-import useScroller from '@/composables/useScroller'
 
 const photos = [
   { id: '1', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00205.webp` },
@@ -47,10 +47,22 @@ const {
 })
 
 const containerRef = useTemplateRef('container')
-const scrollerRef = useTemplateRef('scroller')
-useScroller(containerRef, scrollerRef, {
-  transform: ["none", `translateX(-${photos.length - 1}00vw)`]
+
+const { scrollYProgress } = useScroll({
+  target: containerRef,
 })
+
+const scrollValue = useSpring(scrollYProgress, {
+  stiffness: 100,
+  damping: 30,
+  restDelta: 0.001
+})
+
+const translateX = useTransform(
+  scrollValue,
+  [0, 1],
+  ['0', `-${photos.length - 1}00vw`]
+)
 </script>
 
 <template>
@@ -122,11 +134,11 @@ useScroller(containerRef, scrollerRef, {
   <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30" />
   <section class="bg-text py-20">
     <div ref="container" class="h-[400svh] overflow-x-clip mb-30">
-      <div ref="scroller" class="sticky top-20 flex items-center">
+      <motion.div :style="{ translateX }" class="sticky top-20 flex items-center">
         <figure class="shrink-0 w-svw h-[75svh]" v-for="img in photos" :key="img.id">
           <img draggable="false" class="mx-auto w-11/12 object-contain object-center h-full" :src="img.url" alt="婚紗照">
         </figure>
-      </div>
+      </motion.div>
     </div>
     <div v-motion-slide-visible-bottom :duration="400" class="text-center">
       <router-link to="/photos"
