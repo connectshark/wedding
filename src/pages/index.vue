@@ -8,7 +8,7 @@ import CalenderIcon from '../components/icons/CalenderIcon.vue'
 import useShare from '../composables/useShare'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
-import { useScroll, motion, useTransform, useSpring } from 'motion-v'
+import { useScroll, motion, useTransform } from 'motion-v'
 import { useTemplateRef } from 'vue'
 
 const photos = [
@@ -52,14 +52,8 @@ const { scrollYProgress } = useScroll({
   target: containerRef,
 })
 
-const scrollValue = useSpring(scrollYProgress, {
-  stiffness: 100,
-  damping: 30,
-  restDelta: 0.001
-})
-
 const translateX = useTransform(
-  scrollValue,
+  scrollYProgress,
   [0, 1],
   ['0', `-${photos.length - 1}00vw`]
 )
@@ -215,7 +209,12 @@ const translateX = useTransform(
   after:absolute after:bottom-0 after:border-r-50 after:border-b-50 after:border-transparent after:border-b-text/5 after:left-1/2 after:-rotate-45 after:translate-y-1/2 after:-translate-x-1/2">
     <div class="w-5/6 mx-auto">
       <div class="font-title text-4xl text-center mb-16">
-        <h2 v-motion-slide-visible-once-top :duration="600">婚禮時間</h2>
+        <motion.h2
+          :transition="{ type: 'spring' }"
+          :initial="{ y: -50, opacity: 0 }"
+          :whileInView="{ y: 0, opacity: 1 }"
+          :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+        >婚禮時間</motion.h2>
         <p v-motion-slide-visible-once-bottom :duration="600" :delay="200" class="text-xl text-text/70">Time</p>
       </div>
       <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once
