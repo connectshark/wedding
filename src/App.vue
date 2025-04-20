@@ -82,7 +82,7 @@ useIntersectionObserver(headerRef, (entries) => {
   <div>
     <div ref="headerRef" />
     <header :class="{ 'mb-0 pt-1.5 px-3': isSticky, 'mb-3': !isSticky }"
-      class="sticky top-0 z-20 transition-all ease-in-out duration-500">
+      class="sticky top-0 z-20 transition-all ease-in-out duration-500 max-w-4xl mx-auto">
       <div :class="{ 'bg-linear-to-br/oklch from-background/90 from-40% to-secondary/20': isSticky }"
         class="backdrop-blur-sm transition-all ease-in-out duration-500 w-11/12 mx-auto p-2 flex items-center justify-between rounded-2xl">
         <router-link class="text-text/80 p-1 rounded-xl active:bg-text/10 md:hover:bg-text/10" to="/">
@@ -205,7 +205,7 @@ useIntersectionObserver(headerRef, (entries) => {
       </p>
       <p class="text-sm/loose mb-4">Copyright <i class='bx bx-copyright' /> {{ year }} <a class="underline"
           href="https://sandra.nosegates.com" target="_blank">婚禮邀請函 若筠&恩騰</a> 版權所有</p>
-      <p class="text-sm/loose">本網站由 <a class="underline" href="https://nosegates.com" target="_blank">葉恩騰</a> 製作</p>
+      <p class="text-sm/loose">本網站由 <a class="underline" href="https://nosegates.com" target="_blank">葉恩騰<i class='bx bx-link-external'></i></a> 製作</p>
     </div>
   </footer>
 </template>

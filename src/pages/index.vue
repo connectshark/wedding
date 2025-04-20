@@ -134,17 +134,37 @@ const translateX = useTransform(
         </figure>
       </motion.div>
     </div>
-    <div v-motion-slide-visible-bottom :duration="400" class="text-center">
+
+    <motion.h2
+      :transition="{ duration: .5 }"
+      :initial="{ y: -50, opacity: 0 }"
+      :whileInView="{ y: 0, opacity: 1 }"
+      :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+      class="text-center"
+    >
       <router-link to="/photos"
-        class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
-    </div>
+      class="underline text-background decoration-primary decoration-4 hover:underline-offset-[-4px] text-xl">搶先看照片</router-link>
+    </motion.h2>
   </section>
   <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30 -scale-100" />
   <section class="pt-20 mb-20">
     <div class="w-5/6 mx-auto">
       <div class="font-title text-4xl text-center mb-16">
-        <h2 v-motion-slide-visible-once-top :duration="600">婚宴位置</h2>
-        <p v-motion-slide-visible-once-bottom :duration="600" :delay="200" class="text-xl text-text/70">Address</p>
+      <motion.h2
+        :transition="{ ease: 'easeInOut', duration: .6 }"
+        :initial="{ y: -50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+        class="text-center"
+      >婚宴位置</motion.h2>
+
+      <motion.p
+        :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
+        :initial="{ y: 50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+        class="text-xl text-text/70"
+      >Address</motion.p>
       </div>
       <ul class="max-w-80 mx-auto mb-10">
         <li class="flex items-center gap-2 mb-4">
@@ -215,12 +235,15 @@ const translateX = useTransform(
           :whileInView="{ y: 0, opacity: 1 }"
           :inViewOptions="{ margin: '0px 0px -50px 0px' }"
         >婚禮時間</motion.h2>
-        <p v-motion-slide-visible-once-bottom :duration="600" :delay="200" class="text-xl text-text/70">Time</p>
+        <motion.p
+          :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
+          :initial="{ y: 50, opacity: 0 }"
+          :whileInView="{ y: 0, opacity: 1 }"
+          :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+          class="text-xl text-text/70"
+        >Time</motion.p>
       </div>
-      <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span v-motion-pop-visible-once
-          :duration="500" :delay="200"
-          class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span
-            class="relative">午宴</span></span></h3>
+      <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block font-bold"><span class="relative">午宴</span></span></h3>
       <div class="text-center bg-background p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-sm mb-10">
         <CalenderComponent :date="15" />
       </div>
@@ -250,8 +273,15 @@ const translateX = useTransform(
       <i class='bx bx-loader bx-spin' />
     </div>
     <ul v-else class="bg-secondary/20 backdrop-blur-3xl p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl overflow-clip">
-      <li v-for="(message, i) in messages" v-motion-slide-visible-once-bottom
-        class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto">
+
+      <motion.li
+        v-for="(message, i) in messages"
+        :transition="{ type: 'spring' }"
+        :initial="{ y: 50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+        class="flex items-end odd:justify-end gap-2 group mb-10 last:mb-0 md:w-5/6 md:odd:ml-auto"
+      >
         <div class="shrink-0 group-odd:order-1">
           <p class="text-center">{{ message.name }}</p>
           <figure class="p-1 rounded-full w-20 bg-linear-to-tr from-primary to-accent">
@@ -264,7 +294,7 @@ const translateX = useTransform(
             class="bg-background/80 border border-secondary p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none">
             {{ message.content }}</p>
         </div>
-      </li>
+      </motion.li>
     </ul>
   </section>
 
