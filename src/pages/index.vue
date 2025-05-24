@@ -70,9 +70,7 @@ const translateX = useTransform(
       <h2 class="text-6xl font-title tracking-wider">
         愛在此刻綻放
       </h2>
-      <p class="text-xl mt-4">
-        誠摯邀請您見證我們的幸福起點
-      </p>
+      <p class="text-xl mt-4">誠摯邀請您見證我們的幸福起點</p>
     </div>
     <figure class="max-w-4xl mx-auto">
       <img draggable="false" class="object-cover w-full shadow-xl"
@@ -88,12 +86,8 @@ const translateX = useTransform(
   </div>
   <section class="py-24 bg-linear-to-b/oklch via-primary/20 to-transparent">
     <div class="font-title text-5xl text-center mb-20">
-      <h2 v-motion-slide-visible-once-top :duration="800" class="tracking-wide">
-        關於我們
-      </h2>
-      <p v-motion-slide-visible-once-bottom :duration="800" :delay="200" class="text-xl text-text/60 italic">
-        About Us
-      </p>
+      <h2 v-motion-slide-visible-once-top :duration="800" class="tracking-wide">關於我們</h2>
+      <p v-motion-slide-visible-once-bottom :duration="800" :delay="200" class="text-xl text-text/60">About Us</p>
     </div>
     <div class="w-11/12 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <div v-motion-slide-visible-once-bottom :duration="1000" class="order-2 md:order-1">
@@ -105,7 +99,7 @@ const translateX = useTransform(
             <i class='bx bx-heart-circle text-primary text-2xl'></i>
             <div class="h-px flex-grow bg-linear-to-l/oklch via-primary to-primary/30"></div>
           </div>
-          <p class="mt-8 text-lg text-text/70">"Love is not about how many days..."</p>
+          <p class="mt-8 text-lg text-text/70">"Hi~ By the time you get this invitation, the countdown to our wedding will have already begun!"</p>
         </div>
       </div>
       <div v-motion-slide-visible-once-bottom :duration="1000" class="order-1 md:order-2">
@@ -136,7 +130,7 @@ const translateX = useTransform(
     </div>
 
     <motion.h2
-      :transition="{ duration: .5 }"
+      :transition="{ type: 'spring' }"
       :initial="{ y: -50, opacity: 0 }"
       :whileInView="{ y: 0, opacity: 1 }"
       :inViewOptions="{ margin: '0px 0px -50px 0px' }"
@@ -202,7 +196,7 @@ const translateX = useTransform(
             <i class='bx bxs-phone bx-sm align-middle'></i>
           </div>
           <div>
-            <p class="text-text/80">市話</p>
+            <p class="text-text/80">場地電話</p>
             <p class="text-lg">
               <a class="text-text/80 underline" href="tel:032124999">03 2124 999</a>
             </p>

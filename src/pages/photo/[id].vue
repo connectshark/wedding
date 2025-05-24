@@ -4,17 +4,11 @@
       <button v-if="isLightBox"><i class='bx bx-x bx-md align-middle'></i></button>
     </div>
     <template v-if="photoID">
-      <picture class="max-w-3xl mx-auto block">
-        <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/${ photoID }.webp`" media="(min-width: 1600px)">
-        <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/2x/${ photoID }.webp`" media="(min-width: 768px)">
-        <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`" media="(max-width: 767px)">
-        <img loading="lazy" draggable="false"
-          :style="`view-transition-name: photo-${photoID};`"
-          class="h-[80svh] w-full object-contain object-center"
-          :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`"
-          :alt="`婚紗照${photoID}`"
-        >
-      </picture>
+      <div>
+        <Suspense>
+          <SliderComponents/>
+        </Suspense>
+      </div>
     </template>
     <div v-else class=" text-center">
       <p><i class='bx bx-camera-off bx-md'></i></p>
@@ -27,11 +21,10 @@
 </template>
 
 <script setup>
+import SliderComponents from '@/components/SliderComponents.vue';
 import { useRoute } from 'vue-router'
 const route = useRoute()
-
 const isLightBox = route.meta.lightBox
-
 const photoID = route.params.id
 </script>
 
