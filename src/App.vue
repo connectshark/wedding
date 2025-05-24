@@ -153,7 +153,7 @@ useIntersectionObserver(headerRef, (entries) => {
       </Transition>
     </Teleport>
     <Teleport to="#modal">
-      <div v-if="route.meta.lightBox" @click="router.back()"
+      <div v-if="route.meta.lightBox"
         class="fixed z-20 inset-0 bg-text/70 w-full h-full backdrop-blur-sm">
         <router-view name="lightBox" />
       </div>

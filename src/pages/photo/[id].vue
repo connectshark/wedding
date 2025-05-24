@@ -1,15 +1,22 @@
 <template>
   <div>
-    <div class=" w-11/12 mx-auto text-right min-h-[10svh]">
-      <button v-if="isLightBox"><i class='bx bx-x bx-md align-middle'></i></button>
+    <div class=" w-4/5 mx-auto text-right min-h-[10svh]">
+      <button class=" inline-block mt-3 cursor-pointer hover:bg-white bg-white/40 rounded-4xl" v-if="isLightBox" @click="router.back()">
+        <i class='bx bx-x bx-md align-middle' />
+      </button>
     </div>
-    <template v-if="photoID">
-      <div>
-        <Suspense>
-          <SliderComponents/>
-        </Suspense>
-      </div>
-    </template>
+    <div v-if="photoID && isLightBox">
+      <Suspense>
+        <SliderComponents/>
+      </Suspense>
+    </div>
+    <picture v-else-if="photoID">
+      <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/${ photoID }.webp`" media="(min-width: 1600px)">
+      <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/2x/${ photoID }.webp`" media="(min-width: 768px)">
+      <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`" media="(max-width: 767px)">
+      <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${photoID};`" class="h-[80svh] w-3/4 mx-auto object-contain object-center" :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`" :alt="`婚紗照${photo}`"
+      >
+    </picture>
     <div v-else class=" text-center">
       <p><i class='bx bx-camera-off bx-md'></i></p>
       <p>沒這張照片</p>
@@ -22,8 +29,9 @@
 
 <script setup>
 import SliderComponents from '@/components/SliderComponents.vue';
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 const route = useRoute()
+const router = useRouter()
 const isLightBox = route.meta.lightBox
 const photoID = route.params.id
 </script>
