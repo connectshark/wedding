@@ -7,6 +7,7 @@ import LogoComponents from './components/logo.vue'
 import LogoIcon from './components/icons/LogoIcon.vue'
 import SoundComponents from './components/SoundComponents.vue'
 import useIntersectionObserver from './composables/useIntersectionObserver'
+import { motion } from 'motion-v'
 
 const sound = useTemplateRef('sound')
 const started = ref(false)
@@ -114,23 +115,26 @@ useIntersectionObserver(headerRef, (entries) => {
         :leave-active-class="'transition duration-1500 ease-in-out transform -translate-y-full opacity-0'">
         <div data-name="welcome" v-if="!started" @click.once="startViewWebsite"
           class=" perspective-distant fixed inset-0 z-20 flex items-center justify-center backdrop-blur-3xl bg-background/30">
-          <div v-motion :delay="200" :initial="{
-            scale: .8,
-            rotateY: -50,
-            opacity: 0,
-            boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)',
-          }" :enter="{
-            scale: 1,
-            rotateY: 0,
-            opacity: 1,
-            boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
-            transition: {
-              duration: 1500,
-              type: 'keyframes',
-              ease: 'backOut',
-            }
-          }"
-            class="font-title text-3xl text-text/90 text-center bg-[url('/bg.jpg')] max-w-80 w-full h-full max-h-120 flex items-center justify-center rounded-4xl border-6 border-text/30 relative">
+          <motion.div
+            :initial="{
+              scale: .8,
+              rotateY: -50,
+              opacity: 0,
+              boxShadow: '0 25px 50px -12px rgb(0 0 0 / 0.25)',
+            }"
+            :animate="{
+              scale: 1,
+              rotateY: 0,
+              opacity: 1,
+              boxShadow: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)'
+            }"
+            :transition="{
+              type: 'spring',
+              duration: 2,
+              bounce: 0.5,
+            }"
+            class="font-title text-3xl text-text/90 text-center bg-[url('/bg.jpg')] max-w-80 w-full h-full max-h-120 flex items-center justify-center rounded-4xl border-6 border-text/30 relative"
+          >
             <div class="size-40 red absolute bottom-0 -left-[20%]">
               <RoseFlowerComponents />
             </div>
@@ -148,7 +152,7 @@ useIntersectionObserver(headerRef, (entries) => {
                     class="relative">Open</span></span>
               </p>
             </div>
-          </div>
+          </motion.div>
         </div>
       </Transition>
     </Teleport>

@@ -119,7 +119,13 @@ const translateX = useTransform(
           <p class="mt-8 text-lg text-text/70">"Hi~ By the time you get this invitation, the countdown to our wedding will have already begun!"</p>
         </div>
       </motion.div>
-      <div v-motion-slide-visible-once-bottom :duration="1000" class="order-1 md:order-2">
+      <motion.div
+        :initial="{ opacity: 0, y: 50 }"
+        :whileInView="{ opacity: 1, y: 0 }"
+        :transition="{ duration: 1, delay: .2 }"
+        :inViewOptions="{ once: true }"
+        class="order-1 md:order-2"
+      >
         <div class="relative group">
           <img
             class="rounded-3xl shadow-2xl object-cover w-full aspect-[3/4] transition-transform duration-500 group-hover:scale-105"
@@ -130,7 +136,7 @@ const translateX = useTransform(
             <p class="font-sans font-bold text-xl text-secondary">2019 - 2025</p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   </section>
   <div class="py-20 text-center">
@@ -355,30 +361,30 @@ const translateX = useTransform(
       :inViewOptions="{ margin: '0px 0px -50px 0px' }"
       class="py-10"
     >
-      <ul class=" flex justify-evenly max-w-md mx-auto w-11/12">
+      <ul class=" flex justify-evenly max-w-sm mx-auto w-11/12">
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ days }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-mono">{{ days }}</div>
           <p>天</p>
         </li>
         <li>
-          <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
+          <div class="text-2xl md:text-4xl text-primary font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ hours }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-mono">{{ hours }}</div>
           <p>時</p>
         </li>
         <li>
-          <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
+          <div class="text-2xl md:text-4xl text-primary font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ minutes }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-mono">{{ minutes }}</div>
           <p>分</p>
         </li>
         <li>
-          <div class=" text-2xl md:text-4xl text-primary font-semibold">:</div>
+          <div class="text-2xl md:text-4xl text-primary font-semibold">:</div>
         </li>
         <li class="text-center">
-          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-sans">{{ seconds }}</div>
+          <div class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-mono">{{ seconds }}</div>
           <p>秒</p>
         </li>
       </ul>
@@ -386,8 +392,7 @@ const translateX = useTransform(
   </section>
   <section>
     <div class="w-5/6 mx-auto py-20 max-w-120">
-      <div v-motion-slide-visible-once-bottom
-        class="font-title text-4xl text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
+      <div class="font-title text-4xl text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
         <div class="relative z-10 font-title text-4xl text-center">
           <motion.h2
             :transition="{ type: 'spring' }"
