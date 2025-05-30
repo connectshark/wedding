@@ -86,20 +86,20 @@ const translateX = useTransform(
   </div>
   <section class="py-24 bg-linear-to-b/oklch via-primary/20 to-transparent">
     <div class="font-title text-5xl text-center mb-20">
-    <motion.h2
-      :transition="{ type: 'spring' }"
-      :initial="{ y: -50, opacity: 0 }"
-      :whileInView="{ y: 0, opacity: 1 }"
-      :inViewOptions="{ margin: '0px 0px -50px 0px' }"
-      class="tracking-wide"
-    >關於我們</motion.h2>
-    <motion.p
-      :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
-      :initial="{ y: 50, opacity: 0 }"
-      :whileInView="{ y: 0, opacity: 1 }"
-      :inViewOptions="{ margin: '0px 0px -50px 0px' }"
-      class="text-xl text-text/70"
-    >About Us</motion.p>
+      <motion.h2
+        :transition="{ type: 'spring' }"
+        :initial="{ y: -50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+        class="tracking-wide"
+      >關於我們</motion.h2>
+      <motion.p
+        :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
+        :initial="{ y: 50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+        class="text-xl text-text/70"
+      >About Us</motion.p>
     </div>
     <div class="w-11/12 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <motion.div
@@ -399,14 +399,14 @@ const translateX = useTransform(
             :initial="{ y: -50, opacity: 0 }"
             :whileInView="{ y: 0, opacity: 1 }"
             :inViewOptions="{ margin: '0px 0px -50px 0px' }"
-          >距離婚禮剩下時間</motion.h2>
+          >分享邀請函</motion.h2>
           <motion.p
             :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
             :initial="{ y: 50, opacity: 0 }"
             :whileInView="{ y: 0, opacity: 1 }"
             :inViewOptions="{ margin: '0px 0px -50px 0px' }"
             class="text-xl text-text/70"
-          >Countdown</motion.p>
+          >Share</motion.p>
         </div>
       </div>
       <p class="text-center mb-10">選擇自己最常用的社群方分享出去吧！</p>

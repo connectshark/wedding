@@ -4,14 +4,15 @@
     <motion.li
       v-for="photo in store.photos"
       :key="photo"
-      :transition="{ type: 'spring', duration: .5, bounce: .4 }"
+      :transition="{ type: 'spring', duration: 1, bounce: .4 }"
       :initial="{ y: 100, opacity: 0 }"
       :whileInView="{ y: 0, opacity: 1 }"
       :inViewOptions="{ once: true }"
-      class="mb-3 relative z-10"
+      class="mb-3 relative z-10 brightness-90"
+      :whileHover="{ filter: 'brightness(1)' }"
     >
       <figure class=" rounded-2xl overflow-clip">
-        <router-link class="block active:brightness-70 hover:brightness-70" :to="`/photo/${photo}`">
+        <router-link class="block" :to="`/photo/${photo}`">
           <img class="object-contain" draggable="false" :style="{ viewTransitionName: isStart ? '' : `photo-${photo}` }"
             loading="lazy" :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${photo}.webp`"
             alt="photo">
