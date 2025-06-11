@@ -393,28 +393,28 @@ const translateX = useTransform(
     >
       <ul class=" flex justify-evenly max-w-sm mx-auto w-11/12">
         <li class="text-center">
-          <NumberFlow :value="days" class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-mono"/>
+          <NumberFlow :value="days" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
           <p class="lg:text-xl">天</p>
         </li>
         <li>
-          <div class="text-3xl md:text-5xl text-primary font-semibold font-mono">:</div>
+          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
         </li>
         <li class="text-center">
-          <NumberFlow :value="hours" class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-mono"/>
+          <NumberFlow :value="hours" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
           <p class="lg:text-xl">時</p>
         </li>
         <li>
-          <div class="text-3xl md:text-5xl text-primary font-semibold font-mono">:</div>
+          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
         </li>
         <li class="text-center">
-          <NumberFlow :value="minutes" class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-mono"/>
+          <NumberFlow :value="minutes" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
           <p class="lg:text-xl">分</p>
         </li>
         <li>
-          <div class="text-3xl md:text-5xl text-primary font-semibold font-mono">:</div>
+          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
         </li>
         <li class="text-center">
-          <NumberFlow :value="seconds" class="text-3xl md:text-5xl font-semibold text-primary mb-2 font-mono"/>
+          <NumberFlow :value="seconds" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
           <p class="lg:text-xl">秒</p>
         </li>
       </ul>
