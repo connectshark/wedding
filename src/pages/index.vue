@@ -62,21 +62,21 @@ const translateX = useTransform(
 <template>
   <section class="py-24 bg-linear-to-b/oklch via-primary/20 to-transparent">
     <div class="font-title text-5xl text-center mb-20">
-      <h2 class="tracking-wide">呂若筠&nbsp;&&nbsp;葉恩騰</h2>
+      <h2 class="tracking-wide mb-5">呂若筠&nbsp;&&nbsp;葉恩騰</h2>
       <p class="text-3xl">要結婚啦！</p>
       <p class="text-xl text-text/70">Welcome to our Wedding!</p>
     </div>
     <div class="py-20">
-      <div class="flex justify-evenly text-center text-xl bg-white/80 w-11/12 mx-auto py-20 backdrop-blur-3xl rounded-4xl max-w-96">
+      <div class="flex justify-evenly text-center text-xl bg-white/80 w-11/12 mx-auto py-20 backdrop-blur-3xl rounded-4xl max-w-2xl">
         <div>
           <p>新娘</p>
-          <p class="text-2xl mb-6">呂若筠</p>
+          <p class="text-2xl mb-12">呂若筠</p>
           <p>女方家長</p>
           <p class="text-2xl">呂銘益、楊莉伶</p>
         </div>
         <div>
           <p>新郎</p>
-          <p class="text-2xl mb-6">葉恩騰</p>
+          <p class="text-2xl mb-12">葉恩騰</p>
           <p>男方家長</p>
           <p class="text-2xl">葉家豪、蔣曉紅</p>
         </div>
