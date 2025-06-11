@@ -90,14 +90,14 @@ const translateX = useTransform(
         :transition="{ type: 'spring' }"
         :initial="{ y: -50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ margin: '0px 0px -50px 0px', once: true }"
+        :inViewOptions="{ once: true }"
         class="tracking-wide"
       >關於我們</motion.h2>
       <motion.p
         :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
         :initial="{ y: 50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ margin: '0px 0px -50px 0px', once: true }"
+        :inViewOptions="{ once: true }"
         class="text-xl text-text/70"
       >About Us</motion.p>
     </div>
@@ -178,7 +178,7 @@ const translateX = useTransform(
       :transition="{ type: 'spring' }"
       :initial="{ y: -50, opacity: 0 }"
       :whileInView="{ y: 0, opacity: 1 }"
-      :inViewOptions="{ margin: '0px 0px -50px 0px', once: true }"
+      :inViewOptions="{ once: true }"
       class="text-center"
     >
       <router-link to="/photos"
@@ -201,7 +201,7 @@ const translateX = useTransform(
         :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
         :initial="{ y: 50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ margin: '0px 0px -50px 0px', once: true }"
+        :inViewOptions="{ once: true }"
         class="text-xl text-text/70"
       >Address</motion.p>
       </div>
@@ -345,24 +345,24 @@ const translateX = useTransform(
         :transition="{ type: 'spring' }"
         :initial="{ y: -50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ margin: '0px 0px -50px 0px', once: true }"
+        :inViewOptions="{ once: true }"
       >婚禮表單</motion.h2>
       <motion.p
         :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
         :initial="{ y: 50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ margin: '0px 0px -50px 0px', once: true }"
+        :inViewOptions="{ once: true }"
         class="text-xl text-text/70"
       >form</motion.p>
     </div>
     <div class="text-center">
       <div class="mb-10">要參加的親朋好友一定要填寫表單喔！</div>
-      <a href="javascript:;" target="_blank" class="block max-w-100 mx-auto w-5/6 p-5 bg-white rounded-4xl shadow mb-10">
+      <a href="javascript:;" role="button" target="_blank" class="block max-w-100 mx-auto w-5/6 p-5 bg-white rounded-4xl shadow mb-10">
         <img class=" rounded-xl" src="@/assets/img/form.webp" alt="form image">
       </a>
       <div class="flex justify-center">
-        <a class="magic-btn flex" href="javascript:;" target="_blank">
-          <i class='bx  bx-file-detail bx-sm'></i>
+        <a class="magic-btn flex" href="javascript:;" role="button" target="_blank">
+          <i class='bx bx-file-detail bx-sm'></i>
           <span>填寫表單</span>
         </a>
       </div>
