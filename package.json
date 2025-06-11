@@ -17,6 +17,7 @@
     "url": "https://github.com/connectshark"
   },
   "dependencies": {
+    "@number-flow/vue": "^0.4.8",
     "@splidejs/vue-splide": "^0.6.12",
     "@tailwindcss/vite": "^4.1.8",
     "motion-v": "^1.2.1",
