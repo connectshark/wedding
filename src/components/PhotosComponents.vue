@@ -8,8 +8,7 @@
       :initial="{ y: 100, opacity: 0 }"
       :whileInView="{ y: 0, opacity: 1 }"
       :inViewOptions="{ once: true }"
-      class="mb-3 relative z-10 brightness-90"
-      :whileHover="{ filter: 'brightness(1)' }"
+      class="mb-3 relative z-10"
     >
       <figure class=" rounded-2xl overflow-clip">
         <router-link class="block" :to="`/photo/${photo}`">

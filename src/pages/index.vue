@@ -60,17 +60,50 @@ const translateX = useTransform(
 </script>
 
 <template>
+  <section class="py-24 bg-linear-to-b/oklch via-primary/20 to-transparent">
+    <div class="font-title text-5xl text-center mb-20">
+      <h2 class="tracking-wide mb-5">呂若筠&nbsp;&&nbsp;葉恩騰</h2>
+      <p class="text-3xl">要結婚啦！</p>
+      <p class="text-xl text-text/70">Welcome to our Wedding!</p>
+    </div>
+    <div class="py-20">
+      <div class="flex justify-evenly text-center text-xl bg-white/80 w-11/12 mx-auto py-20 backdrop-blur-3xl rounded-4xl max-w-2xl">
+        <div>
+          <p>新娘</p>
+          <p class="text-2xl mb-12">呂若筠</p>
+          <p>女方家長</p>
+          <p class="text-2xl">呂銘益、楊莉伶</p>
+        </div>
+        <div>
+          <p>新郎</p>
+          <p class="text-2xl mb-12">葉恩騰</p>
+          <p>男方家長</p>
+          <p class="text-2xl">葉家豪、蔣曉紅</p>
+        </div>
+    </div>
+    </div>
+  <div class="w-11/12 max-w-6xl mx-auto">
+    <div class=" relative">
+      <img
+        class="rounded-3xl shadow-2xl object-cover w-full aspect-[3/4]"
+        src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00296.webp" alt="新人與主婚人"
+        loading="lazy" draggable="false" />
+      <div
+        class="border-2 border-secondary absolute -bottom-6 right-2 bg-white p-4 rounded-xl shadow-md rotate-6 transition-transform duration-500 group-hover:rotate-0">
+        <p class="font-sans font-bold text-xl text-secondary">2019 - 2025</p>
+      </div>
+    </div>
+  </div>
+  </section>
   <section class="relative py-16">
-    <div class="py-12 text-center relative">
-      <div class="flex items-center justify-center mb-6">
+    <div class="py-12 text-center">
+      <h2 class="font-title text-4xl tracking-wider text-balance mb-4">誠摯邀請您見證我們的幸福起點</h2>
+      <p class="text-xl mb-10 text-balance">我們將攜手步入人生的新篇章，誠摯邀請您蒞臨現場，共同見證這份愛的誓約</p>
+      <div class="flex items-center justify-center">
         <div class="w-16 h-px bg-primary"></div>
         <i class='bx bxs-heart text-primary text-2xl mx-4'></i>
         <div class="w-16 h-px bg-primary"></div>
       </div>
-      <h2 class="text-6xl font-title tracking-wider">
-        愛在此刻綻放
-      </h2>
-      <p class="text-xl mt-4">誠摯邀請您見證我們的幸福起點</p>
     </div>
     <figure class="max-w-4xl mx-auto">
       <img draggable="false" class="object-cover w-full shadow-xl"
@@ -116,7 +149,7 @@ const translateX = useTransform(
             <i class='bx bx-heart-circle text-primary text-2xl'></i>
             <div class="h-px flex-grow bg-linear-to-l/oklch via-primary to-primary/30"></div>
           </div>
-          <p class="mt-8 text-lg text-text/70">"Hi~ By the time you get this invitation, the countdown to our wedding will have already begun!"</p>
+          <p class="mt-8 text-lg text-text">"Hi~ By the time you get this invitation, the countdown to our wedding will have already begun!"</p>
         </div>
       </motion.div>
       <motion.div
@@ -171,7 +204,7 @@ const translateX = useTransform(
         :transition="{ ease: 'easeInOut', duration: .6 }"
         :initial="{ y: -50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+        :inViewOptions="{ margin: '0px 0px -50px 0px', once: true }"
         class="text-center"
       >婚宴位置</motion.h2>
 
@@ -179,7 +212,7 @@ const translateX = useTransform(
         :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
         :initial="{ y: 50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ margin: '0px 0px -50px 0px' }"
+        :inViewOptions="{ margin: '0px 0px -50px 0px', once: true }"
         class="text-xl text-text/70"
       >Address</motion.p>
       </div>
