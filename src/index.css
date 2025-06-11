@@ -10,7 +10,7 @@
 
   --font-main: "LXGW WenKai TC", system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
   --font-title: ChenYuluoyan, system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
-  --font-sans: 'Inter', system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
+  --font-mono: 'Poetsen One', system-ui, Arial, Helvetica, 'Courier New', Courier, monospace;
 
   --color-text: var(--text);
   --color-background: var(--background);
