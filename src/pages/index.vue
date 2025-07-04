@@ -17,10 +17,20 @@ const photos = [
 
 const SITE_URL = 'https://sandra.nosegates.com'
 
-const calender = `https://www.google.com/calendar/render?action=TEMPLATE&text=若筠與恩騰婚宴❤️&dates=20251115T030000Z/20251115T070000Z&location=川門子時尚餐廳&details=<b>若筠與恩騰婚宴❤️</b>
+const details = `<b>若筠與恩騰婚宴❤️</b>
 誠摯的邀請您一同參與我們盛大的婚禮，分享幸福的時光
 <ul><li>11:00 戶外證婚</li><li><b>12:00 婚禮開始</b></li></ul>
-<ul><li>會場：川門子時尚餐廳</li><li>地址：桃園市蘆竹區南竹路二段156-2號</li><li>宴會廳：水漾聽 1F</li><li>場地電話：03 2124 999</li></ul>&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg`
+<ul><li>會場：川門子時尚餐廳</li><li>地址：桃園市蘆竹區南竹路二段156-2號</li><li>宴會廳：水漾聽 1F</li><li>場地電話：03 2124 999</li></ul>`;
+
+const params = new URLSearchParams({
+  action: 'TEMPLATE',
+  text: '若筠與恩騰婚宴❤️',
+  dates: '20251115T030000Z/20251115T070000Z',
+  location: '川門子時尚餐廳',
+  details: details,
+  destination_place_id: 'ChIJBYy1e-cfaDQRFwXQYZdoQNg'
+});
+const calender = `https://www.google.com/calendar/render?${params.toString()}`;
 
 const map = `https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg&travelmode=driving&destination=川門子`
 
@@ -261,7 +271,7 @@ const translateX = useTransform(
       <div>
         <p class="flex justify-center">
           <a class="magic-btn flex" :href="map" target="_blank" rel="noopener noreferrer">
-            <i class='bx bx-location-alt-2 align-middle'/> 
+            <i class='bx bx-location-alt-2 align-middle'/>
             <span>導航到會場</span>
           </a>
         </p>
@@ -294,8 +304,8 @@ const translateX = useTransform(
         <CalenderComponent :date="15" />
       </div>
       <div class="flex justify-center">
-        <a title="將這天加入日曆" class="magic-btn flex" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
-          <i class='bx  bx-calendar-alt align-middle'/>
+        <a title="將這天加入日曆" class="magic-btn flex" :href="calender" target="_blank" rel="noopener noreferrer">
+          <i class='bx bx-calendar-alt align-middle'/>
           <span>將這天加入日曆</span>
         </a>
       </div>
@@ -323,7 +333,7 @@ const translateX = useTransform(
       <div class="flex justify-center">
 
         <a title="私訊獲得表單" class="magic-btn flex" href="https://www.instagram.com/nose_gates/" target="_blank" rel="noopener noreferrer">
-          <i class='bxl  bx-instagram bx-sm inline-block align-middle'></i>
+          <i class='bxl bx-instagram bx-sm inline-block align-middle'></i>
           <span>nose_gates</span>
         </a>
       </div>

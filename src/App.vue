@@ -206,7 +206,7 @@ useIntersectionObserver(headerRef, (entries) => {
         </div>
       </div>
       <p class="text-sm/loose mb-4">Copyright <i class='bx bx-copyright' /> {{ year }} <a class="underline" href="https://sandra.nosegates.com" target="_blank">婚禮邀請函 若筠&恩騰</a> 版權所有</p>
-      <p class="text-sm/loose">本網站由 <a class="underline" href="https://nosegates.com" target="_blank">葉恩騰<i class='bx  bx-arrow-out-up-right-stroke-square align-middle' /></a> 製作</p>
+      <p class="text-sm/loose">本網站由 <a class="underline" href="https://nosegates.com" target="_blank">葉恩騰<i class='bx bx-arrow-out-up-right-stroke-square align-middle' /></a> 製作</p>
     </div>
   </footer>
 </template>
