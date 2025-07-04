@@ -82,9 +82,8 @@ useIntersectionObserver(headerRef, (entries) => {
 <template>
   <div>
     <div ref="headerRef" />
-    <header :class="{ 'mb-0 pt-1.5 px-3': isSticky, 'mb-3': !isSticky }"
-      class="sticky top-0 z-20 transition-all ease-in-out duration-500 max-w-4xl mx-auto">
-      <div :class="{ 'bg-white/30': isSticky }"
+    <header :class="{ 'mb-0 pt-1.5 px-3': isSticky, 'mb-3': !isSticky }" class="sticky top-0 z-20 transition-all ease-in-out duration-500 max-w-4xl mx-auto">
+      <div :class="{ 'bg-white/50': isSticky }"
         class="backdrop-blur-xs transition-all ease-in-out duration-500 w-11/12 mx-auto p-2 flex items-center justify-between rounded-2xl">
         <router-link class="text-text/80 p-1 rounded-xl active:bg-text/10 md:hover:bg-text/10" to="/">
           <LogoIcon class="size-8 inline-block align-middle" />
@@ -194,22 +193,20 @@ useIntersectionObserver(headerRef, (entries) => {
         <h6 class="mb-4 text-text/70"><i class='bx bx-cube-alt'></i>品牌</h6>
         <ul>
           <li class="mb-2 last:mb-0" v-for="item in brands">
-            <a class="text-sm/loose hover:underline" :href="item.url" target="_blank" rel="noopener noreferrer">{{
-              item.name }}<i class='bx bx-link-external'></i></a>
+            <a class="text-sm/loose hover:underline" :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}<i class='bx bx-arrow-out-up-right-stroke-square align-middle' /></a>
           </li>
         </ul>
       </div>
     </div>
     <div class="w-5/6 mx-auto py-10 text-center text-text/80">
-      <p class="mb-10 flex items-center gap-4 justify-center">
-        <a class="p-2 rounded md:hover:bg-text/10 active:bg-text/10" href="https://www.instagram.com/joyun1191/"
-          target="_blank" rel="noopener noreferrer">
-          <i class='bx bxl-instagram bx-md align-middle'></i>
-        </a>
-      </p>
-      <p class="text-sm/loose mb-4">Copyright <i class='bx bx-copyright' /> {{ year }} <a class="underline"
-          href="https://sandra.nosegates.com" target="_blank">婚禮邀請函 若筠&恩騰</a> 版權所有</p>
-      <p class="text-sm/loose">本網站由 <a class="underline" href="https://nosegates.com" target="_blank">葉恩騰<i class='bx bx-link-external'></i></a> 製作</p>
+      <div class="mb-10 flex items-center gap-4 justify-center">
+        <div>
+          <a title="新郎IG帳號" class="p-2 inline-block rounded md:hover:bg-text/10 active:bg-text/10" href="https://www.instagram.com/nose_gates/" target="_blank" rel="noopener noreferrer"><i class='bxl bx-instagram bx-sm inline-block align-middle' /></a>
+          <p>新郎IG</p>
+        </div>
+      </div>
+      <p class="text-sm/loose mb-4">Copyright <i class='bx bx-copyright' /> {{ year }} <a class="underline" href="https://sandra.nosegates.com" target="_blank">婚禮邀請函 若筠&恩騰</a> 版權所有</p>
+      <p class="text-sm/loose">本網站由 <a class="underline" href="https://nosegates.com" target="_blank">葉恩騰<i class='bx  bx-arrow-out-up-right-stroke-square align-middle' /></a> 製作</p>
     </div>
   </footer>
 </template>

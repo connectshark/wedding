@@ -1,11 +1,6 @@
 <script setup>
 import useCountdown from '../composables/useCountdown'
-import ThreadsIcon from '../components/icons/ThreadsIcon.vue'
 import LineIcon from '../components/icons/LineIcon.vue'
-import FacebookIcon from '../components/icons/FacebookIcon.vue'
-import ShareIcon from '../components/icons/ShareIcon.vue'
-import CalenderIcon from '../components/icons/CalenderIcon.vue'
-import InstagramIcon from '../components/icons/InstagramIcon.vue'
 import useShare from '../composables/useShare'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
@@ -22,7 +17,10 @@ const photos = [
 
 const SITE_URL = 'https://sandra.nosegates.com'
 
-const calender = 'https://www.google.com/calendar/render?action=TEMPLATE&text=若筠與恩騰婚宴❤️&dates=20251115T040000Z/20251115T070000Z&location=川門子時尚餐廳&details=誠摯的邀請您一同參與我們盛大的婚禮，分享幸福的時光&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg'
+const calender = `https://www.google.com/calendar/render?action=TEMPLATE&text=若筠與恩騰婚宴❤️&dates=20251115T030000Z/20251115T070000Z&location=川門子時尚餐廳&details=<b>若筠與恩騰婚宴❤️</b>
+誠摯的邀請您一同參與我們盛大的婚禮，分享幸福的時光
+<ul><li>11:00 戶外證婚</li><li><b>12:00 婚禮開始</b></li></ul>
+<ul><li>會場：川門子時尚餐廳</li><li>地址：桃園市蘆竹區南竹路二段156-2號</li><li>宴會廳：水漾聽 1F</li><li>場地電話：03 2124 999</li></ul>&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg`
 
 const map = `https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg&travelmode=driving&destination=川門子`
 
@@ -68,6 +66,11 @@ const translateX = useTransform(
       <p class="text-3xl">要<span class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block font-bold"><span class="relative">結婚</span></span>啦！</p>
       <p class="text-xl text-text/90">Welcome to our Wedding!</p>
     </div>
+
+    <figure class="max-w-4xl mx-auto">
+      <img draggable="false" class="object-cover w-full shadow-xl"
+        src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00174.webp" alt="我們的婚禮">
+    </figure>
   </section>
 
   <section class="mb-20 bg-text/5 py-20 relative before:absolute before:top-0 before:border-r-50 before:border-b-50 before:border-transparent before:border-b-background before:left-1/2 before:-rotate-45 before:-translate-y-1/2 before:-translate-x-1/2 after:absolute after:bottom-0 after:border-r-50 after:border-b-50 after:border-transparent after:border-b-text/5 after:left-1/2 after:-rotate-45 after:translate-y-1/2 after:-translate-x-1/2">
@@ -128,18 +131,7 @@ const translateX = useTransform(
         <div class="w-16 h-px bg-primary"></div>
       </div>
     </div>
-    <figure class="max-w-4xl mx-auto">
-      <img draggable="false" class="object-cover w-full shadow-xl"
-        src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00174.webp" alt="我們的婚禮">
-    </figure>
   </section>
-  <div class="py-12 flex items-center justify-center">
-    <div class="w-1/4 h-px bg-linear-to-r/oklch from-transparent via-primary/80 to-transparent"></div>
-    <div class="px-6">
-      <i class='bx bxs-heart text-primary text-3xl animate-pulse'></i>
-    </div>
-    <div class="w-1/4 h-px bg-linear-to-r/oklch from-transparent via-primary/80 to-transparent"></div>
-  </div>
   <div class="py-20 text-center">
     <p class="font-title text-4xl w-5/6 mx-auto">愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
@@ -185,7 +177,7 @@ const translateX = useTransform(
       >Information</motion.p>
       </div>
     <div class="flex justify-evenly text-center md:text-lg bg-[url('/bg.jpg')] w-11/12 mx-auto py-20 rounded-4xl max-w-2xl border-3 border-text/20 shadow-lg">
-      <div class="">
+      <div>
         <p>新娘</p>
         <p class="text-lg md:text-2xl mb-12 font-bold">呂若筠</p>
         <p>女方家長</p>
@@ -246,7 +238,7 @@ const translateX = useTransform(
           </div>
           <div>
             <p class="text-text/80">宴會廳</p>
-            <p class="text-lg">水漾聽</p>
+            <p class="text-lg">水漾聽 1F</p>
           </div>
         </li>
         <li class="flex items-center gap-2">
@@ -268,9 +260,8 @@ const translateX = useTransform(
       </div>
       <div>
         <p class="flex justify-center">
-          <a class="magic-btn" :href="map" target="_blank" rel="noopener noreferrer">
-            <i class='bx bx-cursor'/>
-            <i class='bx bxs-navigation' />
+          <a class="magic-btn flex" :href="map" target="_blank" rel="noopener noreferrer">
+            <i class='bx bx-location-alt-2 align-middle'/> 
             <span>導航到會場</span>
           </a>
         </p>
@@ -304,7 +295,7 @@ const translateX = useTransform(
       </div>
       <div class="flex justify-center">
         <a title="將這天加入日曆" class="magic-btn flex" :href="encodeURI(calender)" target="_blank" rel="noopener noreferrer">
-          <CalenderIcon />
+          <i class='bx  bx-calendar-alt align-middle'/>
           <span>將這天加入日曆</span>
         </a>
       </div>
@@ -332,7 +323,7 @@ const translateX = useTransform(
       <div class="flex justify-center">
 
         <a title="私訊獲得表單" class="magic-btn flex" href="https://www.instagram.com/nose_gates/" target="_blank" rel="noopener noreferrer">
-          <InstagramIcon/>
+          <i class='bxl  bx-instagram bx-sm inline-block align-middle'></i>
           <span>nose_gates</span>
         </a>
       </div>
@@ -357,7 +348,7 @@ const translateX = useTransform(
     <div v-if="loading" class="text-center">
       <i class='bx bx-loader bx-spin' />
     </div>
-    <ul v-else class="bg-secondary/20 backdrop-blur-3xl p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-xl overflow-clip">
+    <ul v-else class="bg-secondary/20 backdrop-blur-3xl p-10 md:p-20 rounded-3xl w-5/6 mx-auto max-w-2xl overflow-clip">
       <motion.li
         v-for="(message, i) in messages"
         :transition="{ type: 'spring' }"
@@ -368,15 +359,12 @@ const translateX = useTransform(
       >
         <div class="shrink-0 group-odd:order-1">
           <p class="text-center">{{ message.name }}</p>
-          <figure class="p-1 rounded-full w-20 bg-linear-to-tr from-primary to-accent">
-            <img loading="lazy" draggable="false" class="rounded-full object-center object-cover aspect-square"
-              :src="message.avatar" alt="avatar">
+          <figure class="p-0.5 md:p-1 rounded-full w-14 md:w-18 lg:w-20 bg-linear-to-tr from-primary to-accent">
+            <img loading="lazy" draggable="false" class="rounded-full object-center object-cover aspect-square" :src="message.avatar" alt="avatar">
           </figure>
         </div>
         <div class="pb-10 mb-auto">
-          <p
-            class="bg-background/80 border border-secondary p-3 rounded-2xl text-sm md:text-base group-odd:rounded-br-none group-even:rounded-bl-none">
-            {{ message.content }}</p>
+          <p class="bg-background/80 border border-secondary p-3 rounded-2xl text-sm md:text-base lg:text-lg group-odd:rounded-br-none group-even:rounded-bl-none">{{ message.content }}</p>
         </div>
       </motion.li>
     </ul>
@@ -456,12 +444,12 @@ const translateX = useTransform(
       <p class="text-center mb-10">把這個邀請函分享給別人！</p>
       <div class="flex flex-col md:flex-row items-center justify-evenly max-w-3xl mx-auto flex-wrap gap-6 md:gap-3">
         <button v-if="isShare" type="button" class="magic-btn flex" @click="share">
-          <ShareIcon class="size-4" />
+          <i class='bx bx-share'/>
           <span>分享</span>
         </button>
         <a :href="`https://www.facebook.com/sharer.php?u=${encodeURI(SITE_URL)}&hashtag=%23婚禮邀請函`"
           class="magic-btn flex" target="_blank" rel="noopener noreferrer">
-          <FacebookIcon class="size-4" />
+          <i class='bxl bx-facebook-circle'/>
           <span>分享</span>
         </a>
         <a :href="`https://line.me/R/share?text=若筠和恩騰婚禮邀請函 ${encodeURI(SITE_URL)}?openExternalBrowser=1`"
@@ -472,14 +460,14 @@ const translateX = useTransform(
         <a class="hidden md:flex magic-btn"
           :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=若筠與恩騰的婚禮專頁`" target="_blank"
           rel="noopener noreferrer">
-          <ThreadsIcon class="size-4" />
+          <i class='bxl bx-threads' />
           <span>分享</span>
         </a>
 
         <a class="md:hidden magic-btn flex"
           :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=${encodeURI(SITE_URL)}`"
           target="_blank" rel="noopener noreferrer">
-          <ThreadsIcon class="size-4" />
+          <i class='bxl bx-threads' />
           <span>分享</span>
         </a>
       </div>
