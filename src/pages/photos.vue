@@ -22,7 +22,9 @@
       </template>
     </Suspense>
     <div class="text-center">
-      <p class="mb-10">剩餘的照片將於 2025/11/15 公開</p>
+      <p class="mb-10">Coming Soon~</p>
+      <p class=" leading-loose">剩餘的照片會<span class="text-primary text-lg font-bold px-1 rounded">陸續開放</span></p>
+      <p class="mb-10">所有的照片將於 <span class="font-bold">2025/11/15</span> 公開</p>
       <p>
         <router-link to="/" class="underline"><i class='bx bx-home'></i>回首頁</router-link>
       </p>
