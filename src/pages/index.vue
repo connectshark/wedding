@@ -5,6 +5,7 @@ import LineIcon from '../components/icons/LineIcon.vue'
 import FacebookIcon from '../components/icons/FacebookIcon.vue'
 import ShareIcon from '../components/icons/ShareIcon.vue'
 import CalenderIcon from '../components/icons/CalenderIcon.vue'
+import InstagramIcon from '../components/icons/InstagramIcon.vue'
 import useShare from '../composables/useShare'
 import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
@@ -61,30 +62,15 @@ const translateX = useTransform(
 </script>
 
 <template>
-  <section class="py-24 bg-linear-to-b/oklch via-primary/20 to-transparent">
+  <section class="py-24 min-h-[70svh]">
     <div class="font-title text-5xl text-center mb-20">
       <h2 class="tracking-wide mb-5">呂若筠&nbsp;&&nbsp;葉恩騰</h2>
-      <p class="text-3xl">要結婚啦！</p>
-      <p class="text-xl text-text/70">Welcome to our Wedding!</p>
-    </div>
-    <div class="py-20">
-      <div class="flex justify-evenly text-center text-xl bg-white/80 w-11/12 mx-auto py-20 backdrop-blur-3xl rounded-4xl max-w-2xl">
-        <div>
-          <p>新娘</p>
-          <p class="text-2xl mb-12">呂若筠</p>
-          <p>女方家長</p>
-          <p class="text-2xl">呂銘益、楊莉伶</p>
-        </div>
-        <div>
-          <p>新郎</p>
-          <p class="text-2xl mb-12">葉恩騰</p>
-          <p>男方家長</p>
-          <p class="text-2xl">葉家豪、蔣曉紅</p>
-        </div>
-      </div>
+      <p class="text-3xl">要<span class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block font-bold"><span class="relative">結婚</span></span>啦！</p>
+      <p class="text-xl text-text/90">Welcome to our Wedding!</p>
     </div>
   </section>
-  <section class="py-24 bg-linear-to-b/oklch via-primary/20 to-transparent">
+
+  <section class="mb-20 bg-text/5 py-20 relative before:absolute before:top-0 before:border-r-50 before:border-b-50 before:border-transparent before:border-b-background before:left-1/2 before:-rotate-45 before:-translate-y-1/2 before:-translate-x-1/2 after:absolute after:bottom-0 after:border-r-50 after:border-b-50 after:border-transparent after:border-b-text/5 after:left-1/2 after:-rotate-45 after:translate-y-1/2 after:-translate-x-1/2">
     <div class="font-title text-5xl text-center mb-20">
       <motion.h2
         :transition="{ type: 'spring' }"
@@ -186,6 +172,41 @@ const translateX = useTransform(
     </motion.h2>
   </section>
   <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30 -scale-100" />
+
+  <section
+    class="mb-20 py-20">
+      <div class="font-title text-4xl text-center mb-16">
+      <motion.h2
+        :transition="{ type: 'spring' }"
+        :initial="{ y: -50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ once: true }"
+        class="text-center"
+      >婚宴資訊</motion.h2>
+
+      <motion.p
+        :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
+        :initial="{ y: 50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ once: true }"
+        class="text-xl text-text/70"
+      >Information</motion.p>
+      </div>
+    <div class="flex justify-evenly text-center md:text-lg bg-[url('/bg.jpg')] w-11/12 mx-auto py-20 rounded-4xl max-w-2xl border-3 border-text/20 shadow-lg">
+      <div class="">
+        <p>新娘</p>
+        <p class="text-lg md:text-2xl mb-12 font-bold">呂若筠</p>
+        <p>女方家長</p>
+        <p class="text-lg md:text-2xl">呂銘益、楊莉伶</p>
+      </div>
+      <div>
+        <p>新郎</p>
+        <p class="text-lg md:text-2xl mb-12 font-bold">葉恩騰</p>
+        <p>男方家長</p>
+        <p class="text-lg md:text-2xl">葉家豪、蔣曉紅</p>
+      </div>
+    </div>
+  </section>
   <section class="pt-20 mb-20">
     <div class="w-5/6 mx-auto">
       <div class="font-title text-4xl text-center mb-16">
@@ -264,9 +285,7 @@ const translateX = useTransform(
       </div>
     </div>
   </section>
-  <section
-    class="mb-20 bg-text/5 py-20 relative before:absolute before:top-0 before:border-r-50 before:border-b-50 before:border-transparent before:border-b-background before:left-1/2 before:-rotate-45 before:-translate-y-1/2 before:-translate-x-1/2
-  after:absolute after:bottom-0 after:border-r-50 after:border-b-50 after:border-transparent after:border-b-text/5 after:left-1/2 after:-rotate-45 after:translate-y-1/2 after:-translate-x-1/2">
+  <section class="mb-20 bg-text/5 py-20 relative before:absolute before:top-0 before:border-r-50 before:border-b-50 before:border-transparent before:border-b-background before:left-1/2 before:-rotate-45 before:-translate-y-1/2 before:-translate-x-1/2 after:absolute after:bottom-0 after:border-r-50 after:border-b-50 after:border-transparent after:border-b-text/5 after:left-1/2 after:-rotate-45 after:translate-y-1/2 after:-translate-x-1/2">
     <div class="w-5/6 mx-auto">
       <div class="font-title text-4xl text-center mb-16">
         <motion.h2
@@ -283,7 +302,11 @@ const translateX = useTransform(
           class="text-xl text-text/70"
         >Time</motion.p>
       </div>
-      <h3 class="mb-10 text-center text-4xl font-title">2025 . 11 . 15 (六) <span class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block font-bold"><span class="relative">午宴</span></span></h3>
+      <h3 class="mb-4 text-center text-4xl font-title">2025 . 11 . 15 (六) <span class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block font-bold"><span class="relative">午宴</span></span></h3>
+      <div class="text-center mb-10 text-lg">
+        <p>11:00 戶外證婚</p>
+        <p>12:00 婚禮開始</p>
+      </div>
       <div class="text-center bg-background p-10 border-2 border-secondary rounded-3xl w-5/6 mx-auto max-w-sm mb-10">
         <CalenderComponent :date="15" />
       </div>
@@ -295,6 +318,34 @@ const translateX = useTransform(
       </div>
     </div>
   </section>
+  <div class="py-20 mb-20">
+    <div class="font-title text-4xl text-center mb-16">
+      <motion.h2
+        :transition="{ type: 'spring' }"
+        :initial="{ y: -50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ once: true }"
+      >婚禮表單</motion.h2>
+      <motion.p
+        :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
+        :initial="{ y: 50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ once: true }"
+        class="text-xl"
+      >form</motion.p>
+    </div>
+    <div class="text-center">
+      <div>請所有尚未填寫表單的親朋好友</div>
+      <p class="mb-10">私訊新郎IG帳號獲得表單</p>
+      <div class="flex justify-center">
+
+        <a title="私訊獲得表單" class="magic-btn flex" href="https://www.instagram.com/nose_gates/" target="_blank" rel="noopener noreferrer">
+          <InstagramIcon/>
+          <span>nose_gates</span>
+        </a>
+      </div>
+    </div>
+  </div>
   <section class="mb-20">
     <div class="font-title text-4xl text-center mb-16">
       <motion.h2
@@ -339,35 +390,6 @@ const translateX = useTransform(
     </ul>
   </section>
 
-  <div class="py-20 mb-20 bg-[url('/bg.jpg')]">
-    <div class="font-title text-4xl text-center mb-6">
-      <motion.h2
-        :transition="{ type: 'spring' }"
-        :initial="{ y: -50, opacity: 0 }"
-        :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ once: true }"
-      >婚禮表單</motion.h2>
-      <motion.p
-        :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
-        :initial="{ y: 50, opacity: 0 }"
-        :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ once: true }"
-        class="text-xl text-text/70"
-      >form</motion.p>
-    </div>
-    <div class="text-center">
-      <div class="mb-10">要參加的親朋好友一定要填寫表單喔！</div>
-      <a href="javascript:;" role="button" target="_blank" class="block max-w-100 mx-auto w-5/6 p-5 bg-white rounded-4xl shadow mb-10">
-        <img class=" rounded-xl" src="@/assets/img/form.webp" alt="form image">
-      </a>
-      <div class="flex justify-center">
-        <a class="magic-btn flex" href="javascript:;" role="button" target="_blank">
-          <i class='bx bx-file-detail bx-sm'></i>
-          <span>填寫表單</span>
-        </a>
-      </div>
-    </div>
-  </div>
   <section class="pt-20 mb-20">
     <div class="font-title text-4xl text-center mb-10">
       <motion.h2
@@ -375,7 +397,7 @@ const translateX = useTransform(
         :initial="{ y: -50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
         :inViewOptions="{ once: true }"
-      >婚禮倒數計時</motion.h2>
+      >距離婚禮倒數</motion.h2>
       <motion.p
         :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
         :initial="{ y: 50, opacity: 0 }"
@@ -439,7 +461,7 @@ const translateX = useTransform(
           >Share</motion.p>
         </div>
       </div>
-      <p class="text-center mb-10">選擇自己最常用的社群方分享出去吧！</p>
+      <p class="text-center mb-10">把這個邀請函分享給別人！</p>
       <div class="flex flex-col md:flex-row items-center justify-evenly max-w-3xl mx-auto flex-wrap gap-6 md:gap-3">
         <button v-if="isShare" type="button" class="magic-btn flex" @click="share">
           <ShareIcon class="size-4" />
