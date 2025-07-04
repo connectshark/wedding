@@ -181,7 +181,6 @@ const translateX = useTransform(
         :initial="{ y: -50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
         :inViewOptions="{ once: true }"
-        class="text-center"
       >婚宴資訊</motion.h2>
 
       <motion.p
