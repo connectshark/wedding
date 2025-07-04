@@ -63,8 +63,8 @@ const translateX = useTransform(
 
 <template>
   <section class="py-24 min-h-[70svh]">
-    <div class="font-title text-5xl text-center mb-20">
-      <h2 class="tracking-wide mb-5">呂若筠&nbsp;&&nbsp;葉恩騰</h2>
+    <div class="font-title text-center mb-20">
+      <h2 class="tracking-wide text-6xl mb-5">呂若筠&nbsp;&&nbsp;葉恩騰</h2>
       <p class="text-3xl">要<span class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block font-bold"><span class="relative">結婚</span></span>啦！</p>
       <p class="text-xl text-text/90">Welcome to our Wedding!</p>
     </div>
@@ -112,15 +112,8 @@ const translateX = useTransform(
         :inViewOptions="{ once: true }"
         class="order-1 md:order-2"
       >
-        <div class="relative group">
-          <img
-            class="rounded-3xl shadow-2xl object-cover w-full aspect-[3/4] transition-transform duration-500 group-hover:scale-105"
-            src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00296.webp" alt="我們的故事"
-            loading="lazy" draggable="false" />
-          <div
-            class="border-2 border-secondary absolute -bottom-6 right-2 bg-white p-4 rounded-xl shadow-md rotate-6 transition-transform duration-500 group-hover:rotate-0">
-            <p class="font-sans font-bold text-xl text-secondary">2019 - 2025</p>
-          </div>
+        <div>
+          <img class="rounded-3xl shadow-2xl object-cover w-full aspect-[3/4]" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00296.webp" alt="我們的故事" loading="lazy" draggable="false" />
         </div>
       </motion.div>
     </div>
