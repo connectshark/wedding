@@ -335,7 +335,7 @@ const translateX = useTransform(
     </div>
     <div class="text-center">
       <div>請所有尚未填寫表單的親朋好友</div>
-      <p class="mb-10">私訊新郎IG帳號獲得表單</p>
+      <p class="mb-10 text-xl font-bold text-primary">私訊新郎IG帳號獲得表單</p>
       <div class="flex justify-center">
 
         <a title="私訊獲得表單" class="magic-btn flex" href="https://www.instagram.com/nose_gates/" target="_blank" rel="noopener noreferrer">
