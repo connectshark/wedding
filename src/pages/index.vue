@@ -71,34 +71,34 @@ const translateX = useTransform(
 
 <template>
   <section class="py-24 min-h-[70svh]">
-    <div class="font-title text-center mb-20">
-      <h2 class="tracking-wide text-6xl mb-5">呂若筠&nbsp;&&nbsp;葉恩騰</h2>
-      <p class="text-3xl">要<span class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block font-bold"><span class="relative">結婚</span></span>啦！</p>
-      <p class="text-xl text-text/90">Welcome to our Wedding!</p>
+    <div class="text-center mb-20">
+      <h2 class="tracking-wide text-6xl mb-5 font-title">呂若筠&nbsp;&&nbsp;葉恩騰</h2>
+      <p class="text-3xl font-title">要<span class="before:absolute before:w-full before:h-1/2 before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block font-bold"><span class="relative">結婚</span></span>啦！</p>
+      <p class="text-xl text-text/90 font-title mb-10">Welcome to our Wedding!</p>
+      <p>當你收到這份邀請函時</p>
+      <p>說明我們婚禮已經進入倒數計時了</p>
     </div>
 
     <figure class="max-w-4xl mx-auto">
-      <img draggable="false" class="object-cover w-full shadow-xl"
-        src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00174.webp" alt="我們的婚禮">
+      <img draggable="false" class="object-cover w-full shadow-xl" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00174.webp" alt="我們的婚禮">
     </figure>
   </section>
 
   <section class="mb-20 bg-text/5 py-20 relative before:absolute before:top-0 before:border-r-50 before:border-b-50 before:border-transparent before:border-b-background before:left-1/2 before:-rotate-45 before:-translate-y-1/2 before:-translate-x-1/2 after:absolute after:bottom-0 after:border-r-50 after:border-b-50 after:border-transparent after:border-b-text/5 after:left-1/2 after:-rotate-45 after:translate-y-1/2 after:-translate-x-1/2">
-    <div class="font-title text-5xl text-center mb-20">
+    <div class="font-title text-4xl text-center mb-10">
       <motion.h2
         :transition="{ type: 'spring' }"
         :initial="{ y: -50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
         :inViewOptions="{ once: true }"
-        class="tracking-wide"
-      >關於我們</motion.h2>
+      >相知相識</motion.h2>
       <motion.p
         :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
         :initial="{ y: 50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
         :inViewOptions="{ once: true }"
         class="text-xl text-text/70"
-      >About Us</motion.p>
+      >Meet</motion.p>
     </div>
     <div class="w-11/12 max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
       <motion.div
@@ -107,15 +107,28 @@ const translateX = useTransform(
         :transition="{ duration: 1, delay: .2 }"
         :inViewOptions="{ once: true }"
         class="order-2 md:order-1"
-      ><div class="bg-white/80 backdrop-blur-md p-10 rounded-3xl shadow-xl border border-primary/10">
-          <p class="text-xl leading-relaxed mb-4">嗨～當你收到這封邀請函的時候</p>
-          <p class="text-xl leading-relaxed">我們的婚禮已經在倒數啦！</p>
+      >
+      <div class="bg-white/80 backdrop-blur-md p-10 rounded-3xl shadow-xl border border-primary/10">
+        <div class="text-xl/relaxed text-center">
+          <p>相識至今</p>
+          <p>我們成為彼此不可或缺的一部分</p>
+          <p>經歷彼此的快樂與悲傷</p>
+          <p>我們看到最好的對方</p>
+          <p>也成為了最好的自己</p>
+        </div>
           <div class="mt-8 flex gap-4 items-center text-text/70">
             <div class="h-px flex-grow bg-linear-to-r/oklch via-primary to-primary/30"></div>
             <i class='bx bx-heart-circle text-primary text-2xl'></i>
             <div class="h-px flex-grow bg-linear-to-l/oklch via-primary to-primary/30"></div>
           </div>
-          <p class="mt-8 text-lg text-text">"Hi~ By the time you get this invitation, the countdown to our wedding will have already begun!"</p>
+          <div class="text-xl/relaxed text-center">
+          <p>在一起的我們</p>
+          <p>會一起去很多地方旅遊</p>
+          <p>一起吃很多美食</p>
+          <p>一起過生日</p>
+          <p>一起跨年</p>
+          <p>一起...走一輩子</p>
+        </div>
         </div>
       </motion.div>
       <motion.div
@@ -126,22 +139,19 @@ const translateX = useTransform(
         class="order-1 md:order-2"
       >
         <div>
-          <img class="rounded-3xl shadow-2xl object-cover w-full aspect-[3/4]" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00296.webp" alt="我們的故事" loading="lazy" draggable="false" />
+          <img class="rounded-3xl shadow-2xl object-cover w-full aspect-[3/4]" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00186.webp" alt="我們的故事" loading="lazy" draggable="false" />
         </div>
       </motion.div>
     </div>
   </section>
-  <section class="relative py-16">
-    <div class="py-12 text-center">
-      <h2 class="font-title text-4xl tracking-wider text-balance mb-4">誠摯邀請您見證我們的幸福起點</h2>
-      <p class="text-xl mb-10 text-balance">我們將攜手步入人生的新篇章，誠摯邀請您蒞臨現場，共同見證這份愛的誓約</p>
-      <div class="flex items-center justify-center">
-        <div class="w-16 h-px bg-primary"></div>
-        <i class='bx bxs-heart text-primary text-2xl mx-4'></i>
-        <div class="w-16 h-px bg-primary"></div>
-      </div>
-    </div>
-  </section>
+  <div class=" flex items-center justify-center gap-3 w-11/12 mx-auto">
+    <figure class=" rounded-3xl overflow-clip shadow-xl">
+      <img draggable="false" class="object-cover w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00261.webp" alt="我們的婚禮">
+    </figure>
+    <figure class=" rounded-3xl overflow-clip shadow-xl">
+      <img draggable="false" class="object-cover w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00296.webp" alt="我們的婚禮">
+    </figure>
+  </div>
   <div class="py-20 text-center">
     <p class="font-title text-4xl w-5/6 mx-auto">愛情的旅程，感謝有你們和妳們相伴</p>
   </div>
@@ -168,15 +178,80 @@ const translateX = useTransform(
   </section>
   <div class="bg-[url('/wave.svg')] bg-cover bg-center bg-no-repeat py-20 xl:py-30 -scale-100" />
 
-  <section
-    class="mb-20 py-20">
+  <section class="relative py-16">
+    <div class="text-center">
+      <h2 class=" font-title text-5xl mb-10">"好久不見，婚禮見"</h2>
+      <p class="text-xl/relaxed">這一天將穿上西裝和婚紗</p>
+      <p class="text-xl/relaxed mb-10">雙向奔赴我們的愛情</p>
+      <div class="flex items-center justify-center mb-10">
+        <div class="w-16 h-px bg-primary"></div>
+        <i class='bx bxs-heart text-primary text-2xl mx-4'></i>
+        <div class="w-16 h-px bg-primary"></div>
+      </div>
+      <h2 class="font-title text-4xl tracking-wider text-balance mb-4">誠摯邀請您見證我們的幸福起點</h2>
+    </div>
+  </section>
+
+  <section class="pt-20 mb-20">
+    <div class="font-title text-4xl text-center mb-10">
+      <motion.h2
+        :transition="{ type: 'spring' }"
+        :initial="{ y: -50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ once: true }"
+      >距離婚禮倒數</motion.h2>
+      <motion.p
+        :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
+        :initial="{ y: 50, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ once: true }"
+        class="text-xl text-text/70"
+      >Countdown</motion.p>
+    </div>
+    <motion.div
+      :transition="{ ease: 'easeInOut', duration: .5, delay: .1 }"
+      :initial="{ opacity: 0 }"
+      :whileInView="{ opacity: 1 }"
+      :inViewOptions="{ once: true }"
+      class="py-10"
+    >
+      <ul class=" flex justify-evenly max-w-sm mx-auto w-11/12">
+        <li class="text-center">
+          <NumberFlow :value="days" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
+          <p class="lg:text-xl">天</p>
+        </li>
+        <li>
+          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
+        </li>
+        <li class="text-center">
+          <NumberFlow :value="hours" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
+          <p class="lg:text-xl">時</p>
+        </li>
+        <li>
+          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
+        </li>
+        <li class="text-center">
+          <NumberFlow :value="minutes" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
+          <p class="lg:text-xl">分</p>
+        </li>
+        <li>
+          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
+        </li>
+        <li class="text-center">
+          <NumberFlow :value="seconds" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
+          <p class="lg:text-xl">秒</p>
+        </li>
+      </ul>
+    </motion.div>
+  </section>
+  <section class="mb-20 py-20">
       <div class="font-title text-4xl text-center mb-16">
       <motion.h2
         :transition="{ type: 'spring' }"
         :initial="{ y: -50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
         :inViewOptions="{ once: true }"
-      >婚宴資訊</motion.h2>
+      >婚禮資訊</motion.h2>
 
       <motion.p
         :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
@@ -380,58 +455,6 @@ const translateX = useTransform(
     </ul>
   </section>
 
-  <section class="pt-20 mb-20">
-    <div class="font-title text-4xl text-center mb-10">
-      <motion.h2
-        :transition="{ type: 'spring' }"
-        :initial="{ y: -50, opacity: 0 }"
-        :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ once: true }"
-      >距離婚禮倒數</motion.h2>
-      <motion.p
-        :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
-        :initial="{ y: 50, opacity: 0 }"
-        :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ once: true }"
-        class="text-xl text-text/70"
-      >Countdown</motion.p>
-    </div>
-    <motion.div
-      :transition="{ ease: 'easeInOut', duration: .5, delay: .1 }"
-      :initial="{ opacity: 0 }"
-      :whileInView="{ opacity: 1 }"
-      :inViewOptions="{ once: true }"
-      class="py-10"
-    >
-      <ul class=" flex justify-evenly max-w-sm mx-auto w-11/12">
-        <li class="text-center">
-          <NumberFlow :value="days" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
-          <p class="lg:text-xl">天</p>
-        </li>
-        <li>
-          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
-        </li>
-        <li class="text-center">
-          <NumberFlow :value="hours" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
-          <p class="lg:text-xl">時</p>
-        </li>
-        <li>
-          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
-        </li>
-        <li class="text-center">
-          <NumberFlow :value="minutes" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
-          <p class="lg:text-xl">分</p>
-        </li>
-        <li>
-          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
-        </li>
-        <li class="text-center">
-          <NumberFlow :value="seconds" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
-          <p class="lg:text-xl">秒</p>
-        </li>
-      </ul>
-    </motion.div>
-  </section>
   <section>
     <div class="w-5/6 mx-auto py-20 max-w-120">
       <div class="font-title text-4xl text-center py-10 relative title-blur before:bg-accent/80 after:bg-secondary/80">
