@@ -14,7 +14,7 @@
       <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/${ photoID }.webp`" media="(min-width: 1600px)">
       <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/2x/${ photoID }.webp`" media="(min-width: 768px)">
       <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`" media="(max-width: 767px)">
-      <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${photoID};`" class="h-[80svh] w-3/4 mx-auto object-contain object-center" :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`" :alt="`婚紗照${photo}`"
+      <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${photoID};`" class="h-[80svh] w-3/4 mx-auto object-contain object-center" :src="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photoID }.webp`" :alt="`婚紗照${photoID}`"
       >
     </picture>
     <div v-else class=" text-center">
