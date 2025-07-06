@@ -192,10 +192,11 @@ useIntersectionObserver(headerRef, (entries) => {
       <div>
         <h6 class="mb-4 text-text/70"><i class='bx bx-cube-alt'></i>品牌</h6>
         <ul>
-          <li class="mb-2 last:mb-0" v-for="item in brands">
+          <li class="not-last:mb-2" v-for="item in brands">
             <a class="text-sm/loose hover:underline" :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}<i class='bx bx-arrow-out-up-right-stroke-square align-middle' /></a>
           </li>
         </ul>
+        <p class="text-sm/loose"><a href="https://storyset.com" target="_blank" rel="noopener">Illustration by Storyset<i class='bx bx-arrow-out-up-right-stroke-square align-middle' /></a></p>
       </div>
     </div>
     <div class="w-5/6 mx-auto py-10 text-center text-text/80">
@@ -206,7 +207,7 @@ useIntersectionObserver(headerRef, (entries) => {
         </div>
       </div>
       <p class="text-sm/loose mb-4">Copyright <i class='bx bx-copyright' /> {{ year }} <a class="underline" href="https://sandra.nosegates.com" target="_blank">婚禮邀請函 若筠&恩騰</a> 版權所有</p>
-      <p class="text-sm/loose">本網站由 <a class="underline" href="https://nosegates.com" target="_blank">葉恩騰<i class='bx bx-arrow-out-up-right-stroke-square align-middle' /></a> 製作</p>
+      <p class="text-sm/loose">本網站由 新娘設計 <a class="underline" href="https://nosegates.com" target="_blank">新郎製作<i class='bx bx-arrow-out-up-right-stroke-square align-middle' /></a></p>
     </div>
   </footer>
 </template>
