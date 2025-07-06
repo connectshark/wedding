@@ -91,6 +91,7 @@ const translateX = useTransform(
         :initial="{ y: -50, opacity: 0 }"
         :whileInView="{ y: 0, opacity: 1 }"
         :inViewOptions="{ once: true }"
+        class="tracking-wide"
       >相知相識</motion.h2>
       <motion.p
         :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
@@ -116,12 +117,12 @@ const translateX = useTransform(
           <p>我們看到最好的對方</p>
           <p>也成為了最好的自己</p>
         </div>
-          <div class="mt-8 flex gap-4 items-center text-text/70">
-            <div class="h-px flex-grow bg-linear-to-r/oklch via-primary to-primary/30"></div>
-            <i class='bx bx-heart-circle text-primary text-2xl'></i>
-            <div class="h-px flex-grow bg-linear-to-l/oklch via-primary to-primary/30"></div>
-          </div>
-          <div class="text-xl/relaxed text-center">
+        <div class="mt-8 flex gap-4 items-center text-text/70">
+          <div class="h-px flex-grow bg-linear-to-r/oklch via-primary to-primary/30"></div>
+          <i class='bx bx-heart-circle text-primary text-2xl'></i>
+          <div class="h-px flex-grow bg-linear-to-l/oklch via-primary to-primary/30"></div>
+        </div>
+        <div class="text-xl/relaxed text-center mt-8">
           <p>在一起的我們</p>
           <p>會一起去很多地方旅遊</p>
           <p>一起吃很多美食</p>
@@ -129,7 +130,7 @@ const translateX = useTransform(
           <p>一起跨年</p>
           <p>一起...走一輩子</p>
         </div>
-        </div>
+      </div>
       </motion.div>
       <motion.div
         :initial="{ opacity: 0, y: 50 }"
@@ -144,12 +145,12 @@ const translateX = useTransform(
       </motion.div>
     </div>
   </section>
-  <div class=" flex items-center justify-center gap-3 w-11/12 mx-auto">
-    <figure class=" rounded-3xl overflow-clip shadow-xl">
-      <img draggable="false" class="object-cover w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00261.webp" alt="我們的婚禮">
+  <div class="flex items-center justify-center gap-3 md:gap-6 w-11/12 mx-auto max-w-3xl">
+    <figure class="rounded-3xl overflow-clip shadow-2xl -rotate-3 translate-x-1.5 translate-y-1 transition-transform duration-300 ease-in-out md:rotate-0 md:translate-x-0 md:translate-y-0">
+      <img draggable="false" class="object-cover w-full hover:scale-110 transition-transform duration-300 ease-in-out" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00261.webp" alt="我們的婚禮 - 新郎與新娘合照一">
     </figure>
-    <figure class=" rounded-3xl overflow-clip shadow-xl">
-      <img draggable="false" class="object-cover w-full" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00296.webp" alt="我們的婚禮">
+    <figure class="rounded-3xl overflow-clip shadow-2xl rotate-6 -translate-x-3 -translate-y-3 transition-transform duration-300 ease-in-out md:rotate-0 md:translate-x-0 md:translate-y-0">
+      <img draggable="false" class="object-cover w-full hover:scale-110 transition-transform duration-300 ease-in-out" src="https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00296.webp" alt="我們的婚禮 - 新郎與新娘合照二">
     </figure>
   </div>
   <div class="py-20 text-center">
@@ -180,7 +181,7 @@ const translateX = useTransform(
 
   <section class="relative py-16">
     <div class="text-center">
-      <h2 class=" font-title text-5xl mb-10">"好久不見，婚禮見"</h2>
+      <h2 class="font-title text-5xl mb-10">"好久不見，婚禮見"</h2>
       <p class="text-xl/relaxed">這一天將穿上西裝和婚紗</p>
       <p class="text-xl/relaxed mb-10">雙向奔赴我們的愛情</p>
       <div class="flex items-center justify-center mb-10">
