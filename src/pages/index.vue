@@ -20,7 +20,7 @@ const SITE_URL = 'https://sandra.nosegates.com'
 const details = `<b>若筠與恩騰婚宴❤️</b>
 誠摯的邀請您一同參與我們盛大的婚禮，分享幸福的時光
 <ul><li>11:00 戶外證婚</li><li><b>12:00 婚禮開始</b></li></ul>
-<ul><li>會場：川門子時尚餐廳</li><li>地址：桃園市蘆竹區南竹路二段156-2號</li><li>宴會廳：水漾聽 1F</li><li>場地電話：03 2124 999</li></ul>`;
+<ul><li>會場：川門子時尚餐廳</li><li>地址：桃園市蘆竹區南竹路二段156-2號</li><li>宴會廳：水漾廳 1F</li><li>場地電話：03 2124 999</li></ul>`;
 
 const params = new URLSearchParams({
   action: 'TEMPLATE',
@@ -324,7 +324,7 @@ const translateX = useTransform(
           </div>
           <div>
             <p class="text-text/80">宴會廳</p>
-            <p class="text-lg">水漾聽 1F</p>
+            <p class="text-lg">水漾廳 1F</p>
           </div>
         </li>
         <li class="flex items-center gap-2">
@@ -334,7 +334,7 @@ const translateX = useTransform(
           <div>
             <p class="text-text/80">場地電話</p>
             <p class="text-lg">
-              <a class="text-text/80 underline" href="tel:032124999">03 2124 999</a>
+              <a class="text-text/80 underline" href="tel:032124999">03 212 4999</a>
             </p>
           </div>
         </li>
