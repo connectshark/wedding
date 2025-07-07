@@ -39,7 +39,7 @@ const {
   minutes,
   seconds,
   hours
-} = useCountdown('2025-11-15')
+} = useCountdown()
 
 
 const {

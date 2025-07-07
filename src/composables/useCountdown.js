@@ -1,17 +1,16 @@
 import { onBeforeUnmount, ref } from 'vue'
 
-export default (targetTime) => {
+export default () => {
   const days = ref(0)
   const hours = ref(0)
   const minutes = ref(0)
   const seconds = ref(0)
-  const target = new Date(targetTime)
+  const target = new Date(2025, 10, 15, 11, 0)
 
   const updateCountdown = () => {
     const now = new Date()
-    
     const diff = target - now
-    
+    console.log(diff)
     days.value = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(3, '0')
     hours.value = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0')
     minutes.value = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0')
