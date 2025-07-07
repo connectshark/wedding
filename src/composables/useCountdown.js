@@ -10,7 +10,7 @@ export default () => {
   const updateCountdown = () => {
     const now = new Date()
     const diff = target - now
-    console.log(diff)
+    
     days.value = Math.floor(diff / (1000 * 60 * 60 * 24)).toString().padStart(3, '0')
     hours.value = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)).toString().padStart(2, '0')
     minutes.value = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)).toString().padStart(2, '0')
