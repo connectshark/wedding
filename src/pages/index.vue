@@ -405,12 +405,11 @@ const translateX = useTransform(
     </div>
     <div class="text-center">
       <div>請所有尚未填寫表單的親朋好友</div>
-      <p class="mb-10 text-xl font-bold text-primary">私訊新郎IG帳號獲得表單</p>
+      <p class="mb-10 text-xl font-bold text-primary">記得要填寫唷～～</p>
       <div class="flex justify-center">
-
-        <a title="私訊獲得表單" class="magic-btn flex" href="https://www.instagram.com/nose_gates/" target="_blank" rel="noopener noreferrer">
-          <i class='bxl bx-instagram bx-sm inline-block align-middle'></i>
-          <span>nose_gates</span>
+        <a title="填寫婚禮表單" class="magic-btn flex" href="https://forms.gle/Xid7GewRktx1qAc49" target="_blank" rel="noopener noreferrer">
+          <i class='bxr bx-envelope bx-sm inline-block align-middle' />
+          <span>填寫表單</span>
         </a>
       </div>
     </div>
