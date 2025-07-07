@@ -112,7 +112,7 @@ const translateX = useTransform(
       <div class="bg-white/80 backdrop-blur-md p-10 rounded-3xl shadow-xl border border-primary/10">
         <div class="text-xl/relaxed text-center">
           <p>相識至今</p>
-          <p>我們成為彼此不可或缺的一部分</p>
+          <p>我們成為彼此不可或缺的一部份</p>
           <p>經歷彼此的快樂與悲傷</p>
           <p>我們看到最好的對方</p>
           <p>也成為了最好的自己</p>
@@ -491,16 +491,9 @@ const translateX = useTransform(
           <LineIcon class="size-4" />
           <span>分享</span>
         </a>
-        <a class="hidden md:flex magic-btn"
+        <a class="flex magic-btn"
           :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=若筠與恩騰的婚禮專頁`" target="_blank"
           rel="noopener noreferrer">
-          <i class='bxl bx-threads' />
-          <span>分享</span>
-        </a>
-
-        <a class="md:hidden magic-btn flex"
-          :href="`https://www.threads.net/intent/post?url=${encodeURI(SITE_URL)}&text=${encodeURI(SITE_URL)}`"
-          target="_blank" rel="noopener noreferrer">
           <i class='bxl bx-threads' />
           <span>分享</span>
         </a>

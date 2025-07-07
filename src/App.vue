@@ -22,6 +22,10 @@ const brands = [
   {
     name: 'NS工作室',
     url: 'https://studio.justlikeboss.com'
+  },
+  {
+    name: 'Illustration by Storyset',
+    url: 'https://storyset.com'
   }
 ]
 
@@ -196,7 +200,6 @@ useIntersectionObserver(headerRef, (entries) => {
             <a class="text-sm/loose hover:underline" :href="item.url" target="_blank" rel="noopener noreferrer">{{ item.name }}<i class='bx bx-arrow-out-up-right-stroke-square align-middle' /></a>
           </li>
         </ul>
-        <p class="text-sm/loose"><a href="https://storyset.com" target="_blank" rel="noopener">Illustration by Storyset<i class='bx bx-arrow-out-up-right-stroke-square align-middle' /></a></p>
       </div>
     </div>
     <div class="w-5/6 mx-auto py-10 text-center text-text/80">

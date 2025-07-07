@@ -109,7 +109,7 @@ html {
 
 @font-face {
   font-family: ChenYuluoyan;
-  src: url('./assets/font/ChenYuluoyan.woff2');
+  src: url('https://cdn.jsdelivr.net/gh/Chenyu-otf/chenyuluoyan_thin@v2.0/ChenYuluoyan-Thin.ttf');
   font-display: swap;
   font-weight: 400;
 }
