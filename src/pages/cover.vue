@@ -46,8 +46,7 @@ const goToHome = () => {
         <p>Welcome to our wedding.</p>
         <p class="group">
           <span
-            class="before:absolute before:w-full before:transition-all group-hover:before:h-full before:h-1/2  before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span
-              class="relative">Open</span></span>
+            class="before:absolute before:w-full before:transition-all group-hover:before:h-full before:h-1/2  before:bottom-0 before:left-0 before:-skew-y-10 before:bg-primary relative inline-block"><span class="relative cursor-pointer">Open</span></span>
         </p>
       </div>
     </motion.div>

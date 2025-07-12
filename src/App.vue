@@ -99,7 +99,7 @@ useIntersectionObserver(headerRef, (entries) => {
             </summary>
             <ul ref="list"
               class="absolute right-0 rounded-lg shadow-xl w-48 overflow-hidden bg-background border border-text/10">
-              <li v-for="page in navs">
+              <li v-for="page in navs" class="border-b last:border-b border-text/10">
                 <router-link class="p-4 block text-sm/loose bg-background" :to="page.url">{{ page.name }}</router-link>
               </li>
             </ul>
