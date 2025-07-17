@@ -8,11 +8,15 @@ import tailwindcss from '@tailwindcss/vite'
 /** @type {import('vite').UserConfig} */
 export default defineConfig({
   plugins: [
-    vue(),
     tailwindcss(),
     VueRouter({
-      importMode: (filepath) => (filepath.includes(['/photo/', 'index']) ? 'sync' : 'async'),
+      importMode: (filepath) => {
+        const keywords = ['/photo/', 'index'];
+        const res = keywords.some(key => filepath.includes(key))
+        return res ? 'sync' : 'async'
+      },
     }),
+    vue(),
     VueDevTools(),
   ],
   server: {
