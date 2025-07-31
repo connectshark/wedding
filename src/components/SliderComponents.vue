@@ -2,7 +2,7 @@
   <Splide :options="{ start: startIndex }" aria-label="Our wedding photos">
     <SplideSlide v-for="photo in store.photos" :key="photo">
       <picture>
-        <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/photos/${ photo }.webp`" media="(min-width: 1600px)">
+        <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/4x/${ photo }.webp`" media="(min-width: 1600px)">
         <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/2x/${ photo }.webp`" media="(min-width: 768px)">
         <source :srcset="`https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/${ photo }.webp`" media="(max-width: 767px)">
         <img loading="lazy" draggable="false"
