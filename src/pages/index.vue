@@ -403,15 +403,9 @@ const translateX = useTransform(
         class="text-xl"
       >form</motion.p>
     </div>
-    <div class="text-center">
-      <div>請所有尚未填寫表單的親朋好友</div>
-      <p class="mb-10 text-xl font-bold text-primary">記得要填寫唷～～</p>
-      <div class="flex justify-center">
-        <a title="填寫婚禮表單" class="magic-btn flex" href="https://forms.gle/Xid7GewRktx1qAc49" target="_blank" rel="noopener noreferrer">
-          <i class='bxr bx-envelope bx-sm inline-block align-middle' />
-          <span>填寫表單</span>
-        </a>
-      </div>
+    <div class="text-center text-sm">
+      <p>表單已經關閉</p>
+      <p>若有需要請直接聯絡我們</p>
     </div>
   </div>
   <section class="mb-20">
