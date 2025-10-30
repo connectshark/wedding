@@ -108,16 +108,12 @@ useIntersectionObserver(headerRef, (entries) => {
       </div>
     </header>
     <main>
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <keep-alive exclude="PhotoDetail">
+          <component :is="Component" />
+        </keep-alive>
+      </router-view>
     </main>
-
-    
-    <Teleport to="#modal">
-      <div v-if="route.meta.lightBox"
-        class="fixed z-20 inset-0 bg-text/70 w-full h-full backdrop-blur-sm">
-        <router-view name="lightBox" />
-      </div>
-    </Teleport>
   </div>
   <div class="bg-[url('/curve.svg')] bg-cover bg-center bg-no-repeat py-20"></div>
   <footer class="bg-text/10">

@@ -11,16 +11,25 @@
     <p class="font-bold text-4xl/loose underline decoration-accent">點圖放大</p>
   </div>
   <div>
-    <Suspense @resolve="loading = false">
-      <template #default>
-        <PhotosComponents />
-      </template>
-      <template #fallback>
-        <div class=" text-center">
-          <i class='bx bx-loader bx-md bx-spin' />
-        </div>
-      </template>
-    </Suspense>
+    <h2 class=" font-title text-center text-3xl/loose mb-10">婚紗照</h2>
+    <ul class="gap-3 columns-2 md:columns-3 xl:columns-4 mb-20 px-3 relative before:absolute before:size-40 before:bg-secondary before:rounded-full before:blur-3xl before:left-1/3 before:top-1/10
+      after:absolute after:size-40 after:bg-primary after:rounded-full after:blur-3xl after:right-1/3 after:bottom-1/10">
+      <motion.li
+        v-for="photo in wedding"
+        :key="photo"
+        :transition="{ type: 'spring', duration: 1, bounce: .4 }"
+        :initial="{ y: 100, opacity: 0 }"
+        :whileInView="{ y: 0, opacity: 1 }"
+        :inViewOptions="{ once: true }"
+        class="mb-3 relative z-10"
+      >
+        <figure class=" rounded-2xl overflow-clip">
+          <router-link class="block" :to="`/photo/${photo.photo}`">
+            <img class="object-contain" draggable="false" :style="{ viewTransitionName: `photo-${photo.photo}` }" loading="lazy" :src="photo.small" alt="photo">
+          </router-link>
+        </figure>
+      </motion.li>
+    </ul>
     <div class="text-center">
       <p class="mb-10">Coming Soon~</p>
       <p class=" leading-loose">剩餘的照片會<span class="text-primary text-lg font-bold px-1 rounded">陸續開放</span></p>
@@ -33,17 +42,32 @@
 </template>
 
 <script setup>
-import PhotosComponents from '../components/PhotosComponents.vue'
 import RoseFlowerComponents from '../components/img/RoseFlowerComponents.vue'
+import useFetch from '@/composables/useFetch'
 import { ref } from 'vue'
+import { motion } from 'motion-v'
+import { onBeforeRouteLeave } from 'vue-router'
 
 const loading = ref(true)
+
+const {
+  data: wedding
+} = useFetch('https://opensheet.elk.sh/1ugNqY_23nVDGBme01MQvLCAEJ26pgB0-55XGDu4crA4/wedding')
+
+onBeforeRouteLeave((to, from, next) => {
+  const id = to.params.id
+  if (!document.startViewTransition) next()
+  if (id) {
+    document.startViewTransition(() => next())
+  } else {
+    next()
+  }
+})
 </script>
 
 <route lang="json">
 {
   "meta": {
-    "type": "container",
     "title": "婚紗相簿"
   }
 }

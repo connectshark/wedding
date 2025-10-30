@@ -24,15 +24,12 @@
 
 <script setup>
 import { ref } from 'vue'
-import { usePhotosStore } from '@/stores/photo'
 import { onBeforeRouteLeave } from 'vue-router'
 import { motion } from 'motion-v'
 
 const WEDDING_PHOTO_BASE_URL = import.meta.env.VITE_WEDDING_PHOTO_BASE_URL
 
 const isStart = ref(false)
-const store = usePhotosStore()
-await store.initPhotos()
 
 onBeforeRouteLeave((to, from, next) => {
   const id = to.params.id

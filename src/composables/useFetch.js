@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 export default (url) => {
   const loading = ref(false)
@@ -20,7 +20,10 @@ export default (url) => {
     loading.value = false
   }
 
-  doFetch()
+  onMounted(() => {
+    console.log('mounted!')
+    doFetch()
+  })
 
   return {
     loading,
