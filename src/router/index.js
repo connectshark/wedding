@@ -12,9 +12,6 @@ export const router = createRouter({
 
 const VITE_SITE_NAME = import.meta.env.VITE_SITE_NAME
 
-router.beforeEach((to) => {
-  console.log('to: ', to.name)
-})
 router.afterEach((to) => {
   document.title = to.meta.title ? `${to.meta.title} | ${VITE_SITE_NAME}` : VITE_SITE_NAME
 })

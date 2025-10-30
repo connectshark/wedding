@@ -1,10 +1,10 @@
 <template>
   <div>
     <picture v-if="photoID">
-      <source :srcset="`${ WEDDING_PHOTO_BASE_URL }/4x/${ photoID }.webp`" media="(min-width: 1600px)">
-      <source :srcset="`${ WEDDING_PHOTO_BASE_URL }/2x/${ photoID }.webp`" media="(min-width: 768px)">
-      <source :srcset="`${ WEDDING_PHOTO_BASE_URL }/1x/${ photoID }.webp`" media="(max-width: 767px)">
-      <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${photoID};`" class="h-[80svh] w-3/4 mx-auto object-contain object-center" :src="`${ WEDDING_PHOTO_BASE_URL }/1x/${ photoID }.webp`" :alt="`婚紗照${photoID}`"
+      <source :srcset="store.photo.full" media="(min-width: 1600px)">
+      <source :srcset="store.photo.regular" media="(min-width: 768px)">
+      <source :srcset="store.photo.small" media="(max-width: 767px)">
+      <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${photoID};`" class="h-[80svh] w-3/4 mx-auto object-contain object-center" :src="store.photo.small" :alt="`婚紗照${photoID}`"
       >
     </picture>
     <div v-else class=" text-center">
@@ -21,10 +21,11 @@
 defineOptions({
   name: 'PhotoDetail'
 })
+import { usePhotosStore } from '@/stores/photo'
 import { onMounted } from 'vue'
 import { useRoute, onBeforeRouteLeave } from 'vue-router'
 
-const WEDDING_PHOTO_BASE_URL = import.meta.env.VITE_WEDDING_PHOTO_BASE_URL
+const store = usePhotosStore()
 
 const route = useRoute()
 const photoID = route.params.id

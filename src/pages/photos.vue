@@ -47,6 +47,9 @@ import useFetch from '@/composables/useFetch'
 import { ref } from 'vue'
 import { motion } from 'motion-v'
 import { onBeforeRouteLeave } from 'vue-router'
+import { usePhotosStore } from '@/stores/photo'
+
+const store = usePhotosStore()
 
 const loading = ref(true)
 
@@ -58,6 +61,8 @@ onBeforeRouteLeave((to, from, next) => {
   const id = to.params.id
   if (!document.startViewTransition) next()
   if (id) {
+    const photo = wedding.value.find(photo => photo.photo === id)
+    store.setTargetPhoto(photo)
     document.startViewTransition(() => next())
   } else {
     next()
