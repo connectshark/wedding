@@ -2,6 +2,7 @@ import { defineStore, acceptHMRUpdate } from 'pinia'
 import { reactive, ref } from 'vue'
 
 export const usePhotosStore = defineStore('photo', () => {
+
   const photo = reactive({
     small: '',
     regular: '',
@@ -15,15 +16,8 @@ export const usePhotosStore = defineStore('photo', () => {
     photo.full = photoDetail.full
     photo.photo = photoDetail.photo
   }
-
-  const resetPhoto = () => {
-    photo.small = ''
-    photo.regular = ''
-    photo.full = ''
-    photo.photo = ''
-  }
   
-  return { photo, setTargetPhoto, resetPhoto }
+  return { photo, setTargetPhoto }
 })
 
 if (import.meta.hot) {
