@@ -44,8 +44,11 @@ const {
 
 const {
   data: messages,
-  loading
+  loading,
+  doFetch
 } = useFetch('https://opensheet.elk.sh/1ugNqY_23nVDGBme01MQvLCAEJ26pgB0-55XGDu4crA4/messages')
+
+doFetch()
 
 const VITE_SITE_NAME = import.meta.env.VITE_SITE_NAME
 const {
