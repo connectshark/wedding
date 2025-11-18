@@ -1,5 +1,4 @@
 <script setup>
-import useCountdown from '../composables/useCountdown'
 import LineIcon from '../components/icons/LineIcon.vue'
 import useShare from '../composables/useShare'
 import CalenderComponent from '../components/calender.vue'
