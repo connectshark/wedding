@@ -6,7 +6,6 @@ import CalenderComponent from '../components/calender.vue'
 import useFetch from '../composables/useFetch'
 import { useScroll, motion, useTransform } from 'motion-v'
 import { useTemplateRef } from 'vue'
-import NumberFlow from '@number-flow/vue'
 
 const photos = [
   { id: '1', url: `https://cdn.jsdelivr.net/gh/connectshark/wedding-photos@main/1x/DSC00205.webp` },
@@ -33,14 +32,6 @@ const params = new URLSearchParams({
 const calender = `https://www.google.com/calendar/render?${params.toString()}`;
 
 const map = `https://www.google.com/maps/dir/?api=1&destination_place_id=ChIJBYy1e-cfaDQRFwXQYZdoQNg&travelmode=driving&destination=川門子`
-
-const {
-  days,
-  minutes,
-  seconds,
-  hours
-} = useCountdown()
-
 
 const {
   data: messages,
@@ -194,59 +185,6 @@ const translateX = useTransform(
       </div>
       <h2 class="font-title text-4xl tracking-wider text-balance mb-4">誠摯邀請您見證我們的幸福起點</h2>
     </div>
-  </section>
-
-  <section class="pt-20 mb-20">
-    <div class="font-title text-4xl text-center mb-10">
-      <motion.h2
-        :transition="{ type: 'spring' }"
-        :initial="{ y: -50, opacity: 0 }"
-        :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ once: true }"
-      >距離婚禮倒數</motion.h2>
-      <motion.p
-        :transition="{ ease: 'easeInOut', duration: .6, delay: .2 }"
-        :initial="{ y: 50, opacity: 0 }"
-        :whileInView="{ y: 0, opacity: 1 }"
-        :inViewOptions="{ once: true }"
-        class="text-xl text-text/70"
-      >Countdown</motion.p>
-    </div>
-    <motion.div
-      :transition="{ ease: 'easeInOut', duration: .5, delay: .1 }"
-      :initial="{ opacity: 0 }"
-      :whileInView="{ opacity: 1 }"
-      :inViewOptions="{ once: true }"
-      class="py-10"
-    >
-      <ul class=" flex justify-evenly max-w-sm mx-auto w-11/12">
-        <li class="text-center">
-          <NumberFlow :value="days" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
-          <p class="lg:text-xl">天</p>
-        </li>
-        <li>
-          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
-        </li>
-        <li class="text-center">
-          <NumberFlow :value="hours" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
-          <p class="lg:text-xl">時</p>
-        </li>
-        <li>
-          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
-        </li>
-        <li class="text-center">
-          <NumberFlow :value="minutes" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
-          <p class="lg:text-xl">分</p>
-        </li>
-        <li>
-          <div class="text-3xl md:text-5xl text-primary font-mono">:</div>
-        </li>
-        <li class="text-center">
-          <NumberFlow :value="seconds" class="text-3xl md:text-5xl text-primary mb-2 font-mono"/>
-          <p class="lg:text-xl">秒</p>
-        </li>
-      </ul>
-    </motion.div>
   </section>
   <section class="mb-20 py-20">
       <div class="font-title text-4xl text-center mb-16">
