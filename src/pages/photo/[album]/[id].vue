@@ -7,7 +7,7 @@
       <source :srcset="store.photo.full" media="(min-width: 1600px)">
       <source :srcset="store.photo.regular" media="(min-width: 768px)">
       <source :srcset="store.photo.small" media="(max-width: 767px)">
-      <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${id};`" class="h-[80svh] w-3/4 mx-auto object-contain object-center" :src="store.photo.small" :alt="`婚紗照${id}`"
+      <img loading="lazy" draggable="false" :style="`view-transition-name: photo-${id};`" class="w-full h-[80svh] mx-auto object-contain object-center" :src="store.photo.small" :alt="`婚紗照${id}`"
       >
     </picture>
     <div v-else class=" text-center">
@@ -50,13 +50,28 @@ const {
   doFetch: fetchMarriage
 } = useFetch(`https://opensheet.elk.sh/1ugNqY_23nVDGBme01MQvLCAEJ26pgB0-55XGDu4crA4/marriage`)
 
+const day = ref([])
+
 const albumsToFetch = {
   w: fetchWedding,
-  m: fetchMarriage
+  m: fetchMarriage,
+  d: async () => {
+    day.value = Array.from({ length: 80 }, (_, i) => {
+      const id = (i + 1).toString()
+      const paddedId = id.padStart(3, '0')
+      return {
+        photo: id,
+        small: `https://cdn.jsdelivr.net/gh/connectshark/wedding-day-photos@main/done/1x/${paddedId}.webp`,
+        regular: `https://cdn.jsdelivr.net/gh/connectshark/wedding-day-photos@main/done/1x/${paddedId}.webp`,
+        full: `https://cdn.jsdelivr.net/gh/connectshark/wedding-day-photos@main/done/1x/${paddedId}.webp`
+      }
+    })
+  }
 }
 const albumsObject = {
   w: wedding,
-  m: marriage
+  m: marriage,
+  d: day
 }
 
 const loading = ref(false)
